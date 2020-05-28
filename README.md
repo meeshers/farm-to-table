@@ -13,3 +13,18 @@ The final application will allow the farm owner to display their products to the
   <li>Mongo</li>
   <li>Mongoose</li>
 </ul>
+<hr>
+<h2>User Stories</h2>
+  <h4>Farm Owner (site owner):</h4>
+  <ul>
+    <li>create new products</li>
+    <li>update existing products</li>
+    <li>delete products</li>
+    <li>manage customers</li>
+  </ul>
+  <h4>Consumers (site users):</h4>
+  <ul>
+    <li>view available products</li>
+    <li>purchase products</li>
+    <li>view product growth history</li>
+  </ul>
