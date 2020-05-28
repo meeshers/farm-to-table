@@ -63,3 +63,6 @@ The final application will allow the farm owner to display their products to the
     <li>Complete News Letter signup page – stretch goal</li>
     <li>Commit to Master branch</li>
   </ul>
+<hr>
+<h2>Data Models</h2>
+
