@@ -1,0 +1,61 @@
+﻿Farm To Table
+	Farm to table is an application that displays the products that a farm can provide directly to the 	consumer.  This takes the third party handling out of the the food purchasing chain.  Will	allow the consumer to know where their food is coming from.
+
+Scope
+	The final application will allow the farm owner to display their products to the consumer and 	allow the consumer to purchase the products directly from the farm.  It will also allow for the 	consumer to view the growth history of the products they purchased.  The application will use 	the following technologies:
+HTML/CSS
+Javascript
+Node.js
+Mongo
+Mongoose
+
+User Stories
+	Farm Owner (site owner):
+create new products
+update existing products
+delete products
+manage customers
+
+	Consumers (site users):
+view available products
+purchase products
+view product growth history
+
+Milestones
+
+Sprint 1 – June 1st
+file structure is created
+node server and mongodb is running
+routes are created
+data models are created
+all *.ejs page skeletons are in place
+header.ejs and footer.ejs are created and placed with *.ejs files
+gather all picture reference material
+
+Sprint 2 – June 2nd 
+Product management page is completed with create, update, delete functionality.
+Landing page is completed
+All Products display display page is completed.
+Product description page is completed.
+About page is completed
+Commit to MASTER branch
+
+Sprint 3 – June 3rd 
+All styling is completed.  Universal color pallet, fonts, inputs, buttons, etc
+Commit to MASTER branch
+User 'build your own basket' completed – stretch goal
+Commit to MASTER branch
+
+Sprint 4 – June 4th 
+Complete shopping cart - stretch goal
+Commit to Master branch
+Complete News Letter signup page – stretch goal
+Commit to Master branch
+
+Data Models
+
+
+Wireframes
+
+
+
