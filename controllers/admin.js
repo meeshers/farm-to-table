@@ -22,10 +22,19 @@ router.get('/cust/new', (req, res) => {
     res.render('admin/cust/new');
 });
 
-//new customer page
+//new product page
 router.get('/product/new', (req, res) => {
     res.render('admin/product/new');
 });
 
+//create customer route
+router.post('/cust', (req, res) => {
+    res.redirect('admin/cust');
+});
+
+//create product route
+router.post('/product', (req, res) => {
+    res.redirect('admin/product');
+});
 
 module.exports = router;
