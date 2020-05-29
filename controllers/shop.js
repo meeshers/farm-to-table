@@ -23,4 +23,8 @@ router.get('/about', (req,res)=>{
   res.render('shop/about');
 })
 
+router.get('/subscribe', (req,res)=>{
+  res.render('shop/subscribe');
+})
+
 module.exports = router;
