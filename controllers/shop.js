@@ -12,4 +12,11 @@ router.get('/products', (req,res)=>{
   res.render('shop/product');
 })
 
+// product show route
+router.get('/product/:id', (req,res)=>{
+  //const context = req.params.id;
+  res.render('shop/show');
+})
+
+
 module.exports = router;
