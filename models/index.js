@@ -13,8 +13,8 @@ mongoose.connect(conn, {
 });
 
 module.exports = {
-    Customers = require('./Customer'),
-    Products = require('./Product'),
-    Invoices = require('./Invoice'),
-    Farms = require('./Farm')
+    Customers: require('./Customer'),
+    Products: require('./Product'),
+    Invoices: require('./Invoice'),
+    Farms: require('./Farm')
 };

@@ -5,8 +5,8 @@ const custSchema = new mongoose.Schema({
     address: String,
     city: String,
     state: String,
-    zip: Number,
-    phone: {type: String, required: true},
+    zip: {type: Number, maxlength: 5},
+    phone: {type: String, required: true, maxlength: 12},
     email: {type: String, required: true},
     password: String,
     products: [{
