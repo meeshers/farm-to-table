@@ -23,8 +23,24 @@ router.get('/about', (req,res)=>{
   res.render('shop/about');
 })
 
+// subscribe route
 router.get('/subscribe', (req,res)=>{
   res.render('shop/subscribe');
+})
+
+// log in route
+router.get('/login', (req,res)=>{
+  res.render('shop/login');
+})
+
+// view cart route
+router.get('/cart', (req,res)=>{
+  res.render('shop/cart');
+})
+
+// user page route
+router.get('/user', (req,res)=>{
+  res.render('shop/user');
 })
 
 module.exports = router;
