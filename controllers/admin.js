@@ -27,6 +27,11 @@ router.get('/product/new', (req, res) => {
     res.render('admin/product/new');
 });
 
+//CREATE farm route
+router.post('/', (req, res) => {
+    res.redirect('admin/index');
+});
+
 //CREATE customer route
 router.post('/cust', (req, res) => {
     res.redirect('admin/cust');
@@ -55,6 +60,11 @@ router.get('/cust/:id/edit', (req, res) => {
 //EDIT product show page
 router.get('/product/:id/edit', (req, res) => {
     res.render('admin/product/edit');
+});
+
+//UPDATE farm route
+router.put('/:id', (req, res) => {
+    res.redirect(`admin/index${req.params.id}`);
 });
 
 //UPDATE customer route
