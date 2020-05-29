@@ -37,4 +37,9 @@ router.post('/product', (req, res) => {
     res.redirect('admin/product');
 });
 
+//create customer show page
+router.get('/cust/:id', (req, res) => {
+    res.render('admin/cust/show');
+});
+
 module.exports = router;
