@@ -22,6 +22,9 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 
+// Shop routes
+app.use("/", controllers.shop);
+
 app.listen(PORT, () => {
     console.log("Server running at http://localhost:" + PORT);
 })
