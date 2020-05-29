@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const conn = 'mongodb://localhost:27017/blog';
+const conn = 'mongodb://localhost:27017/farmStore';
 
 mongoose.connect(conn, {
     useNewUrlParser: true,
