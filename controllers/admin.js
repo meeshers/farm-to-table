@@ -52,4 +52,9 @@ router.get('/cust/:id/edit', (req, res) => {
     res.render('admin/cust/edit');
 });
 
+//EDIT product show page
+router.get('/product/:id/edit', (req, res) => {
+    res.render('admin/product/edit');
+});
+
 module.exports = router;
