@@ -42,4 +42,9 @@ router.get('/cust/:id', (req, res) => {
     res.render('admin/cust/show');
 });
 
+//create product show page
+router.get('/product/:id', (req, res) => {
+    res.render('admin/product/show');
+});
+
 module.exports = router;
