@@ -57,4 +57,24 @@ router.get('/product/:id/edit', (req, res) => {
     res.render('admin/product/edit');
 });
 
+//UPDATE customer route
+router.put('/cust/:id', (req, res) => {
+    res.redirect(`admin/cust/${req.params.id}`);
+});
+
+//UPDATE product route
+router.put('/product/:id', (req, res) => {
+    res.redirect(`admin/product/${req.params.id}`);
+});
+
+//DELETE customer route
+router.delete('/cust/:id', (req, res) => {
+    res.redirect('admin/cust');
+});
+
+//DELETE product route
+router.delete('/product/:id', (req, res) => {
+    res.redirect('admin/product');
+});
+
 module.exports = router;
