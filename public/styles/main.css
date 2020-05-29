@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: border-box;
+}
+
+body {
+  background-color: #CCEDD2;
+  color: #1f1f1f;
+}
+
+.header {
+  background-color: #655C56;
+  color: #EFFCEF;
+  padding: 15px;
+  font-size: 20px;
+  text-align: right;
+  width: 100%;
+}
+
+a {
+  color: #EFFCEF;
+  text-decoration: none;
+}
+
+.footer {
+  bottom: 0;
+  background-color: #655C56;
+  color: #EFFCEF;
+  padding: 15px;
+  font-size: 15px;
+  text-align: center;
+  position: fixed;
+  width: 100%
+}
