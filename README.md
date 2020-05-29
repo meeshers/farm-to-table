@@ -68,6 +68,26 @@ The final application will allow the farm owner to display their products to the
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/dataModels.png">
 <hr>
 <h2>Views</h2>
+<h3>/FarmShop (Public View)</h3>
+<ul>
+  <li>Index(Langing Page)</li>
+  <li>View Products</li>
+  <li>Show Products</li>
+  <li>About</li>
+  <li>Newsletter Signup</li>
+  <li>SignIn (Stretch)</li>
+  <li>View Cart (Stretch)</li>
+  <li>User Profile (Stretch)</li>
+</ul>
+<h3>/Mgmt (Private View)</h3>
+<ul>
+  <li>ProductMgmt</li>
+  <li>EditProduct</li>
+  <li>NewProduct</li>
+  <li>CustomerMgmt</li>
+  <li>NewUpdateCustomer</li>
+  <li>CustomerInvoice (Stretch)</li>
+</ul>
 <h4>Landing Page</h4>
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/LandingPage.png">
 <h4>View All Products</h4>
