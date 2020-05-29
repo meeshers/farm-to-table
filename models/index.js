@@ -13,5 +13,8 @@ mongoose.connect(conn, {
 });
 
 module.exports = {
-    //Authors: require('./Author'),
+    Customers = require('./Customer'),
+    Products = require('./Product'),
+    Invoices = require('./Invoice'),
+    Farms = require('./Farm')
 };
