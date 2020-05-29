@@ -1,7 +1,17 @@
 const mongoose = require('mongoose');
 
 const invoiceSchema = new mongoose.Schema({
-    //title: {type: String, required: true}
+    billedDate: {type: Date, required: true},
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Customer',
+        required: true
+    },
+    products: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true
+    }]
 
 }, {timestamps:true});
 
