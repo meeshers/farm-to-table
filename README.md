@@ -65,7 +65,7 @@ The final application will allow the farm owner to display their products to the
   </ul>
 <hr>
 <h2>Data Models</h2>
-<img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/dataModels.png">
+<img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/dataModels2.png">
 <hr>
 <h2>Views</h2>
 <h3>/FarmShop (Public View)</h3>
