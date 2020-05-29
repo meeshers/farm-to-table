@@ -76,8 +76,10 @@ The final application will allow the farm owner to display their products to the
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/ShowPage.png">
 <h4>About Page</h4>
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/AboutPage.png">
-<h4>Product Management Page</h4>
+<h4>Product Edit Page</h4>
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/EditPage.png">
+<h4>Product Management Page</h4>
+<img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/ProductMgmt.png">
 <h4>Newletter Signup Page</h4>
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/Newletter.png">
 <h4>Sign In Page</h4>
@@ -86,3 +88,9 @@ The final application will allow the farm owner to display their products to the
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/UserView.png">
 <h4>User Profile Page</h4>
 <img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/ProfilePage.png">
+<h4>New Customer Page</h4>
+<img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/NewCustomer.png">
+<h4>Customer Management Page</h4>
+<img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/CustomerMgmt.png">
+<h4>Customer Invoice Page</h4>
+<img src="https://git.generalassemb.ly/JeffJackson/farm-to-table/blob/master/images/CustomerInvoice.png">
