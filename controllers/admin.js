@@ -17,5 +17,10 @@ router.get('/product', (req, res) => {
     res.render('admin/product/index');
 });
 
+//new customer page
+router.get('/cust/new', (req, res) => {
+    res.render('admin/cust/new');
+});
+
 
 module.exports = router;
