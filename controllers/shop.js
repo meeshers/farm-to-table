@@ -18,5 +18,9 @@ router.get('/product/:id', (req,res)=>{
   res.render('shop/show');
 })
 
+// about page route
+router.get('/about', (req,res)=>{
+  res.render('shop/about');
+})
 
 module.exports = router;
