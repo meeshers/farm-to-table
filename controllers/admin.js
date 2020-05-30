@@ -2,9 +2,23 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
+const farmName = "Pieces of Ate";
+const adminUser = "admin";
+const adminPass = "admin1";
+
 //root administration page
-router.get('/', (req, res) => {
-    res.render('admin/index');
+router.get('/', async (req, res) => {
+    try {
+        const foundFarm = await db.Farms.find({name: farmName});
+        const context = {farm: foundFarm[0]};
+        console.log("The Farm is: ");
+        console.log(context);
+        res.render('admin/index', {farm: foundFarm});
+    } 
+    catch (error) {
+        console.log(err);
+        res.send({message: "Internal Server Error!"})
+    }
 });
 
 //ROOT customer administration page
@@ -15,6 +29,11 @@ router.get('/cust', (req, res) => {
 //ROOT product administration page
 router.get('/product', (req, res) => {
     res.render('admin/product/index');
+});
+
+//New farm page
+router.get('/newFarm', (req, res) => {
+    res.render('admin/newFarm');
 });
 
 //NEW customer page
@@ -28,25 +47,16 @@ router.get('/product/new', (req, res) => {
 });
 
 //CREATE farm route
-router.post('/', (req, res) => {
-    db.Farms.find({}, (error, allFarms) => {
-        if(error)
-        {
-            console.log(err);
-            res.send({message: "Internal Server Error"});
-        }
-        else
-        {
-            if(allFarms.length !== 0)
-            {
-                console.log("There are farms");
-            }
-            else
-                console.log("There are no farms!");
-        }
-    })
-
-    res.redirect('/admin');
+router.post('/', async (req, res) => {
+    try {
+        await db.Farms.create(req.body);
+        //console.log("A farm was created!");
+        res.redirect('admin/');
+    } 
+    catch (error) {
+        console.log(err);
+        res.send({message: "Internal Server Error!"})
+    }
 });
 
 //CREATE customer route

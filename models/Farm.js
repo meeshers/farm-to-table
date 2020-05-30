@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const farmSchema = new mongoose.Schema({
-    name: {type: String, required: true, unique: true},
+    name: {type: String, required: true},
     address: {type: String, required: true},
     city: {type: String, required: true},
     state: {type: String, required: true},
@@ -22,7 +22,6 @@ const farmSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Invoice'
     }]
-
 });
 
 const Farm = mongoose.model('Farm', farmSchema);
