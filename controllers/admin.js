@@ -9,9 +9,10 @@ const adminPass = "admin1";
 //root administration page
 router.get('/', async (req, res) => {
     try {
-        const foundFarm = await db.Farms.find({name: farmName});
-        //const context = {farm: foundFarm[0]}; //find returns an array even if it is just one element
-        res.render('admin/index', {farm: foundFarm[0]});
+        const foundFarm = await db.Farms.findOne({name: farmName});
+
+        res.render('admin/index', {farm: foundFarm});
+
     } 
     catch (error) {
         console.log(error);
@@ -25,13 +26,26 @@ router.get('/cust', (req, res) => {
 });
 
 //ROOT product administration page
-router.get('/product', (req, res) => {
-    res.render('admin/product/index');
+router.get('/product', async (req, res) => {
+    try {
+        const allProducts = await db.Products.find({});
+        res.render('admin/product', {products: allProducts});
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"})
+    }
 });
 
 //New farm page
 router.get('/newFarm', (req, res) => {
-    res.render('admin/newFarm');
+    const context = {
+        name: farmName,
+        username: adminUser,
+        password: adminPass
+    }
+
+    res.render('admin/newFarm', context);
 });
 
 //NEW customer page
@@ -57,12 +71,18 @@ router.post('/', async (req, res) => {
 
 //CREATE customer route
 router.post('/cust', (req, res) => {
-    res.redirect('admin/cust');
+    res.redirect('/admin/cust');
 });
 
 //CREATE product route
-router.post('/product', (req, res) => {
-    res.redirect('admin/product');
+router.post('/product', async (req, res) => {
+    try {
+        await db.Products.create(req.body);
+        res.redirect('/admin/product');
+    } catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //SHOW customer show page

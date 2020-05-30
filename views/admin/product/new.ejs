@@ -7,5 +7,36 @@
 </head>
 <body>
     <h1>New Product Page</h1>
+    <a href="/admin">Admin Home</a>
+    <a href="/admin/product">Product Home</a>
+    <form action="/admin/product" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Name" required>
+        <br>
+        <label for="description">Description:</label>
+        <br>
+        <textarea name="description" cols="30" rows="5" placeholder="description" required></textarea>
+        <br>
+        <label for="price">Price:</label>
+        <input type="text" name="price" placeholder="$000.00" required>
+        <br>
+        <label for="birthDate">Birth Date:</label>
+        <input type="text" name="birthDate" placeholder="mm-dd-yyyy">
+        <br>
+        <label for="readyDate">Ready Date:</label>
+        <input type="text" name="readyDate" placeholder="mm-dd-yyyy">
+        <br>
+        <label for="availiable">Availiable:</label>
+        <input type="checkbox" name="availiable">
+        <br>
+        <label for="growthNotes">Growth Notes:</label>
+        <br>
+        <textarea name="growthNotes" cols="30" rows="5" placeholder="Notes"></textarea>
+        <br>
+        <label for="img">Picture:</label>
+        <input type="text" name="img" placeholder="img url">
+        <br>
+        <button type="submit">Create Product</button>
+    </form>
 </body>
 </html>

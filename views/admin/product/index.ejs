@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>Product Administration Page</h1>
+    <a href="/admin">Home</a>
+    <a href="/admin/product/new">New Product</a>
+    <br>
+    <% products.forEach((product) => { %> 
+        <%= product.name %>&nbsp|&nbsp <%= product.description %>&nbsp|&nbsp <%= product.price %>&nbsp|&nbsp 
+        <br>
+    <% }) %> 
 </body>
 </html>
