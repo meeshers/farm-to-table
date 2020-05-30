@@ -1,5 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body {
     background-color: #D6ECFF;
+    position: relative;
+    /* display: flex; */
+}
+
+section {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+    /* background-color: aqua; */
+    top: 100px;
+    left: 125px;
+    min-width: 500px;
+    overflow: hidden;
+    padding: 20px 20px;
+}
+
+aside {
+    position: fixed;
+    background-color: white;
+    height: 100vh;
+    width: 125px;
+    padding: 10px 0 0 10px;
+    top: 100px;
+    left: 0;
+
+}
+
+header {
+    background-color: #415566;
+    color: white;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;
+}
+
+footer {
+    background-color: #415566;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 35px;
+    width: 100%;
 }
 
 h1 {
@@ -7,23 +62,15 @@ h1 {
     white-space: nowrap;
 }
 
-img {
-    height: 300px;
-    width: 400px;
-}
-
 button {
     background-color: #415566;
     color: white
 }
 
+
 button:hover {
     cursor: pointer;
     opacity: .5;
-}
-
-#add-new, #view-all {
-    margin-top: 10px;
 }
 
 .btn-sml {
@@ -55,7 +102,9 @@ button:hover {
 }
 
 .table {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
 }
 
 .row {
@@ -80,6 +129,8 @@ button:hover {
 .col-1 {
     width: 10vw;
     padding: 5px;
+    min-width: 75px;
+    max-width: 100px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -87,6 +138,8 @@ button:hover {
 .col-2 {
     width: 20vw;
     padding: 5px;
+    min-width: 175px;
+    max-width: 200px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -94,6 +147,8 @@ button:hover {
 .col-3 {
     width: 30vw;
     padding: 5px;
+    min-width: 225px;
+    max-width: 300px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -101,6 +156,8 @@ button:hover {
 .col-4 {
     width: 40vw;
     padding: 5px;
+    min-width: 300px;
+    max-width: 400px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -108,6 +165,8 @@ button:hover {
 .col-5 {
     width: 50vw;
     padding: 5px;
+    min-width: 400px;
+    max-width: 500px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -115,6 +174,8 @@ button:hover {
 .col-6 {
     width: 60vw;
     padding: 5px;
+    min-width: 500px;
+    max-width: 600px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -122,6 +183,8 @@ button:hover {
 .col-7 {
     width: 70vw;
     padding: 5px;
+    min-width: 600px;
+    max-width: 700px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -129,6 +192,8 @@ button:hover {
 .col-8 {
     width: 80vw;
     padding: 5px;
+    min-width: 700px;
+    max-width: 800px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -136,6 +201,8 @@ button:hover {
 .col-9 {
     width: 90vw;
     padding: 5px;
+    min-width: 800px;
+    max-width: 900px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -143,6 +210,8 @@ button:hover {
 .col-0 {
     width: 100vw;
     padding: 5px;
+    min-width: 900px;
+    max-width: 1000px;
     overflow: hidden;
     white-space: nowrap;
 }
