@@ -4,15 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Administration</title>
+    <link rel="stylesheet" href="/styles/admin.css">
 </head>
 <body>
     <h1>Product Administration Page</h1>
-    <a href="/admin">Home</a>
-    <a href="/admin/product/new">New Product</a>
-    <br>
-    <% products.forEach((product) => { %> 
-        <%= product.name %>&nbsp|&nbsp <%= product.description %>&nbsp|&nbsp <%= product.price %>&nbsp|&nbsp 
-        <br>
-    <% }) %> 
+    <nav class="row">
+        <a href="/admin">Home</a>
+        <a href="/admin/product/new">New Product</a>
+    </nav>
+    <article class="table blk-bdr">
+        <div class="row row-hdr">
+            <div class="col-1 align-center-vert blk-bdr-right">Name</div>
+            <div class="col-3 align-center-vert blk-bdr-right">Description</div>
+            <div class="col-1 align-center-vert blk-bdr-right">Price</div>
+            <div class="col-2 align-center-vert"></div>
+        </div>
+    <% for(let i = 0; i < products.length; i++) {%>
+        <div class="row <%= (i%2===0) ? 'white' : 'gray' %>">
+            <div class="col-1 blk-bdr-right">
+                <%= products[i].name %>
+            </div>
+            <div class="col-3 blk-bdr-right">
+                <%= products[i].description %>
+            </div>
+            <div class="col-1 blk-bdr-right">
+                <%= products[i].price %>
+            </div>
+        </div>
+    <% } %> 
+    </article>
 </body>
 </html>

@@ -1,10 +1,13 @@
 const express = require('express');
+const functions = require('../middleware/external');
 const router = express.Router();
 const db = require('../models');
 
 const farmName = "Pieces of Ate";
 const adminUser = "admin";
 const adminPass = "admin1";
+
+console.log(functions.formatPrice(1));
 
 //root administration page
 router.get('/', async (req, res) => {
@@ -77,6 +80,7 @@ router.post('/cust', (req, res) => {
 //CREATE product route
 router.post('/product', async (req, res) => {
     try {
+        req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
         await db.Products.create(req.body);
         res.redirect('/admin/product');
     } catch (error) {

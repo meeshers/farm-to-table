@@ -1,0 +1,190 @@
+body {
+    background-color: #D6ECFF;
+}
+
+h1 {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+img {
+    height: 300px;
+    width: 400px;
+}
+
+button {
+    background-color: #415566;
+    color: white
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: .5;
+}
+
+#add-new, #view-all {
+    margin-top: 10px;
+}
+
+.btn-sml {
+    font-size: small;
+    margin: 0 2px;
+}
+
+.btn-med {
+    font-size: medium;
+    margin: 2px 2px;
+}
+
+.btn-lrg {
+    font-size: large;
+    margin: 10px 5px;
+    border-radius: 5px;
+}
+
+.input-text {
+    background-color: #F0F8FF;
+    border: 5px;
+    font-size: medium;
+    border: 1px solid #D6ECFF;
+}
+
+.input-text:focus, button:focus, a:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(65, 85, 255, 1);
+}
+
+.table {
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+}
+
+.row-hdr {
+    background-color: #849DB3;
+    color: #F0F8FF;
+    font-size: large;
+    font-weight: bold;
+}
+
+.white {
+    background-color: white;
+}
+
+.gray {
+    background-color: lightgray;
+}
+
+.col-1 {
+    width: 10vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-2 {
+    width: 20vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-3 {
+    width: 30vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-4 {
+    width: 40vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-5 {
+    width: 50vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-6 {
+    width: 60vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-7 {
+    width: 70vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-8 {
+    width: 80vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-9 {
+    width: 90vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-0 {
+    width: 100vw;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.blk-bdr-left {
+    border-left: 1px solid black;
+}
+
+.blk-bdr-right {
+    border-right: 1px solid black;
+}
+
+.blk-bdr-top {
+    border-top: 1px solid black;
+}
+
+.blk-bdr-bottom {
+    border-bottom: 1px solid black;
+}
+.blk-bdr {
+    border: 1px solid black;
+}
+
+.ltblue-border {
+    border: 1px solid #D6ECFF;
+}
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align-center-vert {
+    display: flex;
+    justify-content: center;
+}
+
+.align-center-hor {
+    display: flex;
+    align-items: center;
+}
+
+.inline {
+    display: inline;
+}
