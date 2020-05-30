@@ -29,7 +29,24 @@ router.get('/product/new', (req, res) => {
 
 //CREATE farm route
 router.post('/', (req, res) => {
-    res.redirect('admin/index');
+    db.Farms.find({}, (error, allFarms) => {
+        if(error)
+        {
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        }
+        else
+        {
+            if(allFarms.length !== 0)
+            {
+                console.log("There are farms");
+            }
+            else
+                console.log("There are no farms!");
+        }
+    })
+
+    res.redirect('/admin');
 });
 
 //CREATE customer route
