@@ -10,13 +10,11 @@ const adminPass = "admin1";
 router.get('/', async (req, res) => {
     try {
         const foundFarm = await db.Farms.find({name: farmName});
-        const context = {farm: foundFarm[0]};
-        console.log("The Farm is: ");
-        console.log(context);
-        res.render('admin/index', {farm: foundFarm});
+        //const context = {farm: foundFarm[0]}; //find returns an array even if it is just one element
+        res.render('admin/index', {farm: foundFarm[0]});
     } 
     catch (error) {
-        console.log(err);
+        console.log(error);
         res.send({message: "Internal Server Error!"})
     }
 });
@@ -49,13 +47,11 @@ router.get('/product/new', (req, res) => {
 //CREATE farm route
 router.post('/', async (req, res) => {
     try {
-        await db.Farms.create(req.body);
-        //console.log("A farm was created!");
+        const createFarm = await db.Farms.create(req.body);
         res.redirect('admin/');
-    } 
-    catch (error) {
-        console.log(err);
-        res.send({message: "Internal Server Error!"})
+    } catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
     }
 });
 
