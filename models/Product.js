@@ -7,7 +7,8 @@ const productSchema = new mongoose.Schema({
     birthDate: Date,
     readyDate: Date,
     available: Boolean,
-    growthNotes: String
+    growthNotes: String,
+    img: String
       
 }, {timestamps:true});
 
