@@ -9,3 +9,11 @@ exports.formatPrice = (price) => {
 exports.stripDollar = (price) => {
     return price.replace(/\$/g, '');
 }
+
+exports.getDate = (isoDate) => {
+    let day = isoDate.getDate();
+    let month = isoDate.getMonth()+1;
+    let year = isoDate.getFullYear();
+
+    return `${month}-${day}-${year}`;
+}

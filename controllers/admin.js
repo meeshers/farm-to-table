@@ -7,8 +7,6 @@ const farmName = "Pieces of Ate";
 const adminUser = "admin";
 const adminPass = "admin1";
 
-console.log(functions.formatPrice(1));
-
 //root administration page
 router.get('/', async (req, res) => {
     try {
@@ -80,7 +78,9 @@ router.post('/cust', (req, res) => {
 //CREATE product route
 router.post('/product', async (req, res) => {
     try {
+        req.body.available = (req.body.available)? true : false; 
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
+        
         await db.Products.create(req.body);
         res.redirect('/admin/product');
     } catch (error) {
@@ -105,8 +105,30 @@ router.get('/cust/:id/edit', (req, res) => {
 });
 
 //EDIT product show page
-router.get('/product/:id/edit', (req, res) => {
-    res.render('admin/product/edit');
+router.get('/product/:id/edit', async (req, res) => {
+    try {
+        const foundProduct = await db.Products.findById(req.params.id);
+        let price = (foundProduct.price)? functions.stripDollar(foundProduct.price) : '';
+        let birthDate = (foundProduct.birthDate !== null)? functions.getDate(foundProduct.birthDate) : '';
+        let readyDate = (foundProduct.readyDate !== null)? functions.getDate(foundProduct.readyDate) : '';
+        
+        const product = {
+            _id: foundProduct._id,
+            name: foundProduct.name,
+            description: foundProduct.description,
+            price: price,
+            birthDate: birthDate,
+            readyDate: readyDate,
+            available: foundProduct.available,
+            growthNotes: foundProduct.growthNotes,
+            img: foundProduct.img
+        }
+        res.render('admin/product/edit', {product: product});
+    } 
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"})
+    }
 });
 
 //UPDATE farm route
@@ -121,7 +143,22 @@ router.put('/cust/:id', (req, res) => {
 
 //UPDATE product route
 router.put('/product/:id', (req, res) => {
-    res.redirect(`admin/product/${req.params.id}`);
+    try {
+        req.body.available = (req.body.available)? true : false;
+        req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
+
+        console.log(req.body);
+        
+        res.redirect(`/admin/product/${req.params.id}`);
+        // req.body.available = (req.body.available)? true : false;
+
+        // await db.Products.findByIdAndUpdate(req.body.id, req.body, {new:true});
+        // res.redirect(`admin/product/${req.params.id}`);
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"})
+    }
 });
 
 //DELETE customer route
