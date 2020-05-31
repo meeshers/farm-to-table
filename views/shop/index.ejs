@@ -5,78 +5,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/slideshow.css">
   <script src="https://kit.fontawesome.com/557a3bdbd9.js"></script>
+  <script src="/scripts/app.js" defer></script>
   <title>Farm to table</title>
 </head>
 
-<!-- header -->
-<header>
-  <div class="header">
-    <nav>
-      <!-- <a class="logo" href="/"><i class="fas fa-lemon"></i></a> -->
-      <a href="/">Home</a> |
-      <a href="/products">Products</a> |
-      <a href="/about">About</a> |
-      <a href="/subscribe">Subscribe</a> |
-      <a href="/cart">Cart</a> |
-      <a href="/login">Sign in</a>
-    </nav>
-  </div>
-</header>
-
 <body>
+  <%- include('../header') %>
 
   <!-- placeholder content -->
   <div class="content">
     <h1>This is the Farm-2-table homepage</h1>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde quis atque exercitationem asperiores,
-      voluptatem, dolorem blanditiis autem, at tempore expedita fugit voluptas? A provident velit cum earum maiores,
-      vel commodi.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, voluptatem illo asperiores numquam
-      aliquam repudiandae soluta ab reprehenderit harum hic ipsa molestias iste vel, dicta amet cum nam provident
-      obcaecati.</p>
   </div>
 
   <!-- image slideshow? -->
-  <!-- first image -->
+  <!-- Slideshow container -->
   <div class="slideshow-container">
-    <div class="slides">
-      <img src="https://i.picsum.photos/id/88/800/200.jpg" style="width:100%">
-      <div class="slides-button">
-        description here
-        <button type="submit">Learn more...</button>
+    <!-- Full-width images with number and caption text -->
+    <!-- image 1 -->
+     <!-- TODO: create opaque background for text? -->
+    <div class="slide fade">
+      <img src="https://picsum.photos/1200/600" style="width:100%">
+      <div class="text">Description here
+        <button class="more">Learn more</button>
       </div>
     </div>
 
-    <!-- second image -->
-    <div class="slides">
-      <img src="https://i.picsum.photos/id/88/800/200.jpg" style="width:100%">
-      <div class="slides-button">
-        description here
-        <button type="submit">Learn more...</button>
+    <!-- image 2 -->
+    <div class="slide fade">
+      <img src="https://picsum.photos/1200/600" style="width:100%">
+      <div class="text">Description here
+        <button class="more">Learn more</button>
       </div>
     </div>
 
-    <!-- next/previous buttons -->
-    <a class="prev" onclick="">&#10094</a>
-    <a class="next" onclick="">&#10095</a>
-    <!-- this will need javascript to function -->
+    <!-- image 3 -->
+    <div class="slide fade">
+      <img src="https://picsum.photos/1200/600" style="width:100%">
+      <div class="text">Description here
+        <button class="more">Learn more</button>
+      </div>
+    </div>
 
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
-
-  <!-- footer -->
-  <div class="footer">
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/products">Products</a> |
-      <a href="/about">About</a> |
-      <a href="/subscribe">Subscribe</a> |
-      <a href="/cart">Cart</a> |
-      <a href="/login">Sign in</a>
-      <p>&copy; 2020</p>
-    </nav>
-  </div>
+  <%- include('../footer') %>
 </body>
 
 </html>
