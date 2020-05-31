@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Product Page</title>
+    <link rel="stylesheet" href="/styles/admin.css">
 </head>
 <body>
-    <h1>New Product Page</h1>
-    <a href="/admin">Admin Home</a>
-    <a href="/admin/product">Product Home</a>
+    <header>
+        <h1>New Product Page</h1>
+    </header>
+    <%- include('../partials/adminNav') %> 
+    <section>
     <form action="/admin/product" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" placeholder="Name" required>
@@ -38,5 +41,9 @@
         <br>
         <button type="submit">Create Product</button>
     </form>
+    </section>
+    <footer>
+
+    </footer>
 </body>
 </html>

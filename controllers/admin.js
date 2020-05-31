@@ -147,8 +147,6 @@ router.put('/product/:id', async (req, res) => {
         req.body.available = (req.body.available)? true : false;
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
 
-        console.log(req.body);
-        
         await db.Products.findByIdAndUpdate(req.params.id, req.body, {new:true});
         res.redirect(`/admin/product/${req.params.id}`);
     }

@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
+    <link rel="stylesheet" href="/styles/admin.css">
 </head>
 <body>
-    Edit Product
+    <header>
+        <h1>Edit Product Page</h1>
+    </header>
+    <%- include('../partials/adminNav') %> 
+    <section>
     <form action="/admin/product/<%= product._id %>?_method=PUT" method="post">
         <label for="name">Name:</label>
         <input type="text" name="name" placeholder="Name" value="<%= product.name %>" required>
@@ -36,4 +41,8 @@
         <br><br>
         <input type="submit" value="Update Product">
     </form>
+    </section>
+    <footer>
+
+    </footer>
 </html>

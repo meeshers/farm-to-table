@@ -10,29 +10,7 @@
     <header>
         <h1>Product Administration Page</h1>
     </header>
-    <aside>
-        <nav class="row">
-            <ul>
-                <li><a href="/">View Shop</a></li>
-                <li><a href="/admin">Admin Home</a></li>
-                <li>Product Admin</li>
-                <li>
-                    <ul class="li-sub-1">
-                        <li><a href="/admin/product">Home</a></li>
-                        <li><a href="/admin/product/new">New Product</a></li>
-                    </ul>
-                </li>
-                <li>Customer Admin</li>
-                <li>
-                    <ul class="li-sub-1">
-                        <li><a href="/admin/product">Home</a></li>
-                        <li><a href="/admin/product/new">New Customer</a></li>
-                        <li>Invoices</li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+    <%- include('../partials/adminNav') %> 
     <section>
     <article class="table blk-bdr product-table">
         <div class="row row-hdr">
