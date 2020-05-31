@@ -11,22 +11,8 @@
   <title>Farm to table</title>
 </head>
 
-<!-- header -->
-<header>
-  <div class="header">
-    <!-- <a class="logo" href="/"><i class="fas fa-lemon"></i></a> -->
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/products">Products</a> |
-      <a href="/about">About</a> |
-      <a href="/subscribe">Subscribe</a> |
-      <a href="/cart">Cart</a> |
-      <a href="/login">Sign in</a>
-    </nav>
-  </div>
-</header>
-
 <body>
+  <%- include('../header') %>
 
   <!-- placeholder content -->
   <div class="content">
@@ -75,18 +61,7 @@
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
-  <!-- footer -->
-  <div class="footer">
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/products">Products</a> |
-      <a href="/about">About</a> |
-      <a href="/subscribe">Subscribe</a> |
-      <a href="/cart">Cart</a> |
-      <a href="/login">Sign in</a>
-      <p>&copy; 2020</p>
-    </nav>
-  </div>
+  <%- include('../footer') %>
 </body>
 
 </html>
