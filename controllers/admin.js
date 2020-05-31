@@ -96,6 +96,13 @@ router.get('/cust/:id', (req, res) => {
 
 //SHOW product show page
 router.get('/product/:id', (req, res) => {
+    try {
+        //console.log("Showing item: " + req.params.id);
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
     res.render('admin/product/show');
 });
 
@@ -162,8 +169,16 @@ router.delete('/cust/:id', (req, res) => {
 });
 
 //DELETE product route
-router.delete('/product/:id', (req, res) => {
-    res.redirect('admin/product');
+router.delete('/product/:id', async (req, res) => {
+    try {
+        await db.Products.findByIdAndDelete(req.params.id);
+        console.log("You are deleting: " + req.params.id);
+        res.redirect('/admin/product');
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"})
+    }
 });
 
 module.exports = router;

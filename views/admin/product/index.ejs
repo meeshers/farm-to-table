@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/adminHead') %>
     <title>Product Administration</title>
-    <link rel="stylesheet" href="/styles/admin.css">
 </head>
 <body>
-    <header>
+    <div class="header">
         <h1>Product Administration Page</h1>
-    </header>
-    <%- include('../partials/adminNav') %> 
-    <section>
-    <article class="table blk-bdr product-table">
-        <div class="row row-hdr">
-            <div class="col-1 align-center-vert blk-bdr-right">Name</div>
-            <div class="col-3 align-center-vert blk-bdr-right">Description</div>
-            <div class="col-1 align-center-vert blk-bdr-right">Price</div>
-            <div class="col-2 align-center-vert"></div>
-        </div>
-    <% for(let i = 0; i < products.length; i++) {%>
-        <div class="row <%= (i%2===0) ? 'white' : 'gray' %>">
-            <div class="col-1 blk-bdr-right">
-                <%= products[i].name %>
+    </div>
+    <%- include('../partials/adminNav') %>
+    <section class="display-data">
+        <article class="table blk-bdr product-table">
+            <div class="row row-hdr">
+                <div class="col-15 align-center-vert blk-bdr-right">Name</div>
+                <div class="col-30 align-center-vert blk-bdr-right">Description</div>
+                <div class="col-10 align-center-vert blk-bdr-right">Price</div>
+                <div class="col-15 align-center-vert"></div>
             </div>
-            <div class="col-3 blk-bdr-right">
-                <%= products[i].description %>
+        <% for(let i = 0; i < products.length; i++) {%>
+            <div class="row <%= (i%2===0) ? 'white' : 'gray' %>">
+                <div class="col-15 blk-bdr-right">
+                    <%= products[i].name %>
+                </div>
+                <div class="col-30 blk-bdr-right">
+                    <%= products[i].description %>
+                </div>
+                <div class="col-10 blk-bdr-right">
+                    <%= products[i].price %>
+                </div>
+                <div class="col-15 align-right">
+                    <a href="/admin/product/<%= products[i]._id %>" tabindex="-1">
+                        <button type="button" class="btn-sml">View</button></a>
+                    <a href="/admin/product/<%= products[i]._id %>/edit" tabindex="-1">
+                        <button class="btn-sml">Edit</button></a>
+                    <form action="/admin/product/<%= products[i]._id %>?_method=DELETE" method="POST">
+                        <button class="btn-sml">Delete</button>
+                    </form>
+                </div>
             </div>
-            <div class="col-1 blk-bdr-right">
-                <%= products[i].price %>
-            </div>
-            <div class="col-2 align-right">
-                <a href="/admin/product/<%= products[i]._id %>" tabindex="-1">
-                    <button type="button" class="btn-sml">View</button></a>
-                <a href="/admin/product/<%= products[i]._id %>/edit" tabindex="-1">
-                    <button class="btn-sml">Edit</button></a>
-                <a href="/admin/product/<%= products[i]._id %>?_method=DELETE" tabindex="-1">
-                    <button class="btn-sml">Delete</button></a>
-            </div>
-        </div>
-    <% } %> 
-    </article>
+        <% } %> 
+        </article>
     </section>
     <footer>
 

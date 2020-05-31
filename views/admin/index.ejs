@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('partials/adminHead') %>
     <title>Farm Store Administration</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
-    <script src="/scripts/admin.js" defer></script>
 </head>
 <body>
-    <h1>Farm Store Administration</h1>
-    <%# include('partials/adminNav') %>
-    <p><a href="/admin/cust">View Customers</a></p>
-    <p><a href="/admin/product">View Products</a></p>
-    <% if(!farm) {%>
-        <p><a href="/admin/newFarm">Create Farm</a></p>
-    <% } else { %> 
-        <h3>Farm Details</h3>
-        <p>Name: <%= farm.name %></p>
-        <p>Address: <%= farm.address %></p>
-        <p>City: <%= farm.city %></p>
-        <p>State: <%= farm.state %></p>
-        <p>Zipcode: <%= farm.zip %></p>
-        <p>Phone: <%= farm.phone %></p>
-        <p>Email: <%= farm.email %></p>
-    <% } %> 
+    <div class="header">
+        <h1>Farm Store Administration</h1>
+    </div>
+    <%- include('partials/adminNav') %>
+    <section class="display-data">
+        <% if(!farm) {%>
+            <p><a href="/admin/newFarm">Create Farm</a></p>
+        <% } else { %> 
+            <h3>Farm Details</h3>
+            <p>Name: <%= farm.name %></p>
+            <p>Address: <%= farm.address %></p>
+            <p>City: <%= farm.city %></p>
+            <p>State: <%= farm.state %></p>
+            <p>Zipcode: <%= farm.zip %></p>
+            <p>Phone: <%= farm.phone %></p>
+            <p>Email: <%= farm.email %></p>
+        <% } %>
+    </section>
+    <footer>
+
+    </footer>
 </body>
 </html>
