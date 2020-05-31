@@ -25,6 +25,9 @@ app.use(express.static(__dirname + '/public'));
 // Shop routes
 app.use("/", controllers.shop);
 
+//admin routes
+app.use("/admin", controllers.admin);
+
 app.listen(PORT, () => {
     console.log("Server running at http://localhost:" + PORT);
 })

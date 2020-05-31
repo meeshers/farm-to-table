@@ -9,6 +9,7 @@ const custSchema = new mongoose.Schema({
     phone: {type: String, required: true, maxlength: 12},
     email: {type: String, required: true},
     password: String,
+    profilePic: String,
     products: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product'

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/adminHead') %>
+    <title>Farm Store Administration</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Farm Store Administration</h1>
+    </div>
+    <%- include('partials/adminNav') %>
+    <section class="display-data">
+        <% if(!farm) {%>
+            <p><a href="/admin/newFarm">Create Farm</a></p>
+        <% } else { %> 
+            <h3>Farm Details</h3>
+            <p>Name: <%= farm.name %></p>
+            <p>Address: <%= farm.address %></p>
+            <p>City: <%= farm.city %></p>
+            <p>State: <%= farm.state %></p>
+            <p>Zipcode: <%= farm.zip %></p>
+            <p>Phone: <%= farm.phone %></p>
+            <p>Email: <%= farm.email %></p>
+        <% } %>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>

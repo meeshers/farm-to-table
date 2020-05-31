@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/adminHead') %>
+    <title>Edit Product</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Edit Product Page</h1>
+    </div>
+    <%- include('../partials/adminNav') %>
+    <section class="display-data">
+        <form action="/admin/product/<%= product._id %>?_method=PUT" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="Name" value="<%= product.name %>" required>
+            <br>
+            <label for="description">Description:</label>
+            <br>
+            <textarea name="description" cols="30" rows="5" required><%= product.description %></textarea>
+            <br>
+            <label for="price">Price:</label>
+            <input type="text" name="price" placeholder="00.00" value="<%= product.price %>" required>
+            <br>
+            <label for="birthDate">Birth Date:</label>
+            <input type="text" name="birthDate" placeholder="mm-dd-yyyy" value="<%= product.birthDate %>">
+            <br>
+            <label for="readyDate">Ready Date:</label>
+            <input type="text" name="readyDate" placeholder="mm-dd-yyyy" value="<%= product.readyDate %>">
+            <br>
+            <label for="available">Available:</label>
+            <input type="checkbox" name="available" <%= (product.available)? 'checked' : '' %>>
+            <br>
+            <label for="growthNotes">Growth Notes:</label>
+            <br>
+            <textarea name="growthNotes" cols="30" rows="5" placeholder="Growth notes"><%= product.growthNotes %></textarea>
+            <br>
+            <label for="img">Image:</label>
+            <input type="text" name="img" placeholder="img url" value="<%= product.img %>">
+            <br><br>
+            <input type="submit" value="Update Product">
+        </form>
+    </section>
+    <footer>
+
+    </footer>
+</html>

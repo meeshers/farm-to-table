@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/adminHead') %>
+    <title>Create New Farm</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Add Farm</h1>
+    </div>
+    <%- include('partials/adminNav') %>
+    <section class="display-data">
+        <form action="/admin" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="Farm Name" value="<%= name %>" readonly required>
+            <br>
+            <label for="address">Address:</label>
+            <input type="text" name="address" placeholder="Address" required>
+            <br>
+            <label for="city">City:</label>
+            <input type="text" name="city" placeholder="City" required>
+            <br>
+            <label for="state">State:</label>
+            <input type="text" name="state" placeholder="State" required>
+            <br>
+            <label for="zip">Zipcode:</label>
+            <input type="text" name="zip" placeholder="Zipcode" maxlength="5" required>
+            <br>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" placeholder="xxx-xxx-xxxx" maxlength="12" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Email" required>
+            <br>
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Username" value="<%= username %>" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Password" value="<%= password %>" required>
+            <button type="submit">Create Farm</button>
+        </form>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>

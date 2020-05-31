@@ -1,0 +1,370 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #D6ECFF;
+    background-image: url('https://www.careersingovernment.com/tools/wp-content/uploads/2015/06/careers-in-agriculture.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.display-data {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+    top: 100px;
+    left: 150px;
+    min-width: 500px;
+    overflow: hidden;
+    padding: 20px 20px;
+}
+
+aside {
+    background-color: rgba(101,92,86,.8);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 150px;
+    padding: 10px 0 0 10px;
+    top: 0;
+    left: 0;
+}
+
+footer {
+    background-color: #655C56;
+    opacity: .8;
+    position: fixed;
+    bottom: 0;
+    left: 150px;
+    height: 35px;
+    width: 100%;
+}
+
+h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    color:#EFFCEF;
+    text-shadow: 0px 4px 6px black;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 5px;
+    color: #EFFCEF;
+}
+
+button {
+    background-color: #655C56;
+    color: white
+}
+
+
+button:hover {
+    cursor: pointer;
+    opacity: .5;
+}
+
+a {
+    /* color: black; */
+    color:#EFFCEF;
+}
+
+a:hover {
+    opacity: .5;
+}
+
+a:link {
+    text-decoration: none;
+    /* color: black; */
+    color:#EFFCEF;
+}
+
+a:visited {
+    text-decoration: none;
+    /* color: black; */
+    color:#EFFCEF;
+}
+
+
+.header {
+    color: white;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 750px;
+    height: 75px;
+    top: 0;
+    left: 150px;
+}
+
+.nav-logo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 34px;
+    color: #303960;
+    text-shadow: 0px 4px 6px white;
+}
+
+.logo-last {
+    margin-bottom: 75px;
+}
+
+.upload-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-image: url(); */
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 75px;
+    left: 30px;
+}
+
+.prod-details {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 450px;
+    height: 300px;
+    position: absolute;
+    top: 75px;
+    left: 380px;
+
+}
+
+.prod-img {
+    width: 250px;
+    height: 250px;
+    background-color: white;
+}
+
+#prod-url {
+    align-self: flex-start;
+    margin: 5px 0 0 25px;
+    width: 250px;
+    height: 25px;
+    font-size: 20px;
+    border: none;
+}
+
+#prod-name {
+    align-self: flex-start;
+    margin: 0 0 5px 25px;
+    width: 250px;
+    height: 25px;
+    font-size: 20px;
+    border: none;
+}
+
+.btn-sml {
+    font-size: small;
+    margin: 0 2px;
+}
+
+.btn-med {
+    font-size: medium;
+    margin: 2px 2px;
+}
+
+.btn-lrg {
+    font-size: large;
+    margin: 10px 5px;
+    border-radius: 5px;
+}
+
+.input-text {
+    background-color: #F0F8FF;
+    border: 5px;
+    font-size: medium;
+    border: 1px solid #D6ECFF;
+}
+
+.input-text:focus, button:focus, a:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(65, 85, 255, 1);
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+
+.row {
+    display: flex;
+}
+
+.row-hdr {
+    /* background-color: #849DB3; */
+    background-color: #163261;
+    color: #F0F8FF;
+    font-size: large;
+    font-weight: bold;
+}
+
+.white {
+    background-color: white;
+}
+
+.gray {
+    background-color: lightgray;
+}
+
+.col-10 {
+    width: 10vw;
+    padding: 5px;
+    min-width: 75px;
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-15 {
+    width: 15vw;
+    padding: 5px;
+    min-width: 125px;
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-20 {
+    width: 20vw;
+    padding: 5px;
+    min-width: 175px;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-30 {
+    width: 30vw;
+    padding: 5px;
+    min-width: 225px;
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-40 {
+    width: 40vw;
+    padding: 5px;
+    min-width: 300px;
+    max-width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-50 {
+    width: 50vw;
+    padding: 5px;
+    min-width: 400px;
+    max-width: 500px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-60 {
+    width: 60vw;
+    padding: 5px;
+    min-width: 500px;
+    max-width: 600px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-70 {
+    width: 70vw;
+    padding: 5px;
+    min-width: 600px;
+    max-width: 700px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-80 {
+    width: 80vw;
+    padding: 5px;
+    min-width: 700px;
+    max-width: 800px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-90 {
+    width: 90vw;
+    padding: 5px;
+    min-width: 800px;
+    max-width: 900px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.col-100 {
+    width: 100vw;
+    padding: 5px;
+    min-width: 900px;
+    max-width: 1000px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.blk-bdr-left {
+    border-left: 1px solid black;
+}
+
+.blk-bdr-right {
+    border-right: 1px solid black;
+}
+
+.blk-bdr-top {
+    border-top: 1px solid black;
+}
+
+.blk-bdr-bottom {
+    border-bottom: 1px solid black;
+}
+.blk-bdr {
+    border: 1px solid black;
+}
+
+.ltblue-border {
+    border: 1px solid #D6ECFF;
+}
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align-center-vert {
+    display: flex;
+    justify-content: center;
+}
+
+.align-center-hor {
+    display: flex;
+    align-items: center;
+}
+
+.inline {
+    display: inline;
+}
+
+.li-sub-1 {
+    margin-left: 15px;
+}
