@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/adminHead') %>
     <title>Customer Administration</title>
 </head>
 <body>
-    <h1>Customer Administration Page</h1>
+    <div class="header">
+        <h1>Customer Administration Page</h1>
+    </div>
+    <%- include('../partials/adminNav') %>
+    <section class="display-data">
+        <article class="table blk-bdr product-table">
+            <div class="row row-hdr">
+                <div class="col-15 align-center-vert blk-bdr-right">Name</div>
+                <div class="col-15 align-center-vert blk-bdr-right">Phone</div>
+                <div class="col-20 align-center-vert blk-bdr-right">Email</div>
+                <div class="col-15 align-center-vert"></div>
+            </div>
+        <% for(let i = 0; i < customers.length; i++) {%>
+            <div class="row <%= (i%2===0) ? 'white' : 'gray' %>">
+                <div class="col-15 blk-bdr-right">
+                    <%= customers[i].name %>
+                </div>
+                <div class="col-15 blk-bdr-right">
+                    <%= customers[i].phone %>
+                </div>
+                <div class="col-20 blk-bdr-right">
+                    <%= customers[i].email %>
+                </div>
+                <div class="col-15 align-right">
+                    <a href="/admin/cust/<%= customers[i]._id %>" tabindex="-1">
+                        <button type="button" class="btn-sml">View</button></a>
+                    <a href="/admin/cust/<%= customers[i]._id %>/edit" tabindex="-1">
+                        <button class="btn-sml">Edit</button></a>
+                    <form action="/admin/cust/<%= customers[i]._id %>?_method=DELETE" method="POST">
+                        <button class="btn-sml delete-prod">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% } %> 
+        </article>
+        <!-- <div class="delete-item">
+            Delete me
+        </div> -->
+    </section>
+    <footer>
+
+    </footer>
 </body>
 </html>

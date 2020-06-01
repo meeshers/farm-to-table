@@ -273,12 +273,22 @@ a:visited {
     flex-direction: column;
     background-color: rgba(101,92,86,.8);
     width: 450px;
-    height: 395px;
+    height: 370px;
     position: absolute;
     top: 30px;
     left: 30px;
     color:#EFFCEF;
+    font-size: 20px;
+}
+
+.cust-details input {
+    height: 25px;
+    width: 250px;
     font-size: 16px;
+}
+
+#p__new-cust {
+    font-size: 26px;
 }
 
 .btn-sml {
@@ -289,7 +299,9 @@ a:visited {
 
 .btn-med {
     font-size: medium;
+    margin: 3px 3px;
     padding: 2px;
+    border-radius: 5px;
 }
 
 .btn-lrg {

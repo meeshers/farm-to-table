@@ -22,8 +22,17 @@ router.get('/', async (req, res) => {
 });
 
 //ROOT customer administration page
-router.get('/cust', (req, res) => {
-    res.render('admin/cust/index');
+router.get('/cust', async (req, res) => {
+    try {
+        const farmCustomers = await db.Farms.findOne({name: farmName}).populate('customers');
+
+        res.render('admin/cust', {customers: farmCustomers.customers});
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"})
+    }
+    //res.render('admin/cust/index');
 });
 
 //ROOT product administration page
@@ -72,9 +81,23 @@ router.post('/', async (req, res) => {
 });
 
 //CREATE customer route
-router.post('/cust', (req, res) => {
-    console.log("creating new customer");
-    res.redirect('/admin/cust');
+router.post('/cust', async (req, res) => {
+    try {
+
+        const farm = await db.Farms.findOne({name: farmName});
+        req.body.farmID = farm._id;
+        
+        const newCust = await db.Customers.create(req.body);
+
+        farm.customers.push(newCust);
+        farm.save();
+        
+        res.redirect('/admin/cust');
+
+    } catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //CREATE product route

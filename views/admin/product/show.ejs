@@ -39,6 +39,8 @@
                 <p class="p__show-page">Available: <%= (product.available)? 'Yes' : 'No' %></p>
             </div>
             <div class="class align-right">
+                <a href="/admin/product" tabindex="-1">
+                    <button class="btn-lrg">Back</button></a>
                 <a href="/admin/product/<%= product._id %>/edit" tabindex="-1">
                     <button class="btn-lrg">Edit</button></a>
                 <form action="/admin/product/<%= product._id %>?_method=DELETE" method="POST">

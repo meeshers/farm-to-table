@@ -9,43 +9,79 @@
         <h1>Add New Customer</h1>
     </div>
     <%- include('../partials/adminNav') %>
-    <section class="display-data">
-        <form action="/admin/product" method="POST">
-            <div class="upload-img">
-                <label class="prod-labels" for="img">Profile Picture</label>
-                <div class="prod-img">
-                    <img src="" alt="profile pic">
+    <section class="display-data align-center-hor">
+        <form action="/admin/cust" method="POST">
+            <div class="cust-details">
+                <div class="row align-center-vert blk-bdr-bottom">
+                    <p id="p__new-cust">New Customer</p>
                 </div>
-            </div>
-            <div class="prod-details">
-                <div class="row">
-                    <div class="col-15">
-                        <label class="prod-labels" for="name">Customer Name:</label>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Name:
                     </div>
                     <div class="col-30">
-                        <input type="text" name="name" placeholder="Customer Name" required>
+                        <input type="text" name="name" required>
                     </div>
                 </div>
-                <label class="prod-labels" for="description">Product Description</label>
-                <textarea id="prod-desc" name="description" cols="30" rows="5" required></textarea>
-                <label class="prod-labels" for="growthhNotes">Growth Notes</label>
-                <textarea id="prod-notes" name="growthNotes" cols="30" rows="5"></textarea>
-                <div class="row">
-                    <label id="birthdate-label" for="birthDate">Birth Date:</label>
-                    <input class="date-picker" type="date" name="birthDate">
-                    <label id="readydate-label" for="readyDate">Ready Date:</label>
-                    <input class="date-picker" type="date" name="readyDate">
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Address:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="address">
+                    </div>
                 </div>
-                <div class="row">
-                    <label id="price-label" for="price">Price:</label>
-                    <input id="price-input" type="text" name="price" placeholder="000.00">
-                    <label id="available-label" for="available">Available:</label>
-                    <input class="available-chkbx" type="radio" name="available" value="true"><p class="chkbx-text">Yes</p>
-                    <input class="available-chkbx" type="radio" name="available" value="false" checked><p class="chkbx-text" >No</p>
-                    <input type="hidden" name="farmID">
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        City:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="City">
+                    </div>
                 </div>
-                <div class="row align-right">
-                    <button class="btn-lrg" type="submit">Create Product</button>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        State:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="state">
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Zipcode:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="zip" maxlength="5">
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Phone:
+                    </div>
+                    <div class="col-30">
+                        <input type="tel" name="phone" maxlength="12" required>
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Email:
+                    </div>
+                    <div class="col-30">
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Password:
+                    </div>
+                    <div class="col-30">
+                        <input type="password" name="password" required>
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <button class="btn-med" type="button">Clear Form</button>
+                    <button class="btn-med" type="submit">Add Customer</button>
                 </div>
             </div>
         </form>
