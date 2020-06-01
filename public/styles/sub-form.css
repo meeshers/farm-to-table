@@ -1,0 +1,22 @@
+label {
+  margin: 10px;
+}
+
+input {
+  padding: 10px;
+  margin: 5px;
+}
+
+form {
+  background-color: #94D3AC;
+  padding: 15px;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: #655C56;
+  color: #EFFCEF;
+  padding: 10px;
+  margin: 10px;
+}
