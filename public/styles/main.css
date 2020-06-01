@@ -10,7 +10,7 @@ body {
   text-align: center;
 }
 
-.header {
+header {
   background-color: #655C56;
   color: #EFFCEF;
   padding: 15px;
@@ -24,7 +24,7 @@ a {
   text-decoration: none;
 }
 
-.footer {
+footer {
   bottom: 0;
   background-color: #655C56;
   color: #EFFCEF;

@@ -19,14 +19,13 @@
     <h1>This is the Farm-2-table homepage</h1>
   </div>
 
-  <!-- TODO: fix buttons and arrows -->
   <!-- image slideshow? -->
   <!-- Slideshow container -->
   <div class="slideshow-container">
     <!-- Full-width images with number and caption text -->
     <!-- image 1 -->
     <div class="slide fade">
-      <img src="https://picsum.photos/1200/600" style="width:100%">
+      <img src="https://picsum.photos/1200/400" style="width:100%">
       <div class="text">Description here
       </div>
       <button class="more">Learn more</button>
@@ -34,18 +33,18 @@
 
     <!-- image 2 -->
     <div class="slide fade">
-      <img src="https://picsum.photos/1200/600" style="width:100%">
+      <img src="https://picsum.photos/1200/400" style="width:100%">
       <div class="text">Description here
-        <button class="more">Learn more</button>
       </div>
+      <button class="more">Learn more</button>
     </div>
 
     <!-- image 3 -->
     <div class="slide fade">
-      <img src="https://picsum.photos/1200/600" style="width:100%">
+      <img src="https://picsum.photos/1200/400" style="width:100%">
       <div class="text">Description here
-        <button class="more">Learn more</button>
       </div>
+      <button class="more">Learn more</button>
     </div>
 
     <!-- Next and previous buttons -->
@@ -63,13 +62,23 @@
 
   <!-- TODO: fix header/footer so we can scroll -->
   <h2>How it works</h2>
-  1. look at stuff <br />
-  2. pick box <br />
-  3. buy! <br />
-  4. enjoy! <br />
-  <button class="more">Get started</button>
+  
+  <div class="container">
+    <div class="explain">look at stuff!</div>
+    <div class="explain">pick box! </div>
+    <div class="explain">buy! </div>
+    <div class="explain">enjoy! </div>
+  </div>
 
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos consequuntur saepe sunt dolores! Omnis, ratione ullam sequi neque exercitationem eveniet in ipsa vitae doloribus ea nihil? Impedit blanditiis dolorem eaque.</p>
+  <br />
+  <form action="/products">
+    <button type="submit">Get started</button>
+  </form>
+
+
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos consequuntur saepe sunt dolores! Omnis,
+    ratione ullam sequi neque exercitationem eveniet in ipsa vitae doloribus ea nihil? Impedit blanditiis dolorem eaque.
+  </p>
 
   <%- include('../footer') %>
 </body>

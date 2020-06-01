@@ -32,6 +32,11 @@
   border-radius: 3px 0 0 3px;
 }
 
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
@@ -86,13 +91,25 @@
   to {opacity: 1}
 }
 
-.more {
-  position: absolute;
-  bottom: 15px;
-  left: 45%;
+button {
   border-style: none;
   padding: 10px;
   border-radius: 5px;
   background-color: #655C56;
   color: #EFFCEF;
+}
+
+.more {
+  position: absolute;
+  bottom: 15px;
+  left: 45%;
+}
+
+.explain {
+  width: 200px;
+}
+
+.container {
+  display: flex;
+  width: 800px;
 }
