@@ -14,7 +14,7 @@
             <div class="upload-img">
                 <label class="prod-labels" for="img">Product Image</label>
                 <div class="prod-img">
-                    <img src="" alt="upload pic">
+                    <img id="prod-img" src="" alt="upload pic">
                 </div>
                 <input type="text" name="img" placeholder="img url" id="prod-url">
             </div>
@@ -37,6 +37,7 @@
                     <label id="available-label" for="available">Available:</label>
                     <input class="available-chkbx" type="radio" name="available" value="true"><p class="chkbx-text">Yes</p>
                     <input class="available-chkbx" type="radio" name="available" value="false" checked><p class="chkbx-text" >No</p>
+                    <input type="hidden" name="farmID">
                 </div>
                 <div class="row align-right">
                     <button class="btn-lrg" type="submit">Create Product</button>
@@ -44,37 +45,6 @@
             </div>
         </form>
     </section>
-    <!-- <section class="display-data">
-        <form action="/admin/product" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" placeholder="Name" required>
-            <br>
-            <label for="description">Description:</label>
-            <br>
-            <textarea name="description" cols="30" rows="5" placeholder="description" required></textarea>
-            <br>
-            <label for="price">Price:</label>
-            <input type="text" name="price" placeholder="00.00" required>
-            <br>
-            <label for="birthDate">Birth Date:</label>
-            <input type="text" name="birthDate" placeholder="mm-dd-yyyy">
-            <br>
-            <label for="readyDate">Ready Date:</label>
-            <input type="text" name="readyDate" placeholder="mm-dd-yyyy">
-            <br>
-            <label for="available">Available:</label>
-            <input type="checkbox" name="available">
-            <br>
-            <label for="growthNotes">Growth Notes:</label>
-            <br>
-            <textarea name="growthNotes" cols="30" rows="5" placeholder="Notes"></textarea>
-            <br>
-            <label for="img">Picture:</label>
-            <input type="text" name="img" placeholder="img url">
-            <br>
-            <button type="submit">Create Product</button>
-        </form>
-    </section> -->
     <footer>
 
     </footer>

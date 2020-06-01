@@ -1,11 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/adminHead') %>
     <title>Edit Customer</title>
 </head>
 <body>
-    <h1>Edit Customer Page</h1>
+    <div class="header">
+        <h1>Edit Customer Details</h1>
+    </div>
+    <%- include('../partials/adminNav') %>
+    <section class="display-data align-center-hor">
+        <form action="/admin/cust/<%= customer._id %>?_method=PUT" method="POST">
+            <div class="cust-details">
+                <div class="row align-center-vert blk-bdr-bottom">
+                    <p id="p__new-cust">Edit Customer</p>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Name:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="name" value="<%= customer.name %>" required>
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Address:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="address" value="<%= customer.address %>" >
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        City:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="city" value="<%= customer.city %>">
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        State:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="state" value="<%= customer.state %>">
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Zipcode:
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="zip" maxlength="5" value="<%= customer.zip %>">
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Phone:
+                    </div>
+                    <div class="col-30">
+                        <input type="tel" name="phone" maxlength="12" value="<%= customer.phone %>" required>
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Email:
+                    </div>
+                    <div class="col-30">
+                        <input type="email" name="email" value="<%= customer.email %>" required>
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <div class="col-10">
+                        Password:
+                    </div>
+                    <div class="col-30">
+                        <input type="password" name="password" value="<%= customer.password %>" required>
+                    </div>
+                </div>
+                <div class="row align-center-vert">
+                    <button class="btn-med" type="submit">Update Customer</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <footer>
+
+    </footer>
 </body>
 </html>

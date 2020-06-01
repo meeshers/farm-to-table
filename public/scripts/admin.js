@@ -11,3 +11,8 @@ $('.delete-prod').click((event) => {
     //$('.delete-item').css("top", `${y}px`);
     //$('.delete-item').css("left", `${x}px`);
 });
+
+$('#prod-url').blur(() => {
+    const url = $('#prod-url').val();
+    $('#prod-img').attr("src", url);
+})

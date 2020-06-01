@@ -8,7 +8,7 @@ const custSchema = new mongoose.Schema({
     zip: {type: Number, maxlength: 5},
     phone: {type: String, required: true, maxlength: 12},
     email: {type: String, required: true},
-    password: String,
+    password: {type: String, required: true},
     profilePic: String,
     products: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +17,11 @@ const custSchema = new mongoose.Schema({
     invoices: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Invoice'
-    }]
+    }],
+    farmID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Farm'
+    }
 
 }, {timestamps:true});
 

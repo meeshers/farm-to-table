@@ -17,24 +17,34 @@ router.get('/', async (req, res) => {
     } 
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
 //ROOT customer administration page
-router.get('/cust', (req, res) => {
-    res.render('admin/cust/index');
+router.get('/cust', async (req, res) => {
+    try {
+        const farmCustomers = await db.Farms.findOne({name: farmName}).populate('customers');
+
+        res.render('admin/cust', {customers: farmCustomers.customers});
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
+    //res.render('admin/cust/index');
 });
 
 //ROOT product administration page
 router.get('/product', async (req, res) => {
     try {
-        const allProducts = await db.Products.find({});
-        res.render('admin/product', {products: allProducts});
+        const farmProducts = await db.Farms.findOne({name: farmName}).populate('products');
+
+        res.render('admin/product', {products: farmProducts.products});
     }
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
@@ -71,19 +81,42 @@ router.post('/', async (req, res) => {
 });
 
 //CREATE customer route
-router.post('/cust', (req, res) => {
-    res.redirect('/admin/cust');
+router.post('/cust', async (req, res) => {
+    try {
+
+        const farm = await db.Farms.findOne({name: farmName});
+        req.body.farmID = farm._id;
+
+        console.log(req.body);
+        
+        const newCust = await db.Customers.create(req.body);
+
+        farm.customers.push(newCust);
+        farm.save();
+        
+        res.redirect('/admin/cust');
+
+    } catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //CREATE product route
 router.post('/product', async (req, res) => {
     try {
-        // req.body.available = (req.body.available)? true : false; 
+
+        const farm = await db.Farms.findOne({name: farmName});
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
+        req.body.farmID = farm._id;
         
-        await db.Products.create(req.body);
-        //console.log(req.body);
+        const newProduct = await db.Products.create(req.body);
+
+        farm.products.push(newProduct);
+        farm.save();
+        
         res.redirect('/admin/product');
+
     } catch (error) {
         console.log(error);
         res.send({message: "Internal Server Error!"});
@@ -91,8 +124,16 @@ router.post('/product', async (req, res) => {
 });
 
 //SHOW customer show page
-router.get('/cust/:id', (req, res) => {
-    res.render('admin/cust/show');
+router.get('/cust/:id', async (req, res) => {
+    try {
+        const customer = await db.Customers.findById(req.params.id);
+        console.log(customer);
+        res.render('admin/cust/show', {customer: customer});
+    } 
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //SHOW product show page
@@ -123,8 +164,16 @@ router.get('/product/:id', async (req, res) => {
 });
 
 //EDIT customer page
-router.get('/cust/:id/edit', (req, res) => {
-    res.render('admin/cust/edit');
+router.get('/cust/:id/edit', async (req, res) => {
+    try {
+        const customer = await db.Customers.findById(req.params.id);
+
+        res.render('admin/cust/edit', {customer: customer});
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //EDIT product page
@@ -150,7 +199,7 @@ router.get('/product/:id/edit', async (req, res) => {
     } 
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
@@ -160,24 +209,29 @@ router.put('/:id', (req, res) => {
 });
 
 //UPDATE customer route
-router.put('/cust/:id', (req, res) => {
-    res.redirect(`admin/cust/${req.params.id}`);
+router.put('/cust/:id', async (req, res) => {
+    try {
+        await db.Customers.findByIdAndUpdate(req.params.id, req.body, {new:true});
+
+        res.redirect(`/admin/cust/${req.params.id}`);
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //UPDATE product route
 router.put('/product/:id', async (req, res) => {
     try {
-        //req.body.available = (req.body.available)? true : false;
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
 
         await db.Products.findByIdAndUpdate(req.params.id, req.body, {new:true});
         res.redirect(`/admin/product/${req.params.id}`);
-
-        console.log(req.body);
     }
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
@@ -189,13 +243,17 @@ router.delete('/cust/:id', (req, res) => {
 //DELETE product route
 router.delete('/product/:id', async (req, res) => {
     try {
-        await db.Products.findByIdAndDelete(req.params.id);
-        console.log("You are deleting: " + req.params.id);
+        const delProduct = await db.Products.findByIdAndDelete(req.params.id);
+        const farm = await db.Farms.findOne({name: farmName});
+
+        farm.products.remove(delProduct);
+        farm.save();
+
         res.redirect('/admin/product');
     }
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
