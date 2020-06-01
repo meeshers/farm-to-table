@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     } 
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
@@ -30,7 +30,7 @@ router.get('/cust', async (req, res) => {
     }
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
     //res.render('admin/cust/index');
 });
@@ -44,7 +44,7 @@ router.get('/product', async (req, res) => {
     }
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
@@ -86,6 +86,8 @@ router.post('/cust', async (req, res) => {
 
         const farm = await db.Farms.findOne({name: farmName});
         req.body.farmID = farm._id;
+
+        console.log(req.body);
         
         const newCust = await db.Customers.create(req.body);
 
@@ -122,8 +124,16 @@ router.post('/product', async (req, res) => {
 });
 
 //SHOW customer show page
-router.get('/cust/:id', (req, res) => {
-    res.render('admin/cust/show');
+router.get('/cust/:id', async (req, res) => {
+    try {
+        const customer = await db.Customers.findById(req.params.id);
+        console.log(customer);
+        res.render('admin/cust/show', {customer: customer});
+    } 
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //SHOW product show page
@@ -154,8 +164,16 @@ router.get('/product/:id', async (req, res) => {
 });
 
 //EDIT customer page
-router.get('/cust/:id/edit', (req, res) => {
-    res.render('admin/cust/edit');
+router.get('/cust/:id/edit', async (req, res) => {
+    try {
+        const customer = await db.Customers.findById(req.params.id);
+
+        res.render('admin/cust/edit', {customer: customer});
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //EDIT product page
@@ -181,7 +199,7 @@ router.get('/product/:id/edit', async (req, res) => {
     } 
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
@@ -191,8 +209,16 @@ router.put('/:id', (req, res) => {
 });
 
 //UPDATE customer route
-router.put('/cust/:id', (req, res) => {
-    res.redirect(`admin/cust/${req.params.id}`);
+router.put('/cust/:id', async (req, res) => {
+    try {
+        await db.Customers.findByIdAndUpdate(req.params.id, req.body, {new:true});
+
+        res.redirect(`/admin/cust/${req.params.id}`);
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //UPDATE product route
@@ -205,7 +231,7 @@ router.put('/product/:id', async (req, res) => {
     }
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
@@ -227,7 +253,7 @@ router.delete('/product/:id', async (req, res) => {
     }
     catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error!"})
+        res.send({message: "Internal Server Error!"});
     }
 });
 
