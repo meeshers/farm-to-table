@@ -57,6 +57,11 @@ router.get('/subscribe', (req, res) => {
   res.render('shop/subscribe');
 })
 
+// subscribe POST route
+router.post('/', (req,res) => {
+  res.render('shop/sub-post');
+})
+
 // log in route
 router.get('/login', (req, res) => {
   res.render('shop/login');
