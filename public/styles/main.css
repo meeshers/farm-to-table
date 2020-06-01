@@ -7,6 +7,7 @@
 body {
   background-color: #CCEDD2;
   color: #1f1f1f;
+  text-align: center;
 }
 
 .header {
@@ -41,7 +42,7 @@ a {
 }
 
 .logo {
-  text-align: left;
+  float: left;
 }
 
 
