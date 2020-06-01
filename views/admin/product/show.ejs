@@ -11,14 +11,37 @@
     <%- include('../partials/adminNav') %>
     <section class="display-data">
         <div class="upload-img">
-            <input type="text" name="name" placeholder="Product Name" id="prod-name" required>
+            <label class="prod-labels" for="img">Product Image</label>
             <div class="prod-img">
-                <img src="" alt="upload pic">
+                <img src="<%= product.img %>" alt="upload pic">
             </div>
-            <input type="text" name="img" placeholder="img url" id="prod-url">
         </div>
-        <div class="prod-details">
-
+        <div class="prod-details" id="show-page-details">
+            <div class="row">
+                <p class="p__show-page "><%= product.name %></p>
+            </div>
+            <div class="row">
+                <textarea name="description" id="textarea__show-page" cols="30" rows="5"><%= product.description %></textarea>
+            </div>
+            <div class="row">
+                <textarea name="description" id="textarea__show-page" cols="30" rows="5"><%= product.growthNotes %></textarea>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Price: <%= product.price %></p>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Birth Date: <%= product.birthDate %></p>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Date Ready: <%= product.readyDate %></p>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Available: <%= (product.available)? 'Yes' : 'No' %></p>
+            </div>
+            <div class="class align-right">
+                <button class="btn-lrg" type="submit">Update</button>
+                <button class="btn-lrg" type="submit">Delete</button>
+            </div>
         </div>
     </section>
     <footer>

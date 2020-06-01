@@ -78,10 +78,11 @@ router.post('/cust', (req, res) => {
 //CREATE product route
 router.post('/product', async (req, res) => {
     try {
-        req.body.available = (req.body.available)? true : false; 
+        // req.body.available = (req.body.available)? true : false; 
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
         
         await db.Products.create(req.body);
+        //console.log(req.body);
         res.redirect('/admin/product');
     } catch (error) {
         console.log(error);
@@ -95,23 +96,38 @@ router.get('/cust/:id', (req, res) => {
 });
 
 //SHOW product show page
-router.get('/product/:id', (req, res) => {
+router.get('/product/:id', async (req, res) => {
     try {
-        //console.log("Showing item: " + req.params.id);
+        const foundProduct = await db.Products.findById(req.params.id);
+        //let price = (foundProduct.price)? functions.stripDollar(foundProduct.price) : '';
+        let birthDate = (foundProduct.birthDate !== null)? functions.getDate(foundProduct.birthDate, true) : '';
+        let readyDate = (foundProduct.readyDate !== null)? functions.getDate(foundProduct.readyDate, true) : '';
+        
+        const product = {
+            _id: foundProduct._id,
+            name: foundProduct.name,
+            description: foundProduct.description,
+            price: foundProduct.price,
+            birthDate: birthDate,
+            readyDate: readyDate,
+            available: foundProduct.available,
+            growthNotes: foundProduct.growthNotes,
+            img: foundProduct.img
+        }
+        res.render('admin/product/show', {product: product});
     }
     catch (error) {
         console.log(error);
         res.send({message: "Internal Server Error!"});
     }
-    res.render('admin/product/show');
 });
 
-//EDIT customer show page
+//EDIT customer page
 router.get('/cust/:id/edit', (req, res) => {
     res.render('admin/cust/edit');
 });
 
-//EDIT product show page
+//EDIT product page
 router.get('/product/:id/edit', async (req, res) => {
     try {
         const foundProduct = await db.Products.findById(req.params.id);
@@ -151,11 +167,13 @@ router.put('/cust/:id', (req, res) => {
 //UPDATE product route
 router.put('/product/:id', async (req, res) => {
     try {
-        req.body.available = (req.body.available)? true : false;
+        //req.body.available = (req.body.available)? true : false;
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
 
         await db.Products.findByIdAndUpdate(req.params.id, req.body, {new:true});
         res.redirect(`/admin/product/${req.params.id}`);
+
+        console.log(req.body);
     }
     catch (error) {
         console.log(error);
