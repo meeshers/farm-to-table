@@ -11,30 +11,36 @@
     <%- include('../partials/adminNav') %>
     <section class="display-data">
         <div class="upload-img">
-            <input type="text" name="name" placeholder="Product Name" id="prod-name" required>
+            <label class="prod-labels" for="img">Product Image</label>
             <div class="prod-img">
-                <img src="" alt="upload pic">
+                <img src="<%= product.img %>" alt="upload pic">
             </div>
-            <input type="text" name="img" placeholder="img url" id="prod-url">
         </div>
-        <div class="prod-details">
-            <label for="description">Product Description</label>
-            <textarea name="description" cols="30" rows="5" required></textarea>
-            <label for="growthhNotes">Growth Notes</label>
-            <textarea name="growthNotes" cols="30" rows="5"></textarea>
+        <div class="prod-details" id="show-page-details">
             <div class="row">
-                <label id="birthdate-label" for="birthDate">Birth Date:</label>
-                <input class="date-picker" type="date" name="birthDate">
-                <label id="readydate-label" for="readyDate">Ready Date:</label>
-                <input class="date-picker" type="date" name="readyDate">
+                <p class="p__show-page "><%= product.name %></p>
             </div>
             <div class="row">
-                <label for="price">Price:</label>
-                <input type="text" name="price">
-                <label for="available">Available:</label>
-                <input type="checkbox" name="available">Yes
-                <input type="checkbox">No
-
+                <textarea name="description" id="textarea__show-page" cols="30" rows="5"><%= product.description %></textarea>
+            </div>
+            <div class="row">
+                <textarea name="description" id="textarea__show-page" cols="30" rows="5"><%= product.growthNotes %></textarea>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Price: <%= product.price %></p>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Birth Date: <%= product.birthDate %></p>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Date Ready: <%= product.readyDate %></p>
+            </div>
+            <div class="row">
+                <p class="p__show-page">Available: <%= (product.available)? 'Yes' : 'No' %></p>
+            </div>
+            <div class="class align-right">
+                <button class="btn-lrg" type="submit">Update</button>
+                <button class="btn-lrg" type="submit">Delete</button>
             </div>
         </div>
     </section>

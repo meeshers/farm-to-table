@@ -8,8 +8,43 @@
     <div class="header">
         <h1>New Product Page</h1>
     </div>
-    <%- include('../partials/adminNav') %> 
+    <%- include('../partials/adminNav') %>
     <section class="display-data">
+        <form action="/admin/product" method="POST">
+            <div class="upload-img">
+                <label class="prod-labels" for="img">Product Image</label>
+                <div class="prod-img">
+                    <img src="" alt="upload pic">
+                </div>
+                <input type="text" name="img" placeholder="img url" id="prod-url">
+            </div>
+            <div class="prod-details">
+                <label class="prod-labels" for="name">Product Name</label>
+                <input type="text" name="name" placeholder="Product Name" id="prod-name" required>
+                <label class="prod-labels" for="description">Product Description</label>
+                <textarea id="prod-desc" name="description" cols="30" rows="5" required></textarea>
+                <label class="prod-labels" for="growthhNotes">Growth Notes</label>
+                <textarea id="prod-notes" name="growthNotes" cols="30" rows="5"></textarea>
+                <div class="row">
+                    <label id="birthdate-label" for="birthDate">Birth Date:</label>
+                    <input class="date-picker" type="date" name="birthDate">
+                    <label id="readydate-label" for="readyDate">Ready Date:</label>
+                    <input class="date-picker" type="date" name="readyDate">
+                </div>
+                <div class="row">
+                    <label id="price-label" for="price">Price:</label>
+                    <input id="price-input" type="text" name="price" placeholder="000.00">
+                    <label id="available-label" for="available">Available:</label>
+                    <input class="available-chkbx" type="radio" name="available" value="true"><p class="chkbx-text">Yes</p>
+                    <input class="available-chkbx" type="radio" name="available" value="false" checked><p class="chkbx-text" >No</p>
+                </div>
+                <div class="row align-right">
+                    <button class="btn-lrg" type="submit">Create Product</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- <section class="display-data">
         <form action="/admin/product" method="POST">
             <label for="name">Name:</label>
             <input type="text" name="name" placeholder="Name" required>
@@ -39,7 +74,7 @@
             <br>
             <button type="submit">Create Product</button>
         </form>
-    </section>
+    </section> -->
     <footer>
 
     </footer>

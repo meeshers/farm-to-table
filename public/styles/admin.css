@@ -26,7 +26,7 @@ aside {
 
 footer {
     /* background-color: #655C56; */
-    opacity: .8;
+    /* opacity: .8; */
     position: fixed;
     bottom: 0;
     left: 150px;
@@ -52,8 +52,8 @@ ul li {
 }
 
 button {
-    background-color: #655C56;
-    color: white
+    background-color: #CCEDD2;
+    color: black;
 }
 
 
@@ -131,6 +131,8 @@ a:visited {
     position: absolute;
     top: 30px;
     left: 30px;
+    color:#EFFCEF;
+    font-size: 16px;
 }
 
 .prod-details {
@@ -147,10 +149,19 @@ a:visited {
     font-size: 16px;
 }
 
+.prod-labels {
+    margin: 5px 0 2px 0;
+}
+
 .prod-img {
     width: 325px;
     height: 325px;
     background-color: white;
+}
+
+.prod-img img {
+    width: 325px;
+    height: 325px;
 }
 
 #prod-url {
@@ -165,40 +176,98 @@ a:visited {
 
 #prod-name {
     /* align-self: flex-start; */
-    margin: 5px 0 5px 0;
-    width: 325px;
+    /* margin: 5px 0 5px 0; */
+    width: 445px;
     height: 25px;
     font-size: 18px;
     border: none;
     padding-left: 10px;
 }
 
+#prod-desc {
+    width: 445px;
+}
+
+#prod-notes {
+    width: 445px;
+}
+
+.date-picker {
+    width: 162.5px;
+    margin-top: 16px;
+}
+
+#birthdate-label {
+    width: 50px;
+    margin-top: 16px;
+}
+
+#readydate-label {
+    text-align: right;
+    width: 50px;
+    margin: 16px 10px 0 10px;
+}
+
+#price-label {
+    margin: 16px 0 0 0;
+}
+
+#price-input {
+    margin: 16px 0 0 10px;
+    font-size: 16px;
+    height: 25px;
+    width: 162.5px;
+}
+
+#available-label {
+    margin: 16px 10px 0 16px;
+}
+
+.available-chkbx{
+    margin: 16px 0 0 0;
+    height: 20px;
+    width: 20px;
+}
+
+.chkbx-text {
+    margin: 16px 10px 0 3px;
+}
+
+.p__show-page {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+#textarea__show-page {
+    background: transparent;
+    color:#EFFCEF;
+    resize: none;
+    width: 445px;
+    height: 70px;
+    padding: 5px 0 0 5px;
+    margin-top: 5px;
+}
+
+#show-page-details{
+    padding-top: 10px;
+}
+
 .btn-sml {
     font-size: small;
-    margin: 0 2px;
+    margin: 2px 2px;
+    padding: 2px;
 }
 
 .btn-med {
     font-size: medium;
-    margin: 2px 2px;
+    padding: 2px;
 }
 
 .btn-lrg {
     font-size: large;
-    margin: 10px 5px;
+    margin: 5px 5px;
+    padding: 3px;
     border-radius: 5px;
-}
-
-.input-text {
-    background-color: #F0F8FF;
-    border: 5px;
-    font-size: medium;
-    border: 1px solid #D6ECFF;
-}
-
-.input-text:focus, button:focus, a:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(65, 85, 255, 1);
 }
 
 .table {
@@ -212,27 +281,10 @@ a:visited {
 }
 
 .row-hdr {
-    /* background-color: #849DB3; */
-    background-color: #163261;
+    background-color: #655C56;
     color: #F0F8FF;
     font-size: large;
     font-weight: bold;
-}
-
-.date-picker {
-    width: 165px;
-    margin-top: 16px;
-}
-
-#birthdate-label {
-    width: 50px;
-    margin-top: 16px;
-}
-
-#readydate-label {
-    text-align: right;
-    width: 50px;
-    margin: 16px 10px 0 10px;
 }
 
 .white {
