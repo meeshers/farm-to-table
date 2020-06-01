@@ -15,12 +15,15 @@
 
   <div class="container">
 
-      <!-- product card -->
-  <!-- product image, name, and price. on  hover it will display description? -->
-  <% for( let i = 0; i < product.length; i++ ) { %>
+    <!-- product card -->
+    <!-- product image, name, and price. on  hover it will display description? -->
+    <% for( let i = 0; i < product.length; i++ ) { %>
     <div class="product">
       <img src="<%= product[i].img %>" alt="<%= product[i].name %>">
-      <p class="product-desc"> <a href="/"><%= product[i].name %></a> <span class="price"> <%= product[i].price %> </span></p> <br />
+      <p class="product-desc"> 
+        <a href="/product/<%= product[i]._id%>">
+        <%= product[i].name %></a> 
+        <span class="price"> <%= product[i].price %> </span></p> <br />
       <!-- <small><%= product[i].description %></small> -->
     </div>
     <% } %>

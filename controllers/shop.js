@@ -8,29 +8,27 @@ router.get('/', (req,res)=>{
 })
 
 // View all products route
-router.get('/products', (req,res)=>{
-  db.Products.find({}, function(error, allProducts){
-    if(error){
-      console.log(error);
-    } else {
-      const context = {products: allProducts};
-      res.render('shop/product', {product: allProducts})
-    }
-  })
-/*   try{
-    const foundProduct = await db.Products.find({});
-    res.render('shop/product', {product: foundProduct});
+router.get('/products', async (req,res)=>{
+  try{
+    const allProducts = await db.Products.find({});
+    res.render('shop/product', {product: allProducts});
   } catch(error) {
     console.log(error);
     res.send({message: "Internal Server Error!"});
   }
- */
+
 })
 
 // product show route
-router.get('/product/:id', (req,res)=>{
-  //const context = req.params.id;
-  res.render('shop/show');
+router.get('/product/:id', async (req,res)=>{
+  try {
+    const foundProduct = await db.Products.findById(req.params.id);
+    res.render('shop/show', {product: foundProduct});
+  } catch(error){
+    console.log(error);
+    res.send({message: "Internal Server Error!"});
+  }
+
 })
 
 // about page route
