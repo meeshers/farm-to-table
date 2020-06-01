@@ -9,19 +9,71 @@
         <h1>Farm Store Administration</h1>
     </div>
     <%- include('partials/adminNav') %>
-    <section class="display-data">
-        <% if(!farm) {%>
-            <p><a href="/admin/newFarm">Create Farm</a></p>
-        <% } else { %> 
-            <h3>Farm Details</h3>
-            <p>Name: <%= farm.name %></p>
-            <p>Address: <%= farm.address %></p>
-            <p>City: <%= farm.city %></p>
-            <p>State: <%= farm.state %></p>
-            <p>Zipcode: <%= farm.zip %></p>
-            <p>Phone: <%= farm.phone %></p>
-            <p>Email: <%= farm.email %></p>
-        <% } %>
+    <section class="display-data align-center-hor">
+        <div class="farm-details">
+            <% if(!farm) {%>
+                <p><a href="/admin/newFarm">Create Farm</a></p>
+            <% } else { %>
+            <div class="row align-center-vert blk-bdr-bottom">
+                <p id="p__farm-details">Farm Details</p>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Name:
+                </div>
+                <div class="col-20">
+                    <%= farm.name %>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Address:
+                </div>
+                <div class="col-20">
+                    <%= farm.address %>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    City:
+                </div>
+                <div class="col-20">
+                    <%= farm.city %>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    State:
+                </div>
+                <div class="col-20">
+                    <%= farm.state %>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Zipcode:
+                </div>
+                <div class="col-20">
+                    <%= farm.zip %>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Phone:
+                </div>
+                <div class="col-20">
+                    <%= farm.phone %>
+                </div>
+            </div><div class="row align-center-vert">
+                <div class="col-10">
+                    Email:
+                </div>
+                <div class="col-20">
+                    <%= farm.email %>
+                </div>
+            </div>
+            <% } %>
+        </div>
     </section>
     <footer>
 

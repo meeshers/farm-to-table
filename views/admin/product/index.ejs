@@ -34,12 +34,15 @@
                     <a href="/admin/product/<%= products[i]._id %>/edit" tabindex="-1">
                         <button class="btn-sml">Edit</button></a>
                     <form action="/admin/product/<%= products[i]._id %>?_method=DELETE" method="POST">
-                        <button class="btn-sml">Delete</button>
+                        <button class="btn-sml delete-prod">Delete</button>
                     </form>
                 </div>
             </div>
         <% } %> 
         </article>
+        <!-- <div class="delete-item">
+            Delete me
+        </div> -->
     </section>
     <footer>
 

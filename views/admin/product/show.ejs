@@ -39,10 +39,16 @@
                 <p class="p__show-page">Available: <%= (product.available)? 'Yes' : 'No' %></p>
             </div>
             <div class="class align-right">
-                <button class="btn-lrg" type="submit">Update</button>
-                <button class="btn-lrg" type="submit">Delete</button>
+                <a href="/admin/product/<%= product._id %>/edit" tabindex="-1">
+                    <button class="btn-lrg">Edit</button></a>
+                <form action="/admin/product/<%= product._id %>?_method=DELETE" method="POST">
+                    <button id="from-show" class="btn-lrg delete-prod">Delete</button>
+                </form>
             </div>
         </div>
+        <!-- <div class="delete-item">
+            Delete me
+        </div> -->
     </section>
     <footer>
 
