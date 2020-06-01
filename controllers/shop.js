@@ -67,6 +67,11 @@ router.get('/login', (req, res) => {
   res.render('shop/login');
 })
 
+// login POST route
+router.post('/', (req,res)=>{
+  res.render('shop/user');
+})
+
 // view cart route
 router.get('/cart', (req, res) => {
   res.render('shop/cart');
