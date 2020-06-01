@@ -8,7 +8,11 @@ const productSchema = new mongoose.Schema({
     readyDate: Date,
     available: Boolean,
     growthNotes: String,
-    img: String
+    img: String,
+    farmID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Farm'
+    }
       
 }, {timestamps:true});
 

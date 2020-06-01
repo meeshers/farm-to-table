@@ -4,6 +4,7 @@ const router = express.Router();
 const db = require('../models');
 
 const farmName = "Pieces of Ate";
+let FARMID = "";
 const adminUser = "admin";
 const adminPass = "admin1";
 
@@ -11,6 +12,10 @@ const adminPass = "admin1";
 router.get('/', async (req, res) => {
     try {
         const foundFarm = await db.Farms.findOne({name: farmName});
+
+        //if the farm is not created then dont set the FARMID yet
+        if(foundFarm !== null)
+            FARMID = foundFarm._id;
 
         res.render('admin/index', {farm: foundFarm});
 
@@ -29,8 +34,9 @@ router.get('/cust', (req, res) => {
 //ROOT product administration page
 router.get('/product', async (req, res) => {
     try {
-        const allProducts = await db.Products.find({});
-        res.render('admin/product', {products: allProducts});
+        const farmProducts = await db.Farms.findOne({name: farmName}).populate('products');
+
+        res.render('admin/product', {products: farmProducts.products});
     }
     catch (error) {
         console.log(error);
@@ -72,18 +78,24 @@ router.post('/', async (req, res) => {
 
 //CREATE customer route
 router.post('/cust', (req, res) => {
+    console.log("creating new customer");
     res.redirect('/admin/cust');
 });
 
 //CREATE product route
 router.post('/product', async (req, res) => {
     try {
-        // req.body.available = (req.body.available)? true : false; 
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
+        req.body.farmID = FARMID;
         
-        await db.Products.create(req.body);
-        //console.log(req.body);
+        const newProduct = await db.Products.create(req.body);
+        const farm = await db.Farms.findById(FARMID);
+
+        farm.products.push(newProduct);
+        farm.save();
+        
         res.redirect('/admin/product');
+
     } catch (error) {
         console.log(error);
         res.send({message: "Internal Server Error!"});
@@ -167,13 +179,10 @@ router.put('/cust/:id', (req, res) => {
 //UPDATE product route
 router.put('/product/:id', async (req, res) => {
     try {
-        //req.body.available = (req.body.available)? true : false;
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
 
         await db.Products.findByIdAndUpdate(req.params.id, req.body, {new:true});
         res.redirect(`/admin/product/${req.params.id}`);
-
-        console.log(req.body);
     }
     catch (error) {
         console.log(error);
@@ -189,8 +198,12 @@ router.delete('/cust/:id', (req, res) => {
 //DELETE product route
 router.delete('/product/:id', async (req, res) => {
     try {
-        await db.Products.findByIdAndDelete(req.params.id);
-        console.log("You are deleting: " + req.params.id);
+        const delProduct = await db.Products.findByIdAndDelete(req.params.id);
+        const farm = await db.Farms.findById(delProduct.farmID);
+
+        farm.products.remove(delProduct);
+        farm.save();
+
         res.redirect('/admin/product');
     }
     catch (error) {

@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/adminHead') %>
     <title>New Customer Page</title>
 </head>
 <body>
-    <h1>New Customer Page</h1>
+    <div class="header">
+        <h1>Add New Customer</h1>
+    </div>
+    <%- include('../partials/adminNav') %>
+    <section class="display-data">
+        <form action="/admin/product" method="POST">
+            <div class="upload-img">
+                <label class="prod-labels" for="img">Profile Picture</label>
+                <div class="prod-img">
+                    <img src="" alt="profile pic">
+                </div>
+            </div>
+            <div class="prod-details">
+                <div class="row">
+                    <div class="col-15">
+                        <label class="prod-labels" for="name">Customer Name:</label>
+                    </div>
+                    <div class="col-30">
+                        <input type="text" name="name" placeholder="Customer Name" required>
+                    </div>
+                </div>
+                <label class="prod-labels" for="description">Product Description</label>
+                <textarea id="prod-desc" name="description" cols="30" rows="5" required></textarea>
+                <label class="prod-labels" for="growthhNotes">Growth Notes</label>
+                <textarea id="prod-notes" name="growthNotes" cols="30" rows="5"></textarea>
+                <div class="row">
+                    <label id="birthdate-label" for="birthDate">Birth Date:</label>
+                    <input class="date-picker" type="date" name="birthDate">
+                    <label id="readydate-label" for="readyDate">Ready Date:</label>
+                    <input class="date-picker" type="date" name="readyDate">
+                </div>
+                <div class="row">
+                    <label id="price-label" for="price">Price:</label>
+                    <input id="price-input" type="text" name="price" placeholder="000.00">
+                    <label id="available-label" for="available">Available:</label>
+                    <input class="available-chkbx" type="radio" name="available" value="true"><p class="chkbx-text">Yes</p>
+                    <input class="available-chkbx" type="radio" name="available" value="false" checked><p class="chkbx-text" >No</p>
+                    <input type="hidden" name="farmID">
+                </div>
+                <div class="row align-right">
+                    <button class="btn-lrg" type="submit">Create Product</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <footer>
+
+    </footer>
 </body>
 </html>
