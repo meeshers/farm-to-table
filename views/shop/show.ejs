@@ -9,8 +9,37 @@
 </head>
 <body>
   <%- include('../header') %>
-  <h1>This is the product show page</h1>
-  <%= product.name %>
+  <!-- <h1>This is the product show page</h1> -->
+  
+  <div class="container">
+    <img class="photo" src="<%= product.img %>" alt="<%= product.name %>">
+
+    <div class="content">
+      <h2><%= product.name %></h2>
+      <p><%= product.price %></p>
+    
+      <p><%= product.description %></p>
+    
+      <%= product.birthDate %>
+      <%= product.readyDate %>
+
+      <% if (product.available===true) { %>
+       <p>This item is currently in stock.</p>
+      <% } %>
+      <p><b>Note from the producer:</b></p>
+      <% if (!product.growthNotes) { %>
+        <p>There are no further notes on this product from the producer</p>
+       <% } else {%>
+        <%= product.growthNotes %> 
+        <% } %>
+
+
+      <button type="submit">Add to cart</button>
+    </div>
+
+  </div>
+
+
   <%- include('../footer') %>
 </body>
 </html>
