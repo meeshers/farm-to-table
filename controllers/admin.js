@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require('../models');
 
 const farmName = "Pieces of Ate";
-let FARMID = "";
 const adminUser = "admin";
 const adminPass = "admin1";
 
@@ -12,10 +11,6 @@ const adminPass = "admin1";
 router.get('/', async (req, res) => {
     try {
         const foundFarm = await db.Farms.findOne({name: farmName});
-
-        //if the farm is not created then dont set the FARMID yet
-        if(foundFarm !== null)
-            FARMID = foundFarm._id;
 
         res.render('admin/index', {farm: foundFarm});
 
@@ -85,11 +80,12 @@ router.post('/cust', (req, res) => {
 //CREATE product route
 router.post('/product', async (req, res) => {
     try {
+
+        const farm = await db.Farms.findOne({name: farmName});
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
-        req.body.farmID = FARMID;
+        req.body.farmID = farm._id;
         
         const newProduct = await db.Products.create(req.body);
-        const farm = await db.Farms.findById(FARMID);
 
         farm.products.push(newProduct);
         farm.save();
@@ -199,7 +195,7 @@ router.delete('/cust/:id', (req, res) => {
 router.delete('/product/:id', async (req, res) => {
     try {
         const delProduct = await db.Products.findByIdAndDelete(req.params.id);
-        const farm = await db.Farms.findById(delProduct.farmID);
+        const farm = await db.Farms.findOne({name: farmName});
 
         farm.products.remove(delProduct);
         farm.save();
