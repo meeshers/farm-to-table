@@ -35,19 +35,34 @@ router.get('/login', (req, res) => {
 // login POST route
 router.post('/login', async (req,res)=>{
   try{
+    const foundUser = await db.Customers.findOne({ email: req.body.email});
+    if(!foundUser){
+      return res.send({message: "Password or email incorrect"});
+    }
 
+    const match = await bcrypt.compare(req.body.password, foundUser.password);
+    if(!match){
+      return res.send({message: "Password or email incorrect"});
+    }
+
+    req.session.currentUser={
+      id: foundUser._id,
+      name: foundUser.name
+    }
+    res.redirect("/user");
   } catch(error) {
     console.log(error);
     res.send({message: "Internal server error"});
   }
-  res.render('shop/auth/user');
 })
 
 // logout (delete)
 
 // user page route
-router.get('/user', (req, res) => {
-  res.render('shop/user');
+router.get('/user', async (req, res) => {
+
+
+  res.render('shop/auth/user');
 })
 
 module.exports = router;

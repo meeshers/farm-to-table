@@ -47,6 +47,9 @@ app.use("/admin", controllers.admin);
 // user auth routes
 app.use("/", controllers.auth);
 
+// require auth on user
+app.use("/", authRequired, controllers.auth);
+
 app.listen(PORT, () => {
     console.log("Server running at http://localhost:" + PORT);
 })
