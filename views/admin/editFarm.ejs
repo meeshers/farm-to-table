@@ -2,48 +2,81 @@
 <html lang="en">
 <head>
     <%- include('partials/adminHead') %>
+    <script src="/scripts/admin.js" defer></script>
     <title>Edit Farm</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Edit Farm</h1>
-    </div>
+    <%- include('partials/adminHeader') %>
     <%- include('partials/adminNav') %>
-    <section class="display-data">
+    <article class="body__article-details black-text-shadow">
         <form action="/admin/<%= farm._id %>?_method=PUT" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" placeholder="Farm Name" value="<%= farm.name %>" readonly required>
-            <br>
-            <label for="address">Address:</label>
-            <input type="text" name="address" placeholder="Address" value="<%= farm.address %>" required>
-            <br>
-            <label for="city">City:</label>
-            <input type="text" name="city" placeholder="City" value="<%= farm.city %>" required>
-            <br>
-            <label for="state">State:</label>
-            <input type="text" name="state" placeholder="State" value="<%= farm.state %>" required>
-            <br>
-            <label for="zip">Zipcode:</label>
-            <input type="text" name="zip" placeholder="Zipcode" maxlength="5" value="<%= farm.zip %>" required>
-            <br>
-            <label for="phone">Phone:</label>
-            <input type="text" name="phone" placeholder="xxx-xxx-xxxx" maxlength="12" value="<%= farm.phone %>" required>
-            <br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="Email" value="<%= farm.email %>" required>
-            <br>
-            <label for="username">Username:</label>
-            <input type="text" name="username" placeholder="Username" value="<%= farm.username %>" required>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" name="password" placeholder="Password" value="<%= farm.password %>" required>
-            <br>
-            <a href="/admin">
-                <button type="button">Back</button>
-            </a>
-            <button type="submit">Update Farm</button>
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">Farm Details</th>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name" placeholder="Farm Name" value="<%= farm.name %>" readonly required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="address" placeholder="Address" value="<%= farm.address %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <input type="text" name="city" placeholder="City" value="<%= farm.city %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <input type="text" name="state" placeholder="State" value="<%= farm.state %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>
+                        <input type="text" name="zip" placeholder="Zipcode" maxlength="5" value="<%= farm.zip %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <input type="text" name="phone" placeholder="xxx-xxx-xxxx" maxlength="12" value="<%= farm.phone %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="email" placeholder="Email" value="<%= farm.email %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>
+                        <input type="text" name="username" placeholder="Username" value="<%= farm.username %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" placeholder="Password" value="<%= farm.password %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-align-right" colspan="2">
+                        <a href="/admin">
+                            <button class="btn-med" type="button">Back</button>
+                        </a>
+                        <button class="btn-med" type="submit">Update Farm</button>
+                    </td>
+                </tr>
+            </table>
         </form>
-    </section>
+    </article>
     <footer>
 
     </footer>

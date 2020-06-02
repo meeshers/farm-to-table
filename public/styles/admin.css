@@ -6,17 +6,16 @@ body {
     color: #655C56;
 }
 
-.body__article-farm-details {
+.body__article-details {
     background-color: rgba(101,92,86,.7);
     color: #CCEDD2;
-    text-shadow: 0px 2px 3px black;
-    height: 360px;
     margin-top: 50px;
     border-radius: 10px;
 }
 
 .table__farm-details {
     font-size: 22px;
+    border-collapse: collapse;
 }
 
 .table__farm-details th {
@@ -26,6 +25,16 @@ body {
 
 .table__farm-details td {
     padding: 5px 15px 5px 15px;
+}
+
+.table__farm-details input {
+    height: 25px;
+    width: 250px;
+    font-size: 16px;
+}
+
+.table-button {
+    display: flex;
 }
 
 .text-align-right {
@@ -49,7 +58,6 @@ button {
 button:hover {
     cursor: pointer;
     background-color: #CCEDD2;
-    /* opacity: .5; */
 }
 
 .btn-sml {
@@ -70,6 +78,30 @@ button:hover {
     margin: 5px 5px;
     padding: 3px;
     border-radius: 5px;
+}
+
+.white {
+    background-color: white;
+}
+
+.gray {
+    background-color: lightgray;
+}
+
+.no-bottom-radius {
+    border-radius: 5px 5px 0 0;
+}
+
+.brown-text {
+    color: #655C56;
+}
+
+.black-text {
+    color: black;
+}
+
+.black-text-shadow {
+    text-shadow: 0px 2px 3px black;
 }
 
 /* h1 {
@@ -328,14 +360,6 @@ a:visited {
     color: #F0F8FF;
     font-size: large;
     font-weight: bold;
-}
-
-.white {
-    background-color: white;
-}
-
-.gray {
-    background-color: lightgray;
 }
 
 .col-10 {

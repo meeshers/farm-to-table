@@ -8,7 +8,7 @@
 <body>
     <%- include('partials/adminHeader') %>
     <%- include('partials/adminNav') %>
-    <article class="body__article-farm-details">
+    <article class="body__article-details black-text-shadow">
         <% if(!farm) {%>
             <p><a href="/admin/newFarm">Create Farm</a></p>
         <% } else { %>
@@ -43,14 +43,14 @@
                 <td><%= farm.email %></td>
             </tr>
             <tr>
-                <td class="text-align-right table-button" colspan="2">
+                <td class="text-align-right" colspan="2">
                     <a href="/admin/<%= farm._id %>/edit" tabindex="-1">
                         <button class="btn-med">Edit</button>
                     </a>
                 </td>
             </tr>
         </table>
-
+    <% } %>
     </article>
     <footer>
 
