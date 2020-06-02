@@ -17,7 +17,6 @@ router.get('/products', async (req, res) => {
     console.log(error);
     res.send({ message: "Internal Server Error!" });
   }
-
 })
 
 // product show route
@@ -38,13 +37,11 @@ router.get('/product/:id', async (req, res) => {
         growthNotes: foundProduct.growthNotes,
         img: foundProduct.img
     }
-
     res.render('shop/show', {product: product});
   } catch (error) {
     console.log(error);
     res.send({ message: "Internal Server Error!" });
   }
-
 })
 
 // about page route
@@ -62,24 +59,9 @@ router.post('/', (req,res) => {
   res.render('shop/sub-post');
 })
 
-// log in route
-router.get('/login', (req, res) => {
-  res.render('shop/login');
-})
-
-// login POST route
-router.post('/', (req,res)=>{
-  res.render('shop/user');
-})
-
 // view cart route
 router.get('/cart', (req, res) => {
   res.render('shop/cart');
-})
-
-// user page route
-router.get('/user', (req, res) => {
-  res.render('shop/user');
 })
 
 module.exports = router;

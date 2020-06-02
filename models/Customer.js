@@ -7,7 +7,7 @@ const custSchema = new mongoose.Schema({
     state: String,
     zip: {type: Number, maxlength: 5},
     phone: {type: String, required: true, maxlength: 12},
-    email: {type: String, required: true},
+    email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     profilePic: String,
     products: [{
