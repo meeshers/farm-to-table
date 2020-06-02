@@ -8,42 +8,42 @@
     <%- include('partials/adminNav') %>
     Trial page
     <div class="header">
-        <h1>Product Show Page</h1>
+        <h1>New Product Page</h1>
     </div>
     <%- include('../partials/adminNav') %>
     <section class="display-data">
-        <div class="upload-img">
-            <label class="prod-labels" for="img">Product Image</label>
-            <div class="prod-img">
-                <img src="<%= product.img %>" alt="upload pic">
+        <form action="/admin/product" method="POST">
+            <div class="upload-img">
+                <label class="prod-labels" for="img">Product Image</label>
+                <div class="prod-img">
+                    <img id="prod-img" src="" alt="upload pic">
+                </div>
+                <input type="text" name="img" placeholder="img url" id="prod-url">
             </div>
-        </div>
-        <div class="prod-details" id="show-page-details">
-            <div class="row">
-                <p class="p__show-page "></p>
-            </div>
-            <div class="row">
+            <div class="prod-details">
+                <label class="prod-labels" for="name">Product Name</label>
                 
-            </div>
-            <div class="row">
+                <label class="prod-labels" for="description">Product Description</label>
                 
-            </div>
-            <div class="row">
-                <p class="p__show-page"></p>
-            </div>
-            <div class="row">
-                <p class="p__show-page"></p>
-            </div>
-            <div class="row">
-                <p class="p__show-page"></p>
-            </div>
-            <div class="row">
-                <p class="p__show-page"></p>
-            </div>
-            <div class="class align-right">
+                <label class="prod-labels" for="growthhNotes">Growth Notes</label>
                 
+                <div class="row">
+                    <label id="birthdate-label" for="birthDate">Birth Date:</label>
+                    
+                    <label id="readydate-label" for="readyDate">Ready Date:</label>
+                    
+                </div>
+                <div class="row">
+                    <label id="price-label" for="price">Price:</label>
+                    
+                    <label id="available-label" for="available">Available:</label>
+                    
+                </div>
+                <div class="row align-right">
+                    <button class="btn-lrg" type="submit">Create Product</button>
+                </div>
             </div>
-        </div>
+        </form>
     </section>
     <footer>
 

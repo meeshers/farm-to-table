@@ -35,6 +35,15 @@ body {
     padding: 10px;
 }
 
+#prod-url {
+    margin: 5px 0 0 0;
+    width: 325px;
+    height: 25px;
+    font-size: 18px;
+    border: none;
+    padding-left: 10px;
+}
+
 .body__article-prod-details table {
     margin: 25px 10px 10px 10px;
 }
@@ -78,6 +87,11 @@ body {
     align-items: flex-end;
     justify-content: flex-end;
 
+}
+
+.display-inline{
+    display: flex;
+    align-items: center;
 }
 
 .text-align-right {
