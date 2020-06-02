@@ -27,11 +27,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(
   session({
     store: new MongoStore({
-        url: "mongodb://localhost:27017/",
+        url: "mongodb://localhost:27017/user",
     }),
     secret: "farmtotable",
     resave: false,
-    saveUnitialized: false,
+    saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7, //one week
     },
