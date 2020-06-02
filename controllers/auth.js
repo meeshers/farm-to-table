@@ -12,30 +12,19 @@ router.get('/register', (req,res) => {
 // register post route
 router.post('/register', async (req,res)=>{
   try{
-    const salt = await bcrypt.genSalt(10);
-    //const hash = await bcrypt.hash(req.body.password, salt);
-    res.send({
-      body: req.body,
-      //hash: hash,
-    });
-  }catch (err){
-    res.send({message: "error", error: err});
-    console.log(err);
-  }
-/*   try{
     const foundUser = await db.Customers.findOne({ email: req.body.email });
     if(foundUser){
       return res.send({ message: "Account is already registered. Please log in"});
     }
     const salt = await bcrypt.genSalt(10);
-    //const hash = await bcrypt.hash(req.body.password, salt);
-    //req.body.password = hash;
+    const hash = await bcrypt.hash(req.body.password, salt);
+    req.body.password = hash;
     const newUser = await db.Customers.create(req.body);
     res.redirect("/login");
   } catch(err) {
     console.log(err);
     res.send({message: "Internal server error", error: err})
-  } */
+  }
 })
 
 // log in route

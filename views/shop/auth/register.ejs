@@ -4,25 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/main.css">
-  <title>Sign in</title>
+  <title>Register</title>
 </head>
 <body>
   <%- include('../../header') %>
-  <h1>Sign in</h1>
+  <h1>Register</h1>
   <div class="container">
     <form action="/register" method="POST">
       <p>Register for an account today!</p>
       <label for="name">Name :</label>
-      <input type="text" placeholder="Name" required>
+      <input name="name" type="text" placeholder="Name" required>
       <br>
       <label for="phone">Phone :</label>
-      <input type="text" placeholder="xxx-xxx-xxxx" required>
+      <input name="phone" type="text" placeholder="xxx-xxx-xxxx" required>
       <br>
       <label for="email">Email :</label>
-      <input type="text" placeholder="Email" required>
+      <input name="email" type="text" placeholder="Email" required>
       <br>
       <label for="password">Password :</label>
-      <input type="password" placeholder="password" required>
+      <input name="password" type="password" placeholder="password" required>
       <br>
       <input type="submit" value="Register">
     </form>
