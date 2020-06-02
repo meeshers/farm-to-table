@@ -1,41 +1,78 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 body {
-    background-color: #D6ECFF;
-    background: url('https://www.careersingovernment.com/tools/wp-content/uploads/2015/06/careers-in-agriculture.jpg') no-repeat center fixed;
-    background-size: cover;
-    /* image-rendering: crisp-edges; */
-    position: relative;
-    font-family: 'Lato', sans-serif;
-    overflow: auto;
-}
-
-aside {
-    background-color: rgba(101,92,86,.8);
-    position: fixed;
-    /* float: left; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    width: 150px;
-    padding: 10px 0 0 10px;
-    top: 0;
-    left: 0;
+    font-family: 'Lato', sans-serif;
+    color: #655C56;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 150px;
-    height: 35px;
-    width: 100%;
+.body__article-farm-details {
+    background-color: rgba(101,92,86,.7);
+    color: #CCEDD2;
+    text-shadow: 0px 2px 3px black;
+    height: 360px;
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
-h1 {
+.table__farm-details {
+    font-size: 22px;
+}
+
+.table__farm-details th {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+.table__farm-details td {
+    padding: 5px 15px 5px 15px;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+button {
+    background-color: #94D3AC;
+    color: black;
+}
+
+
+button:hover {
+    cursor: pointer;
+    background-color: #CCEDD2;
+    /* opacity: .5; */
+}
+
+.btn-sml {
+    font-size: small;
+    margin: 2px 2px;
+    padding: 2px;
+}
+
+.btn-med {
+    font-size: medium;
+    margin: 3px 3px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.btn-lrg {
+    font-size: large;
+    margin: 5px 5px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+/* h1 {
     color:#EFFCEF;
     text-shadow: 0px 4px 6px black;
 }
@@ -48,17 +85,6 @@ ul li {
     font-family: 'Lato', sans-serif;
     margin-bottom: 5px;
     color: #EFFCEF;
-}
-
-button {
-    background-color: #CCEDD2;
-    color: black;
-}
-
-
-button:hover {
-    cursor: pointer;
-    opacity: .5;
 }
 
 a {
@@ -262,12 +288,6 @@ a:visited {
     padding-top: 10px;
 }
 
-.delete-item {
-    /* position: absolute;
-    bottom: 50%;
-    right: ; */
-}
-
 .cust-details {
     display: flex;
     flex-direction: column;
@@ -291,25 +311,7 @@ a:visited {
     font-size: 26px;
 }
 
-.btn-sml {
-    font-size: small;
-    margin: 2px 2px;
-    padding: 2px;
-}
 
-.btn-med {
-    font-size: medium;
-    margin: 3px 3px;
-    padding: 2px;
-    border-radius: 5px;
-}
-
-.btn-lrg {
-    font-size: large;
-    margin: 5px 5px;
-    padding: 3px;
-    border-radius: 5px;
-}
 
 .table {
     display: flex;
@@ -488,4 +490,4 @@ a:visited {
 
 .li-sub-1 {
     margin-left: 15px;
-}
+} */

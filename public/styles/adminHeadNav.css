@@ -7,7 +7,7 @@
 header {
     display: flex;
     width:100%;
-    min-width: 550px;
+    min-width: 600px;
     margin: 0;
     height: 80px;
     padding: 5px;
@@ -28,13 +28,14 @@ header {
     align-items: center;
     height: 65px;
     width: 100%;
+    min-width: 550px;
     font-size: 46px;
     text-shadow: 0px 3px 6px black;
 }
 
 .nav__container {
     width: 100%;
-    min-width: 550px;
+    min-width: 600px;
     height: 39px;
     background-color: #94D3AC;
     font-family: 'Lato', sans-serif;

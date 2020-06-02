@@ -1,28 +1,8 @@
-$('.delete-prod').click((event) => {
-    // event.preventDefault();
-    // const $el = $(this);
-    // const x = $el.attr("id");
-    // const y = event.pageY;
-    // //let offset = event.offsetTop;
-    // console.log(x);
-    // //alert(x);
-    // alert("Are you sure you want to delete this item?\nThe position is: " + x + " : " + y);
-
-    //$('.delete-item').css("top", `${y}px`);
-    //$('.delete-item').css("left", `${x}px`);
+$(document).ready( () => {
+    $('.header__title h3').text("Administration Home");
 });
 
 $('#prod-url').blur(() => {
     const url = $('#prod-url').val();
     $('#prod-img').attr("src", url);
 })
-
-$('#game-type').mouseleave(function(event){
-    $('#game-type ul').css('display', 'none');
-    $('.nav__main').css('height', '225px');
-});
-
-$('#game-type').click(function(event){
-    $('#game-type ul').css('display', 'block');
-    $('.nav__main').css('height', '245px');
-});

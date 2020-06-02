@@ -2,85 +2,56 @@
 <html lang="en">
 <head>
     <%- include('partials/adminHead') %>
-    <title>Farm Store Administration</title>
+    <script src="/scripts/admin.js" defer></script>
+    <title>Administration Main</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Farm Store Administration</h1>
-    </div>
+    <%- include('partials/adminHeader') %>
     <%- include('partials/adminNav') %>
-    <section class="display-data align-center-hor">
-        <div class="farm-details">
-            <% if(!farm) {%>
-                <p><a href="/admin/newFarm">Create Farm</a></p>
-            <% } else { %>
-            <div class="row align-center-vert blk-bdr-bottom">
-                <p id="p__farm-details">Farm Details</p>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Name:
-                </div>
-                <div class="col-20">
-                    <%= farm.name %>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Address:
-                </div>
-                <div class="col-20">
-                    <%= farm.address %>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    City:
-                </div>
-                <div class="col-20">
-                    <%= farm.city %>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    State:
-                </div>
-                <div class="col-20">
-                    <%= farm.state %>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Zipcode:
-                </div>
-                <div class="col-20">
-                    <%= farm.zip %>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Phone:
-                </div>
-                <div class="col-20">
-                    <%= farm.phone %>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Email:
-                </div>
-                <div class="col-20">
-                    <%= farm.email %>
-                </div>
-            </div>
-            <div class="row align-right">
-                <a href="/admin/<%= farm._id %>/edit" tabindex="-1">
-                    <button class="btn-lrg">Edit</button>
-                </a>
-            </div>
-            <% } %>
-        </div>
-    </section>
+    <article class="body__article-farm-details">
+        <% if(!farm) {%>
+            <p><a href="/admin/newFarm">Create Farm</a></p>
+        <% } else { %>
+        <table class="table__farm-details text-align-left">
+            <th colspan="2" class="text-align-center">Farm Details</th>
+            <tr>
+                <td>Name:</td>
+                <td><%= farm.name %></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><%= farm.address %></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><%= farm.city %></td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td><%= farm.state %></td>
+            </tr>
+            <tr>
+                <td>Zip:</td>
+                <td><%= farm.zip %></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><%= farm.phone %></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><%= farm.email %></td>
+            </tr>
+            <tr>
+                <td class="text-align-right table-button" colspan="2">
+                    <a href="/admin/<%= farm._id %>/edit" tabindex="-1">
+                        <button class="btn-med">Edit</button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+    </article>
     <footer>
 
     </footer>

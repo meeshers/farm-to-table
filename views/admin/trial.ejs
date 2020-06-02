@@ -1,45 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/trial.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Lato&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
-    <script src="/scripts/admin.js" defer></script>
-    <title>Document</title>
+    <%- include('partials/adminHead') %>
 </head>
 <body>
-    <header>
-        <div class="header__logo">
-            <p>Farm</p>
-            <p>~ 2 ~</p>
-            <p>Table</p>
-        </div>
-        <div class="header__title">
-            <p>Hello</p>
-        </div>
-    </header>
-    <div class="nav__container">
-    <nav>
-        <ul>
-          <li><a href="#">Admin Home</a></li>
-          <li><a href="#">Product Info</a>
-            <ul class="dropdown">
-              <li><a href="#">View Products</a></li>
-              <li><a href="#">Add Product</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Customer Info</a>
-            <ul class="dropdown">
-              <li><a href="#">View Customers</a></li>
-              <li><a href="#">Add Customer</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Invoices</a></li>
-          <li><a href="#">View Shop</a></li>
-        </ul>
-      </nav>
-    </div>
+    <%- include('partials/adminHeader') %>
+    <%- include('partials/adminNav') %>
     Trial page
     <footer>
 
