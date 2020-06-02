@@ -82,6 +82,7 @@ header {
     left: 0;
     top: 29px;
     display: none;
+    text-align: left;
 }
   
 .nav__container ul li:hover > ul,

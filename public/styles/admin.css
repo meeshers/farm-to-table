@@ -13,6 +13,46 @@ body {
     border-radius: 10px;
 }
 
+.body__article-prod-details {
+    display: flex;
+    background-color: rgba(101,92,86,.7);
+    color: #CCEDD2;
+    margin-top: 50px;
+    border-radius: 10px;
+    font-size: 19px;
+}
+
+.prod-img {
+    display: flex;
+    flex-direction: column;
+    width: 325px;
+    height: 325px;
+}
+
+.prod-img img {
+    width: 335px;
+    height: 335px;
+    padding: 10px;
+}
+
+.body__article-prod-details table {
+    margin: 25px 10px 10px 10px;
+}
+
+.textarea__show-page {
+    background: transparent;
+    color:#EFFCEF;
+    resize: none;
+    width: 350px;
+    height: 70px;
+    padding: 5px 0 0 5px;
+    margin-top: 5px;
+}
+
+.td_small-width {
+    width: 90px;
+}
+
 .table__farm-details {
     font-size: 22px;
     border-collapse: collapse;
@@ -225,17 +265,6 @@ a:visited {
 
 .prod-labels {
     margin: 5px 0 2px 0;
-}
-
-.prod-img {
-    width: 325px;
-    height: 325px;
-    background-color: white;
-}
-
-.prod-img img {
-    width: 325px;
-    height: 325px;
 }
 
 #prod-url {
