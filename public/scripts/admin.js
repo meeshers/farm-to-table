@@ -16,3 +16,13 @@ $('#prod-url').blur(() => {
     const url = $('#prod-url').val();
     $('#prod-img').attr("src", url);
 })
+
+$('#game-type').mouseleave(function(event){
+    $('#game-type ul').css('display', 'none');
+    $('.nav__main').css('height', '225px');
+});
+
+$('#game-type').click(function(event){
+    $('#game-type ul').css('display', 'block');
+    $('.nav__main').css('height', '245px');
+});

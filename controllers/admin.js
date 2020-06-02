@@ -7,6 +7,10 @@ const farmName = "Pieces of Ate";
 const adminUser = "admin";
 const adminPass = "admin1";
 
+router.get('/trial', (req, res) => {
+    res.render('admin/trial');
+});
+
 //root administration page
 router.get('/', async (req, res) => {
     try {
