@@ -60,9 +60,12 @@ router.post('/login', async (req,res)=>{
 
 // user page route
 router.get('/user', async (req, res) => {
-
-
-  res.render('shop/auth/user');
+  try{
+    const foundUser = await db.Customers.findById(req.session.currentUser.id);
+    res.render('shop/auth/user', { user: foundUser})
+  } catch (err) {
+    res.send({ message: "Internal server error", error: err});
+  }
 })
 
 module.exports = router;
