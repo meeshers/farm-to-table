@@ -2,104 +2,72 @@
 <html lang="en">
 <head>
     <%- include('../partials/adminHead') %>
-    <title>Customer Details</title>
+    <script src="/scripts/custAdmin.js" defer></script>
+    <title>New Customer</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Customer Details</h1>
-    </div>
+    <%- include('../partials/adminHeader') %>
     <%- include('../partials/adminNav') %>
-    <section class="display-data">
-        <div class="cust-details">
-            <div class="row align-center-vert blk-bdr-bottom">
-                <p id="p__new-cust">Customer Details</p>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Name:
-                </div>
-                <div class="col-30">
-                    <p>
+    <article class="body__article-details black-text-shadow">
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">Customer Details</th>
+                <tr>
+                    <td>Name:</td>
+                    <td>
                         <%= customer.name %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Address:
-                </div>
-                <div class="col-30">
-                    <p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
                         <%= customer.address %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    City:
-                </div>
-                <div class="col-30">
-                    <p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
                         <%= customer.city %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    State:
-                </div>
-                <div class="col-30">
-                    <p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
                         <%= customer.state %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Zipcode:
-                </div>
-                <div class="col-30">
-                    <p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>
                         <%= customer.zip %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Phone:
-                </div>
-                <div class="col-30">
-                    <p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
                         <%= customer.phone %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Email:
-                </div>
-                <div class="col-30">
-                    <p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
                         <%= customer.email %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <div class="col-10">
-                    Password:
-                </div>
-                <div class="col-30">
-                    <p>
-                        <%= customer.password %>
-                    </p>
-                </div>
-            </div>
-            <div class="row align-center-vert">
-                <!-- <button class="btn-med" type="button">Clear Form</button> -->
-                <!-- <button class="btn-med" type="submit">Add Customer</button> -->
-            </div>
-        </div>
-    </section>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-align-right">
+                        <form action="/admin/cust/<%= customer._id %>?_method=DELETE" method="POST">
+                            <a href="/admin/cust" tabindex="-1">
+                                <button type="button" class="btn-lrg">Back</button>
+                            </a>
+                            <a href="/admin/cust/<%= customer._id %>/edit" tabindex="-1">
+                                <button type="button" class="btn-lrg">Edit</button>
+                            </a>
+                            <button type="submit" id="from-cust" class="btn-lrg delete-prod">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+    </article>
     <footer>
 
     </footer>

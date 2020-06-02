@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/adminHead') %>
+    <script src="/scripts/admin.js" defer></script>
+    <title>Edit Farm</title>
+</head>
+<body>
+    <%- include('partials/adminHeader') %>
+    <%- include('partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+        <form action="/admin/<%= farm._id %>?_method=PUT" method="POST">
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">Farm Details</th>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name" placeholder="Farm Name" value="<%= farm.name %>" readonly required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="address" placeholder="Address" value="<%= farm.address %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <input type="text" name="city" placeholder="City" value="<%= farm.city %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <input type="text" name="state" placeholder="State" value="<%= farm.state %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>
+                        <input type="text" name="zip" placeholder="Zipcode" maxlength="5" value="<%= farm.zip %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <input type="text" name="phone" placeholder="xxx-xxx-xxxx" maxlength="12" value="<%= farm.phone %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="email" placeholder="Email" value="<%= farm.email %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>
+                        <input type="text" name="username" placeholder="Username" value="<%= farm.username %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" placeholder="Password" value="<%= farm.password %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-align-right" colspan="2">
+                        <a href="/admin">
+                            <button class="btn-med" type="button">Back</button>
+                        </a>
+                        <button class="btn-med" type="submit">Update Farm</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </article>
+    <footer>
+
+    </footer>
+</body>
+</html>

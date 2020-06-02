@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/adminHead') %>
+</head>
+<body>
+    <%- include('partials/adminHeader') %>
+    <%- include('partials/adminNav') %>
+    Trial page
+    <div class="header">
+        <h1>New Product Page</h1>
+    </div>
+    <%- include('../partials/adminNav') %>
+    <section class="display-data">
+        <form action="/admin/product" method="POST">
+            <div class="upload-img">
+                <label class="prod-labels" for="img">Product Image</label>
+                <div class="prod-img">
+                    <img id="prod-img" src="" alt="upload pic">
+                </div>
+                <input type="text" name="img" placeholder="img url" id="prod-url">
+            </div>
+            <div class="prod-details">
+                <label class="prod-labels" for="name">Product Name</label>
+                
+                <label class="prod-labels" for="description">Product Description</label>
+                
+                <label class="prod-labels" for="growthhNotes">Growth Notes</label>
+                
+                <div class="row">
+                    <label id="birthdate-label" for="birthDate">Birth Date:</label>
+                    
+                    <label id="readydate-label" for="readyDate">Ready Date:</label>
+                    
+                </div>
+                <div class="row">
+                    <label id="price-label" for="price">Price:</label>
+                    
+                    <label id="available-label" for="available">Available:</label>
+                    
+                </div>
+                <div class="row align-right">
+                    <button class="btn-lrg" type="submit">Create Product</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>

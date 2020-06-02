@@ -2,48 +2,41 @@
 <html lang="en">
 <head>
     <%- include('../partials/adminHead') %>
+    <script src="/scripts/prodAdmin.js" defer></script>
     <title>Product Administration</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Product Administration Page</h1>
-    </div>
+    <%- include('../partials/adminHeader') %>
     <%- include('../partials/adminNav') %>
-    <section class="display-data">
-        <article class="table blk-bdr product-table">
-            <div class="row row-hdr">
-                <div class="col-15 align-center-vert blk-bdr-right">Name</div>
-                <div class="col-30 align-center-vert blk-bdr-right">Description</div>
-                <div class="col-10 align-center-vert blk-bdr-right">Price</div>
-                <div class="col-15 align-center-vert"></div>
-            </div>
-        <% for(let i = 0; i < products.length; i++) {%>
-            <div class="row <%= (i%2===0) ? 'white' : 'gray' %>">
-                <div class="col-15 blk-bdr-right">
-                    <%= products[i].name %>
-                </div>
-                <div class="col-30 blk-bdr-right">
-                    <%= products[i].description %>
-                </div>
-                <div class="col-10 blk-bdr-right">
-                    <%= products[i].price %>
-                </div>
-                <div class="col-15 align-right">
+    <article class="body__article-details no-bottom-radius">
+        <table class="table__farm-details text-align-left">
+            <!-- <th colspan="4" class="text-align-center black-text-shadow">All Products</th> -->
+            <tr>
+                <td class="text-align-center black-text-shadow">Name</td>
+                <td class="text-align-center black-text-shadow">Description</td>
+                <td class="text-align-center black-text-shadow">Price</td>
+                <td></td>
+            </tr>
+            <% for(let i = 0; i < products.length; i++) {%>
+            <tr class="<%= (i%2===0) ? 'white' : 'gray' %> black-text">
+                <td><%= products[i].name %></td>
+                <td><%= products[i].description %></td>
+                <td><%= products[i].price %></td>
+                <td class="text-align-right table-button">
                     <a href="/admin/product/<%= products[i]._id %>" tabindex="-1">
-                        <button type="button" class="btn-sml">View</button></a>
+                        <button type="button" class="btn-sml">View</button>
+                    </a>
                     <a href="/admin/product/<%= products[i]._id %>/edit" tabindex="-1">
-                        <button class="btn-sml">Edit</button></a>
+                        <button class="btn-sml">Edit</button>
+                    </a>
                     <form action="/admin/product/<%= products[i]._id %>?_method=DELETE" method="POST">
                         <button class="btn-sml delete-prod">Delete</button>
                     </form>
-                </div>
-            </div>
-        <% } %> 
-        </article>
-        <!-- <div class="delete-item">
-            Delete me
-        </div> -->
-    </section>
+                </td>
+            </tr>
+        <% } %>
+        </table>
+    </article>
     <footer>
 
     </footer>
