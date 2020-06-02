@@ -127,7 +127,6 @@ router.post('/product', async (req, res) => {
 router.get('/cust/:id', async (req, res) => {
     try {
         const customer = await db.Customers.findById(req.params.id);
-        console.log(customer);
         res.render('admin/cust/show', {customer: customer});
     } 
     catch (error) {
@@ -156,6 +155,19 @@ router.get('/product/:id', async (req, res) => {
             img: foundProduct.img
         }
         res.render('admin/product/show', {product: product});
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
+});
+
+//EDIT farm page
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const farm = await db.Farms.findById(req.params.id);
+
+        res.render('admin/editFarm', {farm: farm});
     }
     catch (error) {
         console.log(error);
@@ -204,8 +216,16 @@ router.get('/product/:id/edit', async (req, res) => {
 });
 
 //UPDATE farm route
-router.put('/:id', (req, res) => {
-    res.redirect(`admin/index${req.params.id}`);
+router.put('/:id', async (req, res) => {
+    try {
+        await db.Farms.findByIdAndUpdate(req.params.id, req.body, {new:true});
+
+        res.redirect('/admin');
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //UPDATE customer route
@@ -236,8 +256,20 @@ router.put('/product/:id', async (req, res) => {
 });
 
 //DELETE customer route
-router.delete('/cust/:id', (req, res) => {
-    res.redirect('admin/cust');
+router.delete('/cust/:id', async (req, res) => {
+    try {
+        const delCust = await db.Customers.findByIdAndDelete(req.params.id);
+        const farm = await db.Farms.findOne({name: farmName});
+
+        farm.customers.remove(delCust);
+        farm.save();
+
+        res.redirect('/admin/cust');
+    }
+    catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error!"});
+    }
 });
 
 //DELETE product route

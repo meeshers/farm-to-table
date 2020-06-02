@@ -64,13 +64,19 @@
                 <div class="col-20">
                     <%= farm.phone %>
                 </div>
-            </div><div class="row align-center-vert">
+            </div>
+            <div class="row align-center-vert">
                 <div class="col-10">
                     Email:
                 </div>
                 <div class="col-20">
                     <%= farm.email %>
                 </div>
+            </div>
+            <div class="row align-right">
+                <a href="/admin/<%= farm._id %>/edit" tabindex="-1">
+                    <button class="btn-lrg">Edit</button>
+                </a>
             </div>
             <% } %>
         </div>

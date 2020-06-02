@@ -94,9 +94,14 @@
                     </p>
                 </div>
             </div>
-            <div class="row align-center-vert">
-                <!-- <button class="btn-med" type="button">Clear Form</button> -->
-                <!-- <button class="btn-med" type="submit">Add Customer</button> -->
+            <div class="class align-right">
+                <a href="/admin/cust" tabindex="-1">
+                    <button class="btn-lrg">Back</button></a>
+                <a href="/admin/cust/<%= customer._id %>/edit" tabindex="-1">
+                    <button class="btn-lrg">Edit</button></a>
+                <form action="/admin/cust/<%= customer._id %>?_method=DELETE" method="POST">
+                    <button id="from-cust" class="btn-lrg delete-prod">Delete</button>
+                </form>
             </div>
         </div>
     </section>

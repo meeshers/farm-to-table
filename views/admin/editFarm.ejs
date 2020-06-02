@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/adminHead') %>
+    <title>Edit Farm</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Edit Farm</h1>
+    </div>
+    <%- include('partials/adminNav') %>
+    <section class="display-data">
+        <form action="/admin/<%= farm._id %>?_method=PUT" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="Farm Name" value="<%= farm.name %>" readonly required>
+            <br>
+            <label for="address">Address:</label>
+            <input type="text" name="address" placeholder="Address" value="<%= farm.address %>" required>
+            <br>
+            <label for="city">City:</label>
+            <input type="text" name="city" placeholder="City" value="<%= farm.city %>" required>
+            <br>
+            <label for="state">State:</label>
+            <input type="text" name="state" placeholder="State" value="<%= farm.state %>" required>
+            <br>
+            <label for="zip">Zipcode:</label>
+            <input type="text" name="zip" placeholder="Zipcode" maxlength="5" value="<%= farm.zip %>" required>
+            <br>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" placeholder="xxx-xxx-xxxx" maxlength="12" value="<%= farm.phone %>" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Email" value="<%= farm.email %>" required>
+            <br>
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Username" value="<%= farm.username %>" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Password" value="<%= farm.password %>" required>
+            <button type="submit">Update Farm</button>
+        </form>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>
