@@ -7,6 +7,125 @@
     <%- include('partials/adminHeader') %>
     <%- include('partials/adminNav') %>
     Trial page
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/adminHead') %>
+    <title>Customer Details</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Customer Details</h1>
+    </div>
+    <%- include('../partials/adminNav') %>
+    <section class="display-data">
+        <div class="cust-details">
+            <div class="row align-center-vert blk-bdr-bottom">
+                <p id="p__new-cust">Customer Details</p>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Name:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.name %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Address:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.address %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    City:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.city %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    State:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.state %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Zipcode:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.zip %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Phone:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.phone %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Email:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.email %>
+                    </p>
+                </div>
+            </div>
+            <div class="row align-center-vert">
+                <div class="col-10">
+                    Password:
+                </div>
+                <div class="col-30">
+                    <p>
+                        <%= customer.password %>
+                    </p>
+                </div>
+            </div>
+            <div class="class align-right">
+                <a href="/admin/cust" tabindex="-1">
+                    <button class="btn-lrg">Back</button></a>
+                <a href="/admin/cust/<%= customer._id %>/edit" tabindex="-1">
+                    <button class="btn-lrg">Edit</button></a>
+                <form action="/admin/cust/<%= customer._id %>?_method=DELETE" method="POST">
+                    <button id="from-cust" class="btn-lrg delete-prod">Delete</button>
+                </form>
+                <a href="/admin/cust" tabindex="-1">
+                    <button class="btn-lrg">Back</button></a>
+                <a href="/admin/cust/<%= customer._id %>/edit" tabindex="-1">
+                    <button class="btn-lrg">Edit</button></a>
+                <form action="/admin/cust/<%= customer._id %>?_method=DELETE" method="POST">
+                    <button id="from-cust" class="btn-lrg delete-prod">Delete</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>
     <footer>
 
     </footer>

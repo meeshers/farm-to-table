@@ -2,33 +2,27 @@
 <html lang="en">
 <head>
     <%- include('../partials/adminHead') %>
+    <script src="/scripts/custAdmin.js" defer></script>
     <title>Customer Administration</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Customer Administration Page</h1>
-    </div>
+    <%- include('../partials/adminHeader') %>
     <%- include('../partials/adminNav') %>
-    <section class="display-data">
-        <article class="table blk-bdr product-table">
-            <div class="row row-hdr">
-                <div class="col-15 align-center-vert blk-bdr-right">Name</div>
-                <div class="col-15 align-center-vert blk-bdr-right">Phone</div>
-                <div class="col-20 align-center-vert blk-bdr-right">Email</div>
-                <div class="col-15 align-center-vert"></div>
-            </div>
-        <% for(let i = 0; i < customers.length; i++) {%>
-            <div class="row <%= (i%2===0) ? 'white' : 'gray' %>">
-                <div class="col-15 blk-bdr-right">
-                    <%= customers[i].name %>
-                </div>
-                <div class="col-15 blk-bdr-right">
-                    <%= customers[i].phone %>
-                </div>
-                <div class="col-20 blk-bdr-right">
-                    <%= customers[i].email %>
-                </div>
-                <div class="col-15 align-right">
+    <article class="body__article-details no-bottom-radius">
+        <table class="table__farm-details text-align-left">
+            <!-- <th colspan="4" class="text-align-center black-text-shadow">All Products</th> -->
+            <tr>
+                <td class="text-align-center black-text-shadow">Name</td>
+                <td class="text-align-center black-text-shadow">Phone</td>
+                <td class="text-align-center black-text-shadow">Email</td>
+                <td></td>
+            </tr>
+            <% for(let i = 0; i < customers.length; i++) {%>
+            <tr class="<%= (i%2===0) ? 'white' : 'gray' %> black-text">
+                <td><%= customers[i].name %></td>
+                <td><%= customers[i].phone %></td>
+                <td><%= customers[i].email %></td>
+                <td class="text-align-right table-button">
                     <a href="/admin/cust/<%= customers[i]._id %>" tabindex="-1">
                         <button type="button" class="btn-sml">View</button></a>
                     <a href="/admin/cust/<%= customers[i]._id %>/edit" tabindex="-1">
@@ -36,14 +30,11 @@
                     <form action="/admin/cust/<%= customers[i]._id %>?_method=DELETE" method="POST">
                         <button class="btn-sml delete-prod">Delete</button>
                     </form>
-                </div>
-            </div>
-        <% } %> 
-        </article>
-        <!-- <div class="delete-item">
-            Delete me
-        </div> -->
-    </section>
+                </td>
+            </tr>
+        <% } %>
+        </table>
+    </article>
     <footer>
 
     </footer>
