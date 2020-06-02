@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Customer</title>
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/custAdmin.js" defer></script>
+    <title>New Customer</title>
 </head>
 <body>
-    <h1>Edit Customer Page</h1>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+        <form action="/admin/cust/<%= customer._id %>?_method=PUT" method="POST">
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">Customer Details</th>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name" value="<%= customer.name %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="address" value="<%= customer.address %>" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <input type="text" name="city" value="<%= customer.city %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <input type="text" name="state" value="<%= customer.state %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>
+                        <input type="text" name="zip" maxlength="5" value="<%= customer.zip %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <input type="tel" name="phone" maxlength="12" value="<%= customer.phone %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="email" value="<%= customer.email %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" value="<%= customer.password %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-align-right" colspan="2">
+                        <a href="/admin/cust" tabindex="-1">
+                            <button class="btn-lrg">Back</button>
+                        </a>
+                        <button class="btn-lrg" type="submit">Update</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </article>
+    <footer>
+
+    </footer>
 </body>
 </html>

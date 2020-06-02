@@ -1,26 +1,21 @@
-<aside>
-    <p class="nav-logo">Farm</p>
-    <p class="nav-logo">~ 2 ~</p>
-    <p class="nav-logo logo-last">Table</p>
-    <nav class="row">
+<div class="nav__container">
+    <nav>
         <ul>
-            <li><a href="/">View Shop</a></li>
-            <li><a href="/admin">Admin Home</a></li>
-            <li>Product Admin</li>
-            <li>
-                <ul class="li-sub-1">
-                    <li><a href="/admin/product">Home</a></li>
-                    <li><a href="/admin/product/new">New Product</a></li>
-                </ul>
-            </li>
-            <li>Customer Admin</li>
-            <li>
-                <ul class="li-sub-1">
-                    <li><a href="/admin/cust">Home</a></li>
-                    <li><a href="/admin/cust/new">New Customer</a></li>
-                    <li>Invoices</li>
-                </ul>
-            </li>
+          <li><a href="/admin">Admin Home</a></li>
+          <li><a href="/admin/product">Product Info</a>
+            <ul class="dropdown">
+              <li><a href="/admin/product">View Products</a></li>
+              <li><a href="/admin/product/new">Add Product</a></li>
+            </ul>
+          </li>
+          <li><a href="/admin/cust">Customer Info</a>
+            <ul class="dropdown">
+              <li><a href="/admin/cust">View Customers</a></li>
+              <li><a href="/admin/cust/new">Add Customer</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Invoices</a></li>
+          <li><a href="/">View Shop</a></li>
         </ul>
     </nav>
-</aside>
+</div>

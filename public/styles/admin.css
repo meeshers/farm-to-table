@@ -1,41 +1,167 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 body {
-    background-color: #D6ECFF;
-    background: url('https://www.careersingovernment.com/tools/wp-content/uploads/2015/06/careers-in-agriculture.jpg') no-repeat center fixed;
-    background-size: cover;
-    /* image-rendering: crisp-edges; */
-    position: relative;
-    font-family: 'Lato', sans-serif;
-    overflow: auto;
-}
-
-aside {
-    background-color: rgba(101,92,86,.8);
-    position: fixed;
-    /* float: left; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    width: 150px;
-    padding: 10px 0 0 10px;
-    top: 0;
-    left: 0;
+    font-family: 'Lato', sans-serif;
+    color: #655C56;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 150px;
-    height: 35px;
-    width: 100%;
+.body__article-details {
+    background-color: rgba(101,92,86,.7);
+    color: #CCEDD2;
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
-h1 {
+.body__article-prod-details {
+    display: flex;
+    background-color: rgba(101,92,86,.7);
+    color: #CCEDD2;
+    margin-top: 50px;
+    border-radius: 10px;
+    font-size: 19px;
+}
+
+.prod-img {
+    display: flex;
+    flex-direction: column;
+    width: 325px;
+    height: 325px;
+}
+
+.prod-img img {
+    width: 335px;
+    height: 335px;
+    padding: 10px;
+}
+
+#prod-url {
+    margin: 5px 0 0 0;
+    width: 325px;
+    height: 25px;
+    font-size: 18px;
+    border: none;
+    padding-left: 10px;
+}
+
+.body__article-prod-details table {
+    margin: 25px 10px 10px 10px;
+}
+
+.textarea__show-page {
+    background: transparent;
+    color:#EFFCEF;
+    resize: none;
+    width: 350px;
+    height: 70px;
+    padding: 5px 0 0 5px;
+    margin-top: 5px;
+}
+
+.td_small-width {
+    width: 90px;
+}
+
+.table__farm-details {
+    font-size: 22px;
+    border-collapse: collapse;
+}
+
+.table__farm-details th {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+.table__farm-details td {
+    padding: 5px 15px 5px 15px;
+}
+
+.table__farm-details input {
+    height: 25px;
+    width: 250px;
+    font-size: 16px;
+}
+
+.table-button {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+}
+
+.display-inline{
+    display: flex;
+    align-items: center;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+button {
+    background-color: #94D3AC;
+    color: black;
+}
+
+
+button:hover {
+    cursor: pointer;
+    background-color: #CCEDD2;
+}
+
+.btn-sml {
+    font-size: small;
+    margin: 2px 2px;
+    padding: 2px;
+}
+
+.btn-med {
+    font-size: medium;
+    margin: 3px 3px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.btn-lrg {
+    font-size: large;
+    margin: 5px 5px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.white {
+    background-color: white;
+}
+
+.gray {
+    background-color: lightgray;
+}
+
+.no-bottom-radius {
+    border-radius: 5px 5px 0 0;
+}
+
+.brown-text {
+    color: #655C56;
+}
+
+.black-text {
+    color: black;
+}
+
+.black-text-shadow {
+    text-shadow: 0px 2px 3px black;
+}
+
+/* h1 {
     color:#EFFCEF;
     text-shadow: 0px 4px 6px black;
 }
@@ -48,17 +174,6 @@ ul li {
     font-family: 'Lato', sans-serif;
     margin-bottom: 5px;
     color: #EFFCEF;
-}
-
-button {
-    background-color: #CCEDD2;
-    color: black;
-}
-
-
-button:hover {
-    cursor: pointer;
-    opacity: .5;
 }
 
 a {
@@ -166,17 +281,6 @@ a:visited {
     margin: 5px 0 2px 0;
 }
 
-.prod-img {
-    width: 325px;
-    height: 325px;
-    background-color: white;
-}
-
-.prod-img img {
-    width: 325px;
-    height: 325px;
-}
-
 #prod-url {
     margin: 5px 0 0 0;
     width: 325px;
@@ -262,29 +366,30 @@ a:visited {
     padding-top: 10px;
 }
 
-.delete-item {
-    /* position: absolute;
-    bottom: 50%;
-    right: ; */
+.cust-details {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(101,92,86,.8);
+    width: 450px;
+    height: 370px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color:#EFFCEF;
+    font-size: 20px;
 }
 
-.btn-sml {
-    font-size: small;
-    margin: 2px 2px;
-    padding: 2px;
+.cust-details input {
+    height: 25px;
+    width: 250px;
+    font-size: 16px;
 }
 
-.btn-med {
-    font-size: medium;
-    padding: 2px;
+#p__new-cust {
+    font-size: 26px;
 }
 
-.btn-lrg {
-    font-size: large;
-    margin: 5px 5px;
-    padding: 3px;
-    border-radius: 5px;
-}
+
 
 .table {
     display: flex;
@@ -301,14 +406,6 @@ a:visited {
     color: #F0F8FF;
     font-size: large;
     font-weight: bold;
-}
-
-.white {
-    background-color: white;
-}
-
-.gray {
-    background-color: lightgray;
 }
 
 .col-10 {
@@ -463,4 +560,4 @@ a:visited {
 
 .li-sub-1 {
     margin-left: 15px;
-}
+} */

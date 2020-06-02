@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/custAdmin.js" defer></script>
     <title>Customer Administration</title>
 </head>
 <body>
-    <h1>Customer Administration Page</h1>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-details no-bottom-radius">
+        <table class="table__farm-details text-align-left">
+            <!-- <th colspan="4" class="text-align-center black-text-shadow">All Products</th> -->
+            <tr>
+                <td class="text-align-center black-text-shadow">Name</td>
+                <td class="text-align-center black-text-shadow">Phone</td>
+                <td class="text-align-center black-text-shadow">Email</td>
+                <td></td>
+            </tr>
+            <% for(let i = 0; i < customers.length; i++) {%>
+            <tr class="<%= (i%2===0) ? 'white' : 'gray' %> black-text">
+                <td><%= customers[i].name %></td>
+                <td><%= customers[i].phone %></td>
+                <td><%= customers[i].email %></td>
+                <td class="text-align-right table-button">
+                    <a href="/admin/cust/<%= customers[i]._id %>" tabindex="-1">
+                        <button type="button" class="btn-sml">View</button></a>
+                    <a href="/admin/cust/<%= customers[i]._id %>/edit" tabindex="-1">
+                        <button class="btn-sml">Edit</button></a>
+                    <form action="/admin/cust/<%= customers[i]._id %>?_method=DELETE" method="POST">
+                        <button class="btn-sml delete-prod">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+        </table>
+    </article>
+    <footer>
+
+    </footer>
 </body>
 </html>

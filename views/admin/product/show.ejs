@@ -2,54 +2,63 @@
 <html lang="en">
 <head>
     <%- include('../partials/adminHead') %>
-    <title>Product Show Page</title>
+    <script src="/scripts/prodAdmin.js" defer></script>
+    <title>Product Administration</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Product Show Page</h1>
-    </div>
+    <%- include('../partials/adminHeader') %>
     <%- include('../partials/adminNav') %>
-    <section class="display-data">
-        <div class="upload-img">
+    <article class="body__article-prod-details black-text-shadow">
+        <div class="prod-img">
             <label class="prod-labels" for="img">Product Image</label>
-            <div class="prod-img">
-                <img src="<%= product.img %>" alt="upload pic">
-            </div>
+            <img src="<%= product.img %>" alt="upload pic">
         </div>
-        <div class="prod-details" id="show-page-details">
-            <div class="row">
-                <p class="p__show-page "><%= product.name %></p>
-            </div>
-            <div class="row">
-                <textarea name="description" id="textarea__show-page" cols="30" rows="5"><%= product.description %></textarea>
-            </div>
-            <div class="row">
-                <textarea name="description" id="textarea__show-page" cols="30" rows="5"><%= product.growthNotes %></textarea>
-            </div>
-            <div class="row">
-                <p class="p__show-page">Price: <%= product.price %></p>
-            </div>
-            <div class="row">
-                <p class="p__show-page">Birth Date: <%= product.birthDate %></p>
-            </div>
-            <div class="row">
-                <p class="p__show-page">Date Ready: <%= product.readyDate %></p>
-            </div>
-            <div class="row">
-                <p class="p__show-page">Available: <%= (product.available)? 'Yes' : 'No' %></p>
-            </div>
-            <div class="class align-right">
-                <a href="/admin/product/<%= product._id %>/edit" tabindex="-1">
-                    <button class="btn-lrg">Edit</button></a>
-                <form action="/admin/product/<%= product._id %>?_method=DELETE" method="POST">
-                    <button id="from-show" class="btn-lrg delete-prod">Delete</button>
-                </form>
-            </div>
-        </div>
-        <!-- <div class="delete-item">
-            Delete me
-        </div> -->
-    </section>
+        <table class="text-align-left">
+            <tr>
+                <td class="td_small-width">Name:</td>
+                <td><%= product.name %></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea name="description" class="textarea__show-page" cols="30" rows="5"><%= product.description %></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea name="growthNotes" class="textarea__show-page" cols="30" rows="5"><%= product.growthNotes %></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Price:</td>
+                <td><%= product.price %></td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Born On:</td>
+                <td><%= product.birthDate %></td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Ready On:</td>
+                <td><%= product.readyDate %></td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Available:</td>
+                <td><%= (product.available)? 'Yes' : 'No' %></td>
+            </tr>
+            <tr class="text-align-right">
+                <td colspan="2">
+                    <form action="/admin/product/<%= product._id %>?_method=DELETE" method="POST"></form>
+                        <a href="/admin/product" tabindex="-1">
+                            <button type="button" class="btn-med">Back</button>
+                        </a>
+                        <a href="/admin/product/<%= product._id %>/edit" tabindex="-1">
+                            <button type="button" class="btn-med">Edit</button>
+                        </a>
+                        <button type="submit" id="from-show" class="btn-med">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </article>
     <footer>
 
     </footer>

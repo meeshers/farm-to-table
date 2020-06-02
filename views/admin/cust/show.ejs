@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Show Page</title>
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/custAdmin.js" defer></script>
+    <title>New Customer</title>
 </head>
 <body>
-    <h1>Customer Show Page</h1>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">Customer Details</th>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <%= customer.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <%= customer.address %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <%= customer.city %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <%= customer.state %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>
+                        <%= customer.zip %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <%= customer.phone %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <%= customer.email %>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-align-right">
+                        <form action="/admin/cust/<%= customer._id %>?_method=DELETE" method="POST">
+                            <a href="/admin/cust" tabindex="-1">
+                                <button type="button" class="btn-lrg">Back</button>
+                            </a>
+                            <a href="/admin/cust/<%= customer._id %>/edit" tabindex="-1">
+                                <button type="button" class="btn-lrg">Edit</button>
+                            </a>
+                            <button type="submit" id="from-cust" class="btn-lrg delete-prod">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+    </article>
+    <footer>
+
+    </footer>
 </body>
 </html>

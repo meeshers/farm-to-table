@@ -2,79 +2,70 @@
 <html lang="en">
 <head>
     <%- include('../partials/adminHead') %>
-    <title>New Product Page</title>
+    <script src="/scripts/prodAdmin.js" defer></script>
+    <title>Product Administration</title>
 </head>
 <body>
-    <div class="header">
-        <h1>New Product Page</h1>
-    </div>
+    <%- include('../partials/adminHeader') %>
     <%- include('../partials/adminNav') %>
-    <section class="display-data">
-        <form action="/admin/product" method="POST">
-            <div class="upload-img">
+    <form action="/admin/product" method="POST">
+        <article class="body__article-prod-details black-text-shadow">
+            <div class="prod-img">
                 <label class="prod-labels" for="img">Product Image</label>
-                <div class="prod-img">
-                    <img src="" alt="upload pic">
-                </div>
+                <img id="prod-img" src="" alt="upload pic">
                 <input type="text" name="img" placeholder="img url" id="prod-url">
             </div>
-            <div class="prod-details">
-                <label class="prod-labels" for="name">Product Name</label>
-                <input type="text" name="name" placeholder="Product Name" id="prod-name" required>
-                <label class="prod-labels" for="description">Product Description</label>
-                <textarea id="prod-desc" name="description" cols="30" rows="5" required></textarea>
-                <label class="prod-labels" for="growthhNotes">Growth Notes</label>
-                <textarea id="prod-notes" name="growthNotes" cols="30" rows="5"></textarea>
-                <div class="row">
-                    <label id="birthdate-label" for="birthDate">Birth Date:</label>
-                    <input class="date-picker" type="date" name="birthDate">
-                    <label id="readydate-label" for="readyDate">Ready Date:</label>
-                    <input class="date-picker" type="date" name="readyDate">
-                </div>
-                <div class="row">
-                    <label id="price-label" for="price">Price:</label>
-                    <input id="price-input" type="text" name="price" placeholder="000.00">
-                    <label id="available-label" for="available">Available:</label>
-                    <input class="available-chkbx" type="radio" name="available" value="true"><p class="chkbx-text">Yes</p>
-                    <input class="available-chkbx" type="radio" name="available" value="false" checked><p class="chkbx-text" >No</p>
-                </div>
-                <div class="row align-right">
-                    <button class="btn-lrg" type="submit">Create Product</button>
-                </div>
-            </div>
-        </form>
-    </section>
-    <!-- <section class="display-data">
-        <form action="/admin/product" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" placeholder="Name" required>
-            <br>
-            <label for="description">Description:</label>
-            <br>
-            <textarea name="description" cols="30" rows="5" placeholder="description" required></textarea>
-            <br>
-            <label for="price">Price:</label>
-            <input type="text" name="price" placeholder="00.00" required>
-            <br>
-            <label for="birthDate">Birth Date:</label>
-            <input type="text" name="birthDate" placeholder="mm-dd-yyyy">
-            <br>
-            <label for="readyDate">Ready Date:</label>
-            <input type="text" name="readyDate" placeholder="mm-dd-yyyy">
-            <br>
-            <label for="available">Available:</label>
-            <input type="checkbox" name="available">
-            <br>
-            <label for="growthNotes">Growth Notes:</label>
-            <br>
-            <textarea name="growthNotes" cols="30" rows="5" placeholder="Notes"></textarea>
-            <br>
-            <label for="img">Picture:</label>
-            <input type="text" name="img" placeholder="img url">
-            <br>
-            <button type="submit">Create Product</button>
-        </form>
-    </section> -->
+            <table class="text-align-left">
+                <tr>
+                    <td class="td_small-width">Name:</td>
+                    <td>
+                        <input type="text" name="name" placeholder="Product Name" id="prod-name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="prod-desc" name="description" cols="30" rows="5" placeholder="description" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="prod-notes" name="growthNotes" cols="30" rows="5" placeholder="growth notes"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Price:</td>
+                    <td>
+                        <input id="price-input" type="text" name="price" placeholder="000.00">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Born On:</td>
+                    <td>
+                        <input class="date-picker" type="date" name="birthDate">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Ready On:</td>
+                    <td>
+                        <input class="date-picker" type="date" name="readyDate">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Available:</td>
+                    <td class="display-inline">
+                        <input class="available-chkbx" type="radio" name="available" value="true"><p class="chkbx-text">Yes</p>
+                        <input class="available-chkbx" type="radio" name="available" value="false" checked><p class="chkbx-text" >No</p>
+                        <input type="hidden" name="farmID">
+                    </td>
+                </tr>
+                <tr class="text-align-right">
+                    <td colspan="2">
+                        <button class="btn-lrg" type="submit">Create Product</button>
+                    </td>
+                </tr>
+            </table>
+        </article>
+    </form>
     <footer>
 
     </footer>

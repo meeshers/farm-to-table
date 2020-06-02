@@ -17,7 +17,11 @@ const custSchema = new mongoose.Schema({
     invoices: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Invoice'
-    }]
+    }],
+    farmID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Farm'
+    }
 
 }, {timestamps:true});
 

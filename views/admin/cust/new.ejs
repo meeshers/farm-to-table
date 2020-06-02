@@ -1,11 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Customer Page</title>
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/custAdmin.js" defer></script>
+    <title>New Customer</title>
 </head>
 <body>
-    <h1>New Customer Page</h1>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+        <form action="/admin/cust" method="POST">
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">Customer Details</th>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="address">
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <input type="text" name="city">
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <input type="text" name="state">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>
+                        <input type="text" name="zip" maxlength="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <input type="tel" name="phone" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-align-right" colspan="2">
+                        <!-- TODO -->
+                        <button class="btn-med" type="button">Clear Form</button>
+                        <button class="btn-med" type="submit">Add Customer</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </article>
+    <footer>
+
+    </footer>
 </body>
 </html>
