@@ -4,16 +4,6 @@ const bcrypt = require("bcryptjs");
 
 const db = require("../models");
 
-// log in route
-router.get('/login', (req, res) => {
-  res.render('shop/auth/login');
-})
-
-// login POST route
-router.post('/login', (req,res)=>{
-  res.render('shop/auth/user');
-})
-
 // register route
 router.get('/register', (req,res) => {
   res.render('shop/auth/register');
@@ -36,6 +26,24 @@ router.post('/register', async (req,res)=>{
     res.send({message: "Internal server error"})
   }
 })
+
+// log in route
+router.get('/login', (req, res) => {
+  res.render('shop/auth/login');
+})
+
+// login POST route
+router.post('/login', async (req,res)=>{
+  try{
+
+  } catch(error) {
+    console.log(error);
+    res.send({message: "Internal server error"});
+  }
+  res.render('shop/auth/user');
+})
+
+
 
 // user page route
 router.get('/user', (req, res) => {
