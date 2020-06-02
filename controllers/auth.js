@@ -68,4 +68,6 @@ router.get('/user', async (req, res) => {
   }
 })
 
+// edit user route
+
 module.exports = router;
