@@ -7,8 +7,8 @@ const custSchema = new mongoose.Schema({
     state: String,
     zip: {type: Number, maxlength: 5},
     phone: {type: String, required: true, maxlength: 12},
-    email: {type: String, required: true},
-    password: String,
+    email: {type: String, required: true, unique: true},
+    password: {type: String, required: true},
     profilePic: String,
     products: [{
         type: mongoose.Schema.Types.ObjectId,

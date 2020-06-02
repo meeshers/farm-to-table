@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <title>Sign in</title>
+</head>
+<body>
+  <%- include('../../header') %>
+  <h1>Sign in</h1>
+  <div class="container">
+    <form action="/" method="POST">
+      <p>Register for an account today!</p>
+      <label for="username">Username :</label>
+      <input type="text" placeholder="Name" required>
+      <br>
+      <label for="password">Password :</label>
+      <input type="password" placeholder="password" required>
+      <br>
+      <button type="submit">Sign in</button>
+    </form>
+  </div>
+  <%- include('../../footer') %>
+</html>
