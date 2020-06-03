@@ -67,15 +67,19 @@ router.post('/login', async (req,res)=>{
   }
 })
 
+//middleware to delete route through <a> tags
+router.use(function(req,res,next){
+  if(req.query._method === "DELETE"){
+    req.method = "DELETE";
+    req.url = req.path;
+  }
+  next();
+})
+
 // logout (delete)
 router.delete("/logout", async (req,res)=>{
   await req.session.destroy();
   res.redirect("/");
-
-/*   if(req.query._method === "DELETE"){
-    await req.session.destroy();
-    res.redirect("/");
-  } */
 })
 
 // user page route
