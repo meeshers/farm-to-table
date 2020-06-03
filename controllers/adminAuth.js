@@ -7,23 +7,28 @@ const router = express.Router();
 
 //login page
 router.get('/login', (req,res) => {
-    res.render('admin/login');
+
+    const invalid = {
+        username: "",
+        valid: true
+    }
+
+    res.render('admin/login', {invalid: invalid});
 });
 
 router.post('/login', async (req,res) => {
     try {
         const farm = await db.Farms.findOne({name: functions.getFarmName()});
-        
-        if(farm.username !== req.body.username)
-        {
-            return res.send({message: "Password or Email incorrect!"});
-        }
-
         const match = await bcrypt.compare(req.body.password, farm.password);
-        
-        if(!match)
+
+        if(farm.username !== req.body.username || !match)
         {
-            return res.send({message: "Password or Email incorrect!"});
+            const invalid = {
+                username: req.body.username,
+                valid: false
+            }
+
+            return res.render('admin/login', {invalid: invalid});
         }
 
         //if match then create the session
