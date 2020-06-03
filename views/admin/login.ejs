@@ -12,7 +12,10 @@
         <h1>AUTHENTICATE</h1>
         <section id="section__login">
             <form action="/admin/login" method="POST">
-                <input id="input__username" type="text" name="username" placeholder="username" required>
+                <div id="p__login-fail" >
+                    <p <%= (invalid.valid)? 'hidden' : '' %>>Invalid username or password!</p>
+                </div>
+                <input id="input__username" type="text" name="username" placeholder="username" value="<%= invalid.username %>" required>
                 <input id="input__password" type="password" name="password" placeholder="password" required>
                 <div id="button__login">
                     <button class="btn-med" type="submit">Login</button>
