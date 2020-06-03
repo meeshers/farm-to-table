@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/product.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
   <script src="/scripts/addProducts.js" defer></script>
@@ -21,17 +15,23 @@
     <img id="prod-image" class="photo" src="<%= product.img %>" alt="<%= product.name %>">
 
     <div class="content">
+
       <h2 id="prod-name"><%= product.name %></h2>
-      <p id="prod-price" class="price"><%= product.price %></p>
+      <hr>
+      <p id="prod-price" class="price"><i><%= product.price %></i></p>
+      
+      <small><b>Product description:</b></small>
       <p id="prod-desc" class="description"><%= product.description %></p>
 
       <!-- Check if product has birth/ready dates -->
       <% if (product.birthDate && product.readyDate) { %>
+      <small><b>Dates: </b></small>
       <p id="prod-bDate">Birth date: <%= product.birthDate %></p>
       <p id="prod-rDate" >Ready date: <%= product.readyDate %></p>
       <%}%>
 
       <!-- Product Availability -->
+      <small><b>Availability: </b></small>
       <% if (product.available===true) { %>
       <input id="prod-available"  type="hidden" name="availiable" value="<% (product.available)? 'Yes' : 'No' %>">
       <p>This item is currently in stock.</p>
@@ -40,7 +40,7 @@
       <% } %>
 
       <!-- Growth notes -->
-      <p><b>Note from the producer:</b></p>
+      <small><b>Note from the producer:</b></small>
       <% if (!product.growthNotes) { %>
       <p>There are no further notes on this product from the producer.</p>
       <% } else {%>
