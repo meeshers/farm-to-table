@@ -73,7 +73,13 @@ router.get('/product/new', (req, res) => {
 //CREATE farm route
 router.post('/', async (req, res) => {
     try {
+        const salt = await bcrypt.genSalt();
+        const hash = await bcrypt.hash(req.body.password, salt);
+
+        req.body.password = hash;
+
         const createFarm = await db.Farms.create(req.body);
+
         res.redirect('/admin');
     } catch (error) {
         console.log(error);
@@ -236,7 +242,6 @@ router.put('/:id', async (req, res) => {
                 username: req.body.username,
                 password: hash
             }
-            console.log("password updated");
         }
         else
         {
@@ -250,7 +255,6 @@ router.put('/:id', async (req, res) => {
                 email: req.body.email,
                 username: req.body.username
             }
-            console.log("NOT UPDATE PASSWORD");
         }
         
         await db.Farms.findByIdAndUpdate(req.params.id, farmUpdate, {new:true});

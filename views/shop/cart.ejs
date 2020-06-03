@@ -4,11 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+  <script src="/scripts/shoppingCart.js" defer></script>
+  <script src="/scripts/cartLabel.js" defer></script>
   <title>Cart</title>
 </head>
 <body>
   <%- include('../header') %>
   <h1>This is the cart page</h1>
   <%- include('../footer') %>
+
+  <p id="insert-prods"></p>
+  <button id="button__clear-cart" hidden>Clear Cart</button>
 </body>
 </html>
