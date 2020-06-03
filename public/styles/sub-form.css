@@ -11,8 +11,10 @@ input {
 }
 
 form {
+  margin-top: 15px;
   background-color: #94D3AC;
   padding: 15px;
+  border-radius: 10px;
 }
 
 button {

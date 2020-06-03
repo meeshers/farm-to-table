@@ -57,6 +57,7 @@ button {
   background-color: #655C56;
   color: #EFFCEF;
   font-size: 20px;
+  cursor: pointer;
 }
 
 label {
