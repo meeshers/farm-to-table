@@ -1,5 +1,8 @@
 
   <link rel="stylesheet" href="/styles/product.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+  <script src="/scripts/addProducts.js" defer></script>
+  <script src="/scripts/cartLabel.js" defer></script>
   <title>Show Product</title>
 </head>
 
@@ -8,26 +11,29 @@
   <!-- <h1>This is the product show page</h1> -->
 
   <div class="show-container">
-    <img class="photo" src="<%= product.img %>" alt="<%= product.name %>">
+    <input id="prod-id" type="hidden" name="prodID" value="<%= product._id %>">
+    <img id="prod-image" class="photo" src="<%= product.img %>" alt="<%= product.name %>">
 
     <div class="content">
-      <h2><%= product.name %></h2>
-      <hr>
-      <p class="price"><i><%= product.price %></i></p>
 
+      <h2 id="prod-name"><%= product.name %></h2>
+      <hr>
+      <p id="prod-price" class="price"><i><%= product.price %></i></p>
+      
       <small><b>Product description:</b></small>
-      <p><%= product.description %></p>
+      <p id="prod-desc" class="description"><%= product.description %></p>
 
       <!-- Check if product has birth/ready dates -->
       <% if (product.birthDate && product.readyDate) { %>
-        <small><b>Dates: </b></small>
-      <p>Birth date: <%= product.birthDate %></p>
-      <p>Ready date: <%= product.readyDate %></p>
+      <small><b>Dates: </b></small>
+      <p id="prod-bDate">Birth date: <%= product.birthDate %></p>
+      <p id="prod-rDate" >Ready date: <%= product.readyDate %></p>
       <%}%>
 
       <!-- Product Availability -->
       <small><b>Availability: </b></small>
       <% if (product.available===true) { %>
+      <input id="prod-available"  type="hidden" name="availiable" value="<% (product.available)? 'Yes' : 'No' %>">
       <p>This item is currently in stock.</p>
       <% } else { %>
       <p>This item is currently unavailable.</p>
@@ -38,10 +44,10 @@
       <% if (!product.growthNotes) { %>
       <p>There are no further notes on this product from the producer.</p>
       <% } else {%>
-      <p><%= product.growthNotes %></p>
+      <p id="prod-notes"><%= product.growthNotes %></p>
       <% } %>
-      <br>
-      <button type="submit">Add to cart</button>
+
+      <button class="button__add-to-cart" type="submit">Add to cart</button>
     </div>
 
   </div>

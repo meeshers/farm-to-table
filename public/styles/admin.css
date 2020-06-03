@@ -43,6 +43,12 @@ footer {
     font-size: 16px;
 }
 
+#button__add-farm {
+    margin-top: 30px;
+    padding: 15px;
+    border: 3px solid #655C56;
+}
+
 #button__login {
     display: flex;
     /* align-items: flex-end; */
@@ -95,7 +101,7 @@ footer {
 }
 
 .body__article-prod-details table {
-    margin: 25px 10px 10px 10px;
+    margin: 25px 10px 10px 30px;
 }
 
 .textarea__show-page {
@@ -190,7 +196,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: #CCEDD2;
+    opacity: .5;
 }
 
 .btn-sml {

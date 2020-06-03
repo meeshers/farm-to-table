@@ -4,11 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/shoppingCart.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/557a3bdbd9.js" defer></script>
+  <script src="/scripts/shoppingCart.js" defer></script>
+  <script src="/scripts/cartLabel.js" defer></script>
   <title>Cart</title>
 </head>
 <body>
   <%- include('../header') %>
-  <h1>This is the cart page</h1>
+  <!-- <h1>This is the cart page</h1> -->
+
+  <p id="insert-prods"></p>
+  <button id="button__clear-cart" hidden>Clear Cart</button>
+  <section class="section__cart">
+    <article class="article__cart-items">
+      <table id="table__items">
+        <tr>
+          <th class="td__first"><p>Product</p></th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+        </tr>
+      </table>
+    </article>
+    <article class="article__cart-total"></article>
+  </section>
+
   <%- include('../footer') %>
 </body>
 </html>

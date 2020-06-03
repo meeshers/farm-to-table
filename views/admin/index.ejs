@@ -8,10 +8,14 @@
 <body>
     <%- include('partials/adminHeader') %>
     <%- include('partials/adminNav') %>
+    <% if(!farm) {%>
+        <p>
+            <a href="/admin/newFarm">
+                <button id="button__add-farm" class="btn-lrg">Add Farm Details</button>
+            </a>
+        </p>
+    <% } else { %>
     <article class="body__article-details black-text-shadow">
-        <% if(!farm) {%>
-            <p><a href="/admin/newFarm">Create Farm</a></p>
-        <% } else { %>
         <table class="table__farm-details text-align-left">
             <th colspan="2" class="text-align-center">Farm Details</th>
             <tr>
