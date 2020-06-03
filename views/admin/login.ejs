@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <%- include('partials/adminHead') %>
+    <script src="/scripts/loginAdmin.js" defer></script>
+    <title>Farm2Table Administration</title>
 </head>
 <body>
-    <body>
-        <h1>Admin Login</h1>
-        <form action="/admin/login" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <br>
-            <input type="password" name="password" placeholder="Password" required>
-            <br>
-            <input type="submit" value="Login">
-        </form>
-    </body>
+    <%- include('partials/adminHeader') %>
+    <%- //include('partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+        <h1>AUTHENTICATE</h1>
+        <section id="section__login">
+            <form action="/admin/login" method="POST">
+                <input id="input__username" type="text" name="username" placeholder="username" required>
+                <input id="input__password" type="password" name="password" placeholder="password" required>
+                <div id="button__login">
+                    <button class="btn-med" type="submit">Login</button>
+                </div>
+            </form>
+        </section>
+    </article>
+    <%- include('partials/adminFooter') %>
 </body>
 </html>

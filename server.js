@@ -8,6 +8,7 @@ const MongoStore = require('connect-mongo')(session);
 /* Internal Modules */
 const controllers = require('./controllers');
 const authRequired = require("./middleware/authRequired");
+const adminAuth = require('./middleware/adminAuthReq');
 
 /* Instance Modules */
 const app = express();
@@ -38,11 +39,11 @@ app.use(
   })
 );
 
-//admin routes
-app.use("/admin", controllers.admin);
-
 //admin authorization routes
 app.use("/admin", controllers.adminAuth);
+
+//admin routes
+app.use("/admin", adminAuth, controllers.admin);
 
 // Shop routes
 app.use("/", controllers.shop);
@@ -51,7 +52,7 @@ app.use("/", controllers.shop);
 app.use("/", controllers.auth);
 
 // require auth on user
-app.use("/", authRequired, controllers.auth);
+app.use("/user", authRequired, controllers.auth);
 
 
 app.listen(PORT, () => {
