@@ -8,39 +8,40 @@
     <%- include('partials/adminNav') %>
     Trial page
     <div class="header">
-        <h1>New Product Page</h1>
+        <h1>Edit Product Page</h1>
     </div>
     <%- include('../partials/adminNav') %>
     <section class="display-data">
-        <form action="/admin/product" method="POST">
+        <form action="/admin/product/<%= product._id %>?_method=PUT" method="POST">
             <div class="upload-img">
                 <label class="prod-labels" for="img">Product Image</label>
                 <div class="prod-img">
-                    <img id="prod-img" src="" alt="upload pic">
+                    <img src="<%= product.img %>" alt="upload pic">
                 </div>
-                <input type="text" name="img" placeholder="img url" id="prod-url">
+                <input type="text" name="img" placeholder="img url" id="prod-url" value="<%= product.img %>">
             </div>
             <div class="prod-details">
                 <label class="prod-labels" for="name">Product Name</label>
-                
+                <input type="text" name="name" placeholder="Product Name" id="prod-name" value="<%= product.name %>" required>
                 <label class="prod-labels" for="description">Product Description</label>
-                
+                <textarea id="prod-desc" name="description" cols="30" rows="5" required><%= product.description %></textarea>
                 <label class="prod-labels" for="growthhNotes">Growth Notes</label>
-                
+                <textarea id="prod-notes" name="growthNotes" cols="30" rows="5"><%= product.growthNotes %></textarea>
                 <div class="row">
                     <label id="birthdate-label" for="birthDate">Birth Date:</label>
-                    
+                    <input class="date-picker" type="date" name="birthDate" value="<%= product.birthDate %>">
                     <label id="readydate-label" for="readyDate">Ready Date:</label>
-                    
+                    <input class="date-picker" type="date" name="readyDate" value="<%= product.readyDate %>">
                 </div>
                 <div class="row">
                     <label id="price-label" for="price">Price:</label>
-                    
+                    <input id="price-input" type="text" name="price" placeholder="000.00" value="<%= product.price %>">
                     <label id="available-label" for="available">Available:</label>
-                    
+                    <input class="available-chkbx" type="radio" name="available" value="true" <%= (product.available)? 'checked' : '' %>><p class="chkbx-text">Yes</p>
+                    <input class="available-chkbx" type="radio" name="available" value="false" <%= (product.available)? '' : 'checked' %>><p class="chkbx-text" >No</p>
                 </div>
                 <div class="row align-right">
-                    <button class="btn-lrg" type="submit">Create Product</button>
+                    <button class="btn-lrg" type="submit">Update Product</button>
                 </div>
             </div>
         </form>

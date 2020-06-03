@@ -209,7 +209,8 @@ router.get('/product/:id/edit', async (req, res) => {
             readyDate: readyDate,
             available: foundProduct.available,
             growthNotes: foundProduct.growthNotes,
-            img: foundProduct.img
+            img: foundProduct.img,
+            farmID: foundProduct.farmID
         }
         res.render('admin/product/edit', {product: product});
     } 
@@ -249,7 +250,7 @@ router.put('/cust/:id', async (req, res) => {
 router.put('/product/:id', async (req, res) => {
     try {
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
-
+        
         await db.Products.findByIdAndUpdate(req.params.id, req.body, {new:true});
         res.redirect(`/admin/product/${req.params.id}`);
     }
