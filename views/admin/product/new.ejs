@@ -12,30 +12,30 @@
         <article class="body__article-prod-details black-text-shadow">
             <div class="prod-img">
                 <label class="prod-labels" for="img">Product Image</label>
-                <img id="prod-img" src="" alt="upload pic">
+                <div id="prod-img"></div>
                 <input type="text" name="img" placeholder="img url" id="prod-url">
             </div>
-            <table class="text-align-left">
+            <table class="table__prod-details text-align-left">
                 <tr>
                     <td class="td_small-width">Name:</td>
-                    <td>
-                        <input type="text" name="name" placeholder="Product Name" id="prod-name" required>
+                    <td class="td__input-text">
+                        <input id="input__prod-name" type="text" name="name" placeholder="Product Name" required>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea id="prod-desc" name="description" cols="30" rows="5" placeholder="description" required></textarea>
+                        <textarea class="td__textarea" name="description" cols="30" rows="5" placeholder="description" required></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea id="prod-notes" name="growthNotes" cols="30" rows="5" placeholder="growth notes"></textarea>
+                        <textarea class="td__textarea" name="growthNotes" cols="30" rows="5" placeholder="growth notes"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td class="td_small-width">Price:</td>
                     <td>
-                        <input id="price-input" type="text" name="price" placeholder="000.00">
+                        <input id="input__prod-price" type="text" name="price" placeholder="000.00">
                     </td>
                 </tr>
                 <tr>

@@ -4,5 +4,5 @@ $(document).ready( () => {
 
 $('#prod-url').blur(() => {
     const url = $('#prod-url').val();
-    $('#prod-img').attr("src", url);
+    $('#prod-img').css("background-image", `url(${url})`);
 })
