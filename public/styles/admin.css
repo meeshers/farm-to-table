@@ -6,6 +6,12 @@ body {
     color: #655C56;
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
 .body__article-details {
     background-color: rgba(101,92,86,.7);
     color: #CCEDD2;
@@ -156,14 +162,14 @@ button:hover {
 
 .btn-med {
     font-size: medium;
-    margin: 3px 3px;
+    margin: 3px 0px;
     padding: 3px;
     border-radius: 5px;
 }
 
 .btn-lrg {
     font-size: large;
-    margin: 5px 5px;
+    margin: 5px 0px;
     padding: 3px;
     border-radius: 5px;
 }

@@ -3,18 +3,13 @@ const functions = require('../middleware/external');
 const router = express.Router();
 const db = require('../models');
 
-const farmName = "Pieces of Ate";
 const adminUser = "admin";
 const adminPass = "admin1";
-
-router.get('/trial', (req, res) => {
-    res.render('admin/trial');
-});
 
 //root administration page
 router.get('/', async (req, res) => {
     try {
-        const foundFarm = await db.Farms.findOne({name: farmName});
+        const foundFarm = await db.Farms.findOne({name: functions.getFarmName()});
 
         res.render('admin/index', {farm: foundFarm});
 
@@ -28,8 +23,8 @@ router.get('/', async (req, res) => {
 //ROOT customer administration page
 router.get('/cust', async (req, res) => {
     try {
-        const farmCustomers = await db.Farms.findOne({name: farmName}).populate('customers');
-
+        const farmCustomers = await db.Farms.findOne({name: functions.getFarmName()}).populate('customers');
+        
         res.render('admin/cust', {customers: farmCustomers.customers});
     }
     catch (error) {
@@ -42,7 +37,7 @@ router.get('/cust', async (req, res) => {
 //ROOT product administration page
 router.get('/product', async (req, res) => {
     try {
-        const farmProducts = await db.Farms.findOne({name: farmName}).populate('products');
+        const farmProducts = await db.Farms.findOne({name: functions.getFarmName()}).populate('products');
 
         res.render('admin/product', {products: farmProducts.products});
     }
@@ -55,7 +50,7 @@ router.get('/product', async (req, res) => {
 //New farm page
 router.get('/newFarm', (req, res) => {
     const context = {
-        name: farmName,
+        name: functions.getFarmName(),
         username: adminUser,
         password: adminPass
     }
@@ -88,11 +83,9 @@ router.post('/', async (req, res) => {
 router.post('/cust', async (req, res) => {
     try {
 
-        const farm = await db.Farms.findOne({name: farmName});
+        const farm = await db.Farms.findOne({name: functions.getFarmName()});
         req.body.farmID = farm._id;
 
-        console.log(req.body);
-        
         const newCust = await db.Customers.create(req.body);
 
         farm.customers.push(newCust);
@@ -110,7 +103,7 @@ router.post('/cust', async (req, res) => {
 router.post('/product', async (req, res) => {
     try {
 
-        const farm = await db.Farms.findOne({name: farmName});
+        const farm = await db.Farms.findOne({name: functions.getFarmName()});
         req.body.price = functions.formatPrice(functions.stripDollar(req.body.price));
         req.body.farmID = farm._id;
         
@@ -264,7 +257,7 @@ router.put('/product/:id', async (req, res) => {
 router.delete('/cust/:id', async (req, res) => {
     try {
         const delCust = await db.Customers.findByIdAndDelete(req.params.id);
-        const farm = await db.Farms.findOne({name: farmName});
+        const farm = await db.Farms.findOne({name: functions.getFarmName()});
 
         farm.customers.remove(delCust);
         farm.save();
@@ -281,7 +274,7 @@ router.delete('/cust/:id', async (req, res) => {
 router.delete('/product/:id', async (req, res) => {
     try {
         const delProduct = await db.Products.findByIdAndDelete(req.params.id);
-        const farm = await db.Farms.findOne({name: farmName});
+        const farm = await db.Farms.findOne({name: functions.getFarmName()});
 
         farm.products.remove(delProduct);
         farm.save();
