@@ -40,4 +40,10 @@ router.post('/login', async (req,res) => {
     }
 });
 
+//logout delete <- destroy session
+router.delete('/logout', async (req,res) => {
+    await req.session.destroy();
+    res.redirect('/admin/login');
+});
+
 module.exports = router;
