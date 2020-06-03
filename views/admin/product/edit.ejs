@@ -2,80 +2,73 @@
 <html lang="en">
 <head>
     <%- include('../partials/adminHead') %>
-    <title>Edit Product</title>
+    <script src="/scripts/prodAdmin.js" defer></script>
+    <title>Product Administration</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Edit Product Page</h1>
-    </div>
+    <%- include('../partials/adminHeader') %>
     <%- include('../partials/adminNav') %>
-    <section class="display-data">
-        <form action="/admin/product/<%= product._id %>?_method=PUT" method="POST">
-            <div class="upload-img">
+    <form action="/admin/product/<%= product._id %>?_method=PUT" method="POST">
+        <article class="body__article-prod-details black-text-shadow">
+            <div class="prod-img">
                 <label class="prod-labels" for="img">Product Image</label>
-                <div class="prod-img">
-                    <img src="<%= product.img %>" alt="upload pic">
-                </div>
+                <div id="prod-img"></div>
                 <input type="text" name="img" placeholder="img url" id="prod-url" value="<%= product.img %>">
             </div>
-            <div class="prod-details">
-                <label class="prod-labels" for="name">Product Name</label>
-                <input type="text" name="name" placeholder="Product Name" id="prod-name" value="<%= product.name %>" required>
-                <label class="prod-labels" for="description">Product Description</label>
-                <textarea id="prod-desc" name="description" cols="30" rows="5" required><%= product.description %></textarea>
-                <label class="prod-labels" for="growthhNotes">Growth Notes</label>
-                <textarea id="prod-notes" name="growthNotes" cols="30" rows="5"><%= product.growthNotes %></textarea>
-                <div class="row">
-                    <label id="birthdate-label" for="birthDate">Birth Date:</label>
-                    <input class="date-picker" type="date" name="birthDate" value="<%= product.birthDate %>">
-                    <label id="readydate-label" for="readyDate">Ready Date:</label>
-                    <input class="date-picker" type="date" name="readyDate" value="<%= product.readyDate %>">
-                </div>
-                <div class="row">
-                    <label id="price-label" for="price">Price:</label>
-                    <input id="price-input" type="text" name="price" placeholder="000.00" value="<%= product.price %>">
-                    <label id="available-label" for="available">Available:</label>
-                    <input class="available-chkbx" type="radio" name="available" value="true" <%= (product.available)? 'checked' : '' %>><p class="chkbx-text">Yes</p>
-                    <input class="available-chkbx" type="radio" name="available" value="false" <%= (product.available)? '' : 'checked' %>><p class="chkbx-text" >No</p>
-                </div>
-                <div class="row align-right">
-                    <button class="btn-lrg" type="submit">Update Product</button>
-                </div>
-            </div>
-        </form>
-    </section>
-    <!-- <section class="display-data">
-        <form action="" method="post">
-            <label for="name">Name:</label>
-            <input type="text" name="name" placeholder="Name"  required>
-            <br>
-            <label for="description">Description:</label>
-            <br>
-            <textarea name="description" cols="30" rows="5" required></textarea>
-            <br>
-            <label for="price">Price:</label>
-            <input type="text" name="price" placeholder="00.00"  required>
-            <br>
-            <label for="birthDate">Birth Date:</label>
-            <input type="text" name="birthDate" placeholder="mm-dd-yyyy" >
-            <br>
-            <label for="readyDate">Ready Date:</label>
-            <input type="text" name="readyDate" placeholder="mm-dd-yyyy" >
-            <br>
-            <label for="available">Available:</label>
-            <input type="checkbox" name="available" >
-            <br>
-            <label for="growthNotes">Growth Notes:</label>
-            <br>
-            <textarea name="growthNotes" cols="30" rows="5" placeholder="Growth notes"></textarea>
-            <br>
-            <label for="img">Image:</label>
-            <input type="text" name="img" placeholder="img url" >
-            <br><br>
-            <input type="submit" value="Update Product">
-        </form>
-    </section> -->
-    <footer>
-
-    </footer>
+            <table class="table__prod-details text-align-left">
+                <tr>
+                    <td class="td_small-width">Name:</td>
+                    <td class="td__input-text">
+                        <input id="input__prod-name" type="text" name="name" placeholder="Product Name" value="<%= product.name %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea class="td__textarea" name="description" cols="30" rows="5" placeholder="description" required><%= product.description %></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea class="td__textarea" name="growthNotes" cols="30" rows="5" placeholder="growth notes"><%= product.growthNotes %></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Price:</td>
+                    <td>
+                        <input id="input__prod-price" type="text" name="price" placeholder="000.00" value="<%= product.price %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Born On:</td>
+                    <td>
+                        <input class="date-picker" type="date" name="birthDate" value="<%= product.birthDate %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Ready On:</td>
+                    <td>
+                        <input class="date-picker" type="date" name="readyDate" value="<%= product.readyDate %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_small-width">Available:</td>
+                    <td class="display-inline">
+                        <input class="available-chkbx" type="radio" name="available" value="true" <%= (product.available)? 'checked' : ''%>><p class="chkbx-text">Yes</p>
+                        <input class="available-chkbx" type="radio" name="available" value="false" <%= (product.available)? '' : 'checked'%>><p class="chkbx-text" >No</p>
+                        <input type="hidden" name="farmID" value="<%= product.farmID %>">
+                    </td>
+                </tr>
+                <tr class="text-align-right">
+                    <td colspan="2">
+                        <a href="/admin/product" tabindex="-1">
+                            <button type="button" class="btn-med">Back</button>
+                        </a>
+                        <button class="btn-med" type="submit">Update Product</button>
+                    </td>
+                </tr>
+            </table>
+        </article>
+    </form>
+    <%- include('../partials/adminFooter') %>
+</body>
 </html>

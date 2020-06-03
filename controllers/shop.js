@@ -35,7 +35,8 @@ router.get('/product/:id', async (req, res) => {
         readyDate: readyDate,
         available: foundProduct.available,
         growthNotes: foundProduct.growthNotes,
-        img: foundProduct.img
+        img: foundProduct.img,
+        farmID: foundProduct.farmID
     }
     res.render('shop/show', {product: product});
   } catch (error) {

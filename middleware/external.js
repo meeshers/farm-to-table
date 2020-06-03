@@ -32,3 +32,10 @@ exports.getDate = (isoDate, forDisplay=false) => {
     else
         return `${year}-${month}-${day}`;
 }
+
+/**
+ * @returns {string} the name of the farm that the website belongs to.
+ */
+exports.getFarmName = () => {
+    return 'Pieces of Ate';
+}

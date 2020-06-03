@@ -96,3 +96,23 @@ header {
     clear: both;
     width: 100%;
 }
+
+#button__logout {
+    border: none;
+    font-size: inherit;
+    font-family: 'Lato', sans-serif;
+    color: #655C56;
+    height: 39px;
+    padding: 10px;
+}
+
+#button__logout:hover {
+    background: #EFFCEF;
+    /* margin: 10px; */
+    /* padding: 10px; */
+}
+
+#li__btn-logout {
+    margin: 0;
+    padding: 0;
+}

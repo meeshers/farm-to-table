@@ -1,4 +1,6 @@
 const express = require("express");
+const functions = require('../middleware/external');
+
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 
@@ -16,10 +18,19 @@ router.post('/register', async (req,res)=>{
     if(foundUser){
       return res.send({ message: "Account is already registered. Please log in"});
     }
+
+    //get the farmID so that the new customer can be added to it
+    const farm = await db.Farms.findOne({name: functions.getFarmName()});
+    req.body.farmID = farm._id;
+    
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(req.body.password, salt);
     req.body.password = hash;
     const newUser = await db.Customers.create(req.body);
+
+    farm.customers.push(newUser);
+    farm.save();
+
     res.redirect("/login");
   } catch(err) {
     console.log(err);

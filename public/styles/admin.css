@@ -6,6 +6,12 @@ body {
     color: #655C56;
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
 .body__article-details {
     background-color: rgba(101,92,86,.7);
     color: #CCEDD2;
@@ -29,19 +35,24 @@ body {
     height: 325px;
 }
 
-.prod-img img {
+#prod-img {
     width: 335px;
     height: 335px;
-    padding: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px;
+    background-color: white;
 }
 
 #prod-url {
-    margin: 5px 0 0 0;
-    width: 325px;
+    margin-left: 10px; 
+    width: 335px;
     height: 25px;
-    font-size: 18px;
+    font-size: 12px;
     border: none;
     padding-left: 10px;
+    font-family: inherit;
 }
 
 .body__article-prod-details table {
@@ -76,10 +87,26 @@ body {
     padding: 5px 15px 5px 15px;
 }
 
-.table__farm-details input {
+.table__farm-details input, .table__prod-details #input__prod-name, #input__prod-price {
     height: 25px;
     width: 250px;
     font-size: 16px;
+}
+
+.table__prod-details {
+    padding-left: 20px;
+}
+
+.table__prod-details .td__textarea {
+    width: 342px;
+    height: 70px;
+    padding: 5px;
+    resize: none;
+    font-family: inherit;
+}
+
+.table__prod-details #input__prod-price{
+    width: 152px;
 }
 
 .table-button {
@@ -89,7 +116,17 @@ body {
 
 }
 
-.display-inline{
+.available-chkbx{
+    margin: 10px 0 0 0;
+    height: 15px;
+    width: 15px;
+}
+
+.chkbx-text {
+    margin: 10px 10px 0 3px;
+}
+
+.display-inline {
     display: flex;
     align-items: center;
 }
@@ -125,14 +162,14 @@ button:hover {
 
 .btn-med {
     font-size: medium;
-    margin: 3px 3px;
+    margin: 3px 0px;
     padding: 3px;
     border-radius: 5px;
 }
 
 .btn-lrg {
     font-size: large;
-    margin: 5px 5px;
+    margin: 5px 0px;
     padding: 3px;
     border-radius: 5px;
 }

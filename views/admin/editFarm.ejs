@@ -63,7 +63,9 @@
                 <tr>
                     <td>Password:</td>
                     <td>
-                        <input type="password" name="password" placeholder="Password" value="<%= farm.password %>" required>
+                        <button class="btn-sml" id="button__update-password" type="button">Update Password</button>
+                        <input type="password" id="input__admin-password" name="password" placeholder="minimum length 5" hidden>
+                        <input type="hidden" id="pass-updated" name="passUpdated" value="false">
                     </td>
                 </tr>
                 <tr>
@@ -71,14 +73,12 @@
                         <a href="/admin">
                             <button class="btn-med" type="button">Back</button>
                         </a>
-                        <button class="btn-med" type="submit">Update Farm</button>
+                        <button id="button__submit-farmUpdate" class="btn-med" type="submit">Update Farm</button>
                     </td>
                 </tr>
             </table>
         </form>
     </article>
-    <footer>
-
-    </footer>
+    <%- include('partials/adminFooter') %>
 </body>
 </html>
