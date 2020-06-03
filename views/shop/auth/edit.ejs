@@ -14,22 +14,22 @@
   <h1>Edit info for <%= user.name %>! </h1>
 
   <!-- user cannot change email! -->
-  <label for="email">Email: </label> <%= user.email %> <br>
+  <label for="email"><b>Email: </b></label> <%= user.email %> <br>
 
   <form action="/user?_method=PUT" method="POST">
-    <label for="address">Address: </label>
+    <label for="address"><b>Address: </b></label>
     <input type="text" name="address" placeholder="<%= user.address %>">
     <br>
-    <label for="city">City: </label> 
+    <label for="city"><b>City: </b></label> 
     <input type="text" name="city" placeholder="<%= user.city %>">
     <br>
-    <label for="state">State: </label> 
+    <label for="state"><b>State: </b></label> 
     <input type="text" name="state" placeholder="<%= user.state %>">
     <br>
-    <label for="zip">Zip: </label> 
+    <label for="zip"><b>Zip: </b></label> 
     <input type="text" name="zip" placeholder="<%= user.zip %>">
     <br>
-    <label for="phone">Phone: </label> 
+    <label for="phone"><b>Phone: </b></label> 
     <input type="text" name="phone" placeholder="<%= user.phone %>">
     <br>
 

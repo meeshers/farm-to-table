@@ -70,7 +70,12 @@ router.post('/login', async (req,res)=>{
 // logout (delete)
 router.delete("/logout", async (req,res)=>{
   await req.session.destroy();
-  res.redirect("/login");
+  res.redirect("/");
+
+/*   if(req.query._method === "DELETE"){
+    await req.session.destroy();
+    res.redirect("/");
+  } */
 })
 
 // user page route
@@ -92,13 +97,12 @@ router.get('/user/edit', async (req,res)=>{
 // edit user PUT route
 router.put('/user', async (req,res)=>{
   try{
-    const foundUser = await db.Customers.findOneAndUpdate(req.session.currentUser.id, req.body, {new:true});
+    await db.Customers.findOneAndUpdate(req.session.currentUser.id, req.body, {new:true});
     res.redirect('/user');
   } catch (error) {
     console.log(error);
     res.send({message: "Internal server error"});
   }
-
 })
 
 module.exports = router;

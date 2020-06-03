@@ -10,7 +10,10 @@
       <a href="/cart">Cart</a> |
       <a href="/login">Sign in</a> |
       <a href="/user">Profile</a> |
-      <a href="/logout">Sign out</a> 
+      <form action="/logout?_method=DELETE" method="POST">
+        <button type="submit">Sign out</button>
+        <!-- <a href="/logout">Sign out</a>  -->
+      </form>
     </nav>
   <!-- </div> -->
 </header>
