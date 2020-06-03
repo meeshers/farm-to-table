@@ -20,7 +20,10 @@
   <label for="zip">Zip: </label> <%= user.zip %> <br>
   <label for="phone">Phone: </label> <%= user.phone %> <br>
 
-  <button type="submit">Edit info</button>
+  <form action="/user/edit">
+    <button type="submit">Edit info</button>
+  </form>
+
 
   <%- include('../../footer') %>
 </body>
