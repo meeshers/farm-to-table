@@ -33,9 +33,12 @@
     <label for="phone"><b>Phone: </b></label> 
     <input type="text" name="phone" placeholder="<%= user.phone %>">
     <br>
-
     <button type="submit">Confirm changes</button>
   </form>
+  <div class="back">
+    <button onclick="history.back()">Cancel</button>
+  </div>
+
 
   <%- include('../../footer') %>
 </body>

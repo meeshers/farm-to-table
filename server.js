@@ -59,7 +59,7 @@ app.use("/", controllers.shop);
 app.use("/", controllers.auth);
 
 // require auth on user
-app.use("/", authRequired, controllers.auth);
+app.use("/user", authRequired, controllers.auth);
 
 
 app.listen(PORT, () => {
