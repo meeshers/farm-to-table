@@ -10,12 +10,13 @@ $(document).ready( () => {
 })
 
 $('.button__add-to-cart').click( ()=> {
-    const name = $('#prod-name').text();
-    const id = $('#prod-id').val();
 
     const item = {
-        id: id,
-        name: name
+        id: $('#prod-id').val(),
+        name: $('#prod-name').text(),
+        url: $('#prod-image').attr('src'),
+        price: $('#prod-price').text(),
+        desc:  $('#prod-desc').text()
     }
 
     shoppingCart.push(item);

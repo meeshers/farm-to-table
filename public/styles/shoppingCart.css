@@ -1,0 +1,38 @@
+.section__cart {
+    display: flex;
+    margin-top: 25px;
+}
+
+.article__cart-items {
+    width: 60%;
+    height: 600px;
+    background-color: white;
+    margin-left: 25px;
+}
+
+.article__cart-total {
+    width:40%;
+    height: 600px;
+    background-color: lightblue;
+    margin-right: 25px;
+}
+
+#table__items {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#table__items .td__first {
+    text-align: left;
+}
+
+.td__first p {
+    margin-left: 10px;
+}
+
+#table__items img {
+    height: 100px;
+    width: 100px;
+    margin: 10px 10px 0 10px;
+    border: 1px solid black;
+}

@@ -11,7 +11,8 @@
     <article class="body__article-prod-details black-text-shadow">
         <div class="prod-img">
             <label class="prod-labels" for="img">Product Image</label>
-            <img src="<%= product.img %>" alt="upload pic">
+            <div id="prod-img"></div>
+            <input type="hidden" name="img" placeholder="img url" id="prod-url" value="<%= product.img %>">
         </div>
         <table class="text-align-left">
             <tr>

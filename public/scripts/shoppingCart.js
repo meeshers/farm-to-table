@@ -10,10 +10,26 @@ $(document).ready( () => {
         shoppingCart = retrieve;
 
         shoppingCart.forEach(element => {
-            const itemName = element.name;
-            const itemID = element.id;
-            const addItem = `<p>${itemName} - ${itemID}</p>`;
-            $('#insert-prods').append(addItem);
+            //const itemName = element.name;
+            //const itemID = element.id;
+            //const itemUrl = element.url
+            const addItem = `<tr>
+                                <td class="td__first">
+                                    <a href="/product/${element.id}">
+                                        <img src='${element.url}'>
+                                    </a>
+                                    <p>${element.name}</p>
+                                    <p>${element.desc}</p>
+                                </td>
+                                <td>${element.price}</td>
+                                <td>
+                                <i class="fas fa-angle-left"></i>
+                                    <p 
+                                <i class="fas fa-angle-right"></i>
+                                </td>
+                                <td>total</td>
+                             </tr>`;
+            $('#table__items').append(addItem);
         });
 
         $('#button__clear-cart').show();
