@@ -9,13 +9,16 @@ body {
   color: #1f1f1f;
   text-align: center;
   font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 70px;
 }
 
 header {
   background-color: #655C56;
   color: #EFFCEF;
   padding: 15px;
-  font-size: 20px;
   text-align: right;
   width: 100%;
 }
@@ -32,8 +35,9 @@ footer {
   padding: 15px;
   font-size: 15px;
   text-align: center;
-  position: fixed;
-  width: 100%
+  position: absolute;
+  width: 100%;
+  height: 3.5rem;
 }
 
 .content {
@@ -52,4 +56,24 @@ button {
   border-radius: 5px;
   background-color: #655C56;
   color: #EFFCEF;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+label {
+  margin: 10px;
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+
+.display {
+  display: inline-block;
+  text-align: left;
+  width: 100px;
+}
+
+.explain i {
+  font-size: 48px;
+  color: #655C56;
 }
