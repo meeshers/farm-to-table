@@ -12,13 +12,12 @@
   <!-- display the name -->
   <h1>Welcome <%= user.name %>! </h1>
   
-  <!-- need to add edit functionality for the personal info -->
-  <label for="email"><b>Email: </b></label> <%= user.email %> <br>
-  <label for="address"><b>Address: </b></label> <%= user.address %> <br>
-  <label for="city"><b>City: </b></label> <%= user.city %> <br>
-  <label for="state"><b>State: </b></label> <%= user.state %> <br>
-  <label for="zip"><b>Zip: </b></label> <%= user.zip %> <br>
-  <label for="phone"><b>Phone: </b></label> <%= user.phone %> <br>
+  <label for="email"><b>Email: </b></label> <span class="display"><%= user.email %></span><br>
+  <label for="address"><b>Address: </b></label> <span class="display"><%= user.address %></span> <br>
+  <label for="city"><b>City: </b></label> <span class="display"><%= user.city %></span> <br>
+  <label for="state"><b>State: </b></label> <span class="display"><%= user.state %></span> <br>
+  <label for="zip"><b>Zip: </b></label> <span class="display"><%= user.zip %></span> <br>
+  <label for="phone"><b>Phone: </b></label> <span class="display"><%= user.phone %></span> <br>
 
   <form action="/user/edit">
     <button type="submit">Edit info</button>

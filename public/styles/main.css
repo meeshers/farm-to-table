@@ -53,3 +53,16 @@ button {
   background-color: #655C56;
   color: #EFFCEF;
 }
+
+label {
+  margin: 10px;
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+
+.display {
+  display: inline-block;
+  text-align: left;
+  width: 100px;
+}
