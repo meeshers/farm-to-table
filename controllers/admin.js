@@ -1,7 +1,9 @@
 const express = require('express');
-const functions = require('../middleware/external');
-const router = express.Router();
+const bcrypt = require('bcryptjs');
 const db = require('../models');
+const functions = require('../middleware/external');
+
+const router = express.Router();
 
 const adminUser = "admin";
 const adminPass = "admin1";
@@ -72,7 +74,7 @@ router.get('/product/new', (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const createFarm = await db.Farms.create(req.body);
-        res.redirect('admin/');
+        res.redirect('/admin');
     } catch (error) {
         console.log(error);
         res.send({message: "Internal Server Error!"});
@@ -163,7 +165,7 @@ router.get('/product/:id', async (req, res) => {
 router.get('/:id/edit', async (req, res) => {
     try {
         const farm = await db.Farms.findById(req.params.id);
-
+    
         res.render('admin/editFarm', {farm: farm});
     }
     catch (error) {
@@ -216,8 +218,43 @@ router.get('/product/:id/edit', async (req, res) => {
 //UPDATE farm route
 router.put('/:id', async (req, res) => {
     try {
-        await db.Farms.findByIdAndUpdate(req.params.id, req.body, {new:true});
+        
+        let farmUpdate;
+        if(req.body.passUpdated === 'true')
+        {
+            const salt = await bcrypt.genSalt();
+            const hash = await bcrypt.hash(req.body.password, salt);
 
+            farmUpdate = {
+                name: req.body.name,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                phone: req.body.phone,
+                email: req.body.email,
+                username: req.body.username,
+                password: hash
+            }
+            console.log("password updated");
+        }
+        else
+        {
+            farmUpdate = {
+                name: req.body.name,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                phone: req.body.phone,
+                email: req.body.email,
+                username: req.body.username
+            }
+            console.log("NOT UPDATE PASSWORD");
+        }
+        
+        await db.Farms.findByIdAndUpdate(req.params.id, farmUpdate, {new:true});
+        
         res.redirect('/admin');
     }
     catch (error) {

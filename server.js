@@ -38,17 +38,21 @@ app.use(
   })
 );
 
-// Shop routes
-app.use("/", controllers.shop);
-
 //admin routes
 app.use("/admin", controllers.admin);
+
+//admin authorization routes
+app.use("/admin", controllers.adminAuth);
+
+// Shop routes
+app.use("/", controllers.shop);
 
 // user auth routes
 app.use("/", controllers.auth);
 
 // require auth on user
 app.use("/", authRequired, controllers.auth);
+
 
 app.listen(PORT, () => {
     console.log("Server running at http://localhost:" + PORT);
