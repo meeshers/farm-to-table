@@ -79,7 +79,7 @@ router.get('/user', async (req, res) => {
     const foundUser = await db.Customers.findById(req.session.currentUser.id);
     res.render('shop/auth/user', { user: foundUser})
   } catch (err) {
-    res.send({ message: "Internal server error", error: err});
+    res.redirect('/login');
   }
 })
 

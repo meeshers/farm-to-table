@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/product.css">
   <title>Show Product</title>
 </head>
@@ -18,16 +12,21 @@
 
     <div class="content">
       <h2><%= product.name %></h2>
-      <p class="price"><%= product.price %></p>
-      <p class="description"><%= product.description %></p>
+      <hr>
+      <p class="price"><i><%= product.price %></i></p>
+
+      <small><b>Product description:</b></small>
+      <p><%= product.description %></p>
 
       <!-- Check if product has birth/ready dates -->
       <% if (product.birthDate && product.readyDate) { %>
+        <small><b>Dates: </b></small>
       <p>Birth date: <%= product.birthDate %></p>
       <p>Ready date: <%= product.readyDate %></p>
       <%}%>
 
       <!-- Product Availability -->
+      <small><b>Availability: </b></small>
       <% if (product.available===true) { %>
       <p>This item is currently in stock.</p>
       <% } else { %>
@@ -35,13 +34,13 @@
       <% } %>
 
       <!-- Growth notes -->
-      <p><b>Note from the producer:</b></p>
+      <small><b>Note from the producer:</b></small>
       <% if (!product.growthNotes) { %>
       <p>There are no further notes on this product from the producer.</p>
       <% } else {%>
       <p><%= product.growthNotes %></p>
       <% } %>
-
+      <br>
       <button type="submit">Add to cart</button>
     </div>
 
