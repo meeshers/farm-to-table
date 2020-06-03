@@ -46,4 +46,10 @@ footer {
   float: left;
 }
 
-
+button {
+  border-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #655C56;
+  color: #EFFCEF;
+}

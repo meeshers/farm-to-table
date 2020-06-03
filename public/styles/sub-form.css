@@ -26,3 +26,8 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.back {
+  background-color: #94D3AC;
+  margin: -20px;
+}

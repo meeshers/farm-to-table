@@ -13,14 +13,17 @@
   <h1>Welcome <%= user.name %>! </h1>
   
   <!-- need to add edit functionality for the personal info -->
-  <label for="email">Email: </label> <%= user.email %> <br>
-  <label for="address">Address: </label> <%= user.address %> <br>
-  <label for="city">City: </label> <%= user.city %> <br>
-  <label for="state">State: </label> <%= user.state %> <br>
-  <label for="zip">Zip: </label> <%= user.zip %> <br>
-  <label for="phone">Phone: </label> <%= user.phone %> <br>
+  <label for="email"><b>Email: </b></label> <%= user.email %> <br>
+  <label for="address"><b>Address: </b></label> <%= user.address %> <br>
+  <label for="city"><b>City: </b></label> <%= user.city %> <br>
+  <label for="state"><b>State: </b></label> <%= user.state %> <br>
+  <label for="zip"><b>Zip: </b></label> <%= user.zip %> <br>
+  <label for="phone"><b>Phone: </b></label> <%= user.phone %> <br>
 
-  <button type="submit">Edit info</button>
+  <form action="/user/edit">
+    <button type="submit">Edit info</button>
+  </form>
+
 
   <%- include('../../footer') %>
 </body>

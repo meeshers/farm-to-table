@@ -23,6 +23,14 @@ const PORT = process.env.PORT || 4000; //PORT is a system variable (ie caps sets
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
+// to delete route through <a> tags
+app.use(function(req,res,next){
+  if(req.query._method === "DELETE"){
+    req.method = "DELETE";
+    req.url = req.path;
+  }
+  next();
+})
 
 /* Session config */
 app.use(
