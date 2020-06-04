@@ -8,6 +8,8 @@
     height: 600px;
     background-color: white;
     margin-left: 25px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .article__cart-total {
@@ -15,6 +17,15 @@
     height: 600px;
     background-color: lightblue;
     margin-right: 25px;
+}
+
+.input__prod-qty {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 #table__items {
@@ -28,6 +39,24 @@
 
 .td__first p {
     margin-left: 10px;
+    width: 250px;
+    min-width: 250px;
+    overflow: auto;
+}
+
+.td__price {
+    width: 125px;
+    min-width: 125px;
+}
+
+.td__qty {
+    width: 75px;
+    min-width: 75px;
+}
+
+.td__total {
+    width: 125px;
+    min-width: 125px;
 }
 
 #table__items img {

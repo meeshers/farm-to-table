@@ -21,13 +21,13 @@ $(document).ready( () => {
                                     <p>${element.name}</p>
                                     <p>${element.desc}</p>
                                 </td>
-                                <td>${element.price}</td>
-                                <td>
+                                <td class="td__price">${element.price}</td>
+                                <td class="td__qty">
                                 <i class="fas fa-angle-left"></i>
-                                    <p 
+                                    <input type="text" class="input__prod-qty" value="10">
                                 <i class="fas fa-angle-right"></i>
                                 </td>
-                                <td>total</td>
+                                <td class="td__total">total</td>
                              </tr>`;
             $('#table__items').append(addItem);
         });
