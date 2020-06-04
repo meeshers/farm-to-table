@@ -65,21 +65,11 @@
 }
 
 button {
-  border: none;
-  background-color: #655C56;
   font-size: 20px;
-  border-radius: 5px;
-  color: #EFFCEF;
   padding: 8px;
   width: 250px;
   align-self: center;
   margin-top: 15px;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: #EFFCEF;
-  color: #655c56;
 }
 
 .content h2 {
