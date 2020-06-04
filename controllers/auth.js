@@ -40,7 +40,12 @@ router.post('/register', async (req,res)=>{
 
 // log in route
 router.get('/login', (req, res) => {
-  res.render('shop/auth/login');
+  const invalid = {
+    username: '',
+    valid: true
+  }
+
+  res.render('shop/auth/login', {invalid: invalid});
 })
 
 // login POST route
@@ -48,12 +53,26 @@ router.post('/login', async (req,res)=>{
   try{
     const foundUser = await db.Customers.findOne({ email: req.body.email});
     if(!foundUser){
-      return res.send({message: "Password or email incorrect"});
+
+      const invalid = {
+        email: req.body.email,
+        valid: false
+      }
+
+      return res.render('shop/auth/login', {invalid: invalid});
+      //return res.send({message: "Password or email incorrect"});
     }
 
     const match = await bcrypt.compare(req.body.password, foundUser.password);
     if(!match){
-      return res.send({message: "Password or email incorrect"});
+
+      const invalid = {
+        email: req.body.email,
+        valid: false
+      }
+
+      return res.render('shop/auth/login', {invalid: invalid});
+      //return res.send({message: "Password or email incorrect"});
     }
 
     req.session.currentUser={
@@ -92,6 +111,8 @@ router.get('/user/edit', async (req,res)=>{
 // edit user PUT route
 router.put('/user', async (req,res)=>{
   try{
+    console.log(req.session.currentUser.id);
+    console.log(req.body);
     await db.Customers.findOneAndUpdate(req.session.currentUser.id, req.body, {new:true});
     res.redirect('/user');
   } catch (error) {
