@@ -1,5 +1,7 @@
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
   <link rel="stylesheet" href="/styles/sub-form.css">
+  <script src="/scripts/signout.js" defer></script>
   <title>Sign in</title>
 </head>
 <body>
@@ -19,5 +21,7 @@
       <button type="submit">Sign in</button>
     </form>
   </div>
+  <%= invalid.email %>
+  <%= invalid.invalid %> 
   <%- include('../../footer') %>
 </html>

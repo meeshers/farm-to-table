@@ -10,9 +10,6 @@ $(document).ready( () => {
         shoppingCart = retrieve;
 
         for(let i = 0; i < shoppingCart.length; i++) {
-            //const itemName = element.name;
-            //const itemID = element.id;
-            //const itemUrl = element.url
             const addItem = `<tr>
                                 <td class="td__first">
                                     <a href="/product/${shoppingCart[i].id}">
