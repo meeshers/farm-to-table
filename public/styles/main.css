@@ -87,3 +87,10 @@ label {
   border-right: 2px solid #EFFCEF;
   display: inline-block;
 }
+
+h1 {
+  border-bottom: 5px solid #655C56;
+  width: 900px;
+  margin: 0 auto;
+  padding: 5px;
+}

@@ -117,6 +117,10 @@ button:hover {
   padding-left: 15px;
 }
 
+.about-container p {
+  padding-top: 10px; 
+}
+
 hr {
   background-color: #655C56;
   height: 8px;
@@ -126,4 +130,8 @@ hr {
 small {
   padding-top: 10px;
   text-align: left;
+}
+
+h3 {
+  padding-bottom: 5px;
 }

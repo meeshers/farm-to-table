@@ -40,6 +40,7 @@ button {
 .sub-img {
   width: 350px;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .content {
@@ -56,4 +57,9 @@ button {
 .post-sub-img {
   width: 500px;
   border-radius: 10px;
+}
+
+.login-fail {
+  color: firebrick;
+  margin-bottom: 5px;
 }

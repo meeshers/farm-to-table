@@ -1,12 +1,10 @@
+<link rel="stylesheet" href="/styles/product.css">
 
-  <link rel="stylesheet" href="/styles/product.css">
-
-  <title>Show Product</title>
+<title>Show Product</title>
 </head>
 
 <body>
   <%- include('../header') %>
-  <!-- <h1>This is the product show page</h1> -->
 
   <div class="show-container">
     <input id="prod-id" type="hidden" name="prodID" value="<%= product._id %>">
@@ -21,7 +19,7 @@
 
       <!-- Check if product has birth/ready dates -->
       <% if (product.birthDate && product.readyDate) { %>
-        <small><b>Dates: </b></small>
+      <small><b>Dates: </b></small>
       <p>Birth date: <%= product.birthDate %></p>
       <p>Ready date: <%= product.readyDate %></p>
       <%}%>
@@ -29,7 +27,7 @@
       <!-- Product Availability -->
       <small><b>Availability: </b></small>
       <% if (product.available===true) { %>
-      <input id="prod-available"  type="hidden" name="availiable" value="<% (product.available)? 'Yes' : 'No' %>">
+      <input id="prod-available" type="hidden" name="availiable" value="<% (product.available)? 'Yes' : 'No' %>">
       <p>This item is currently in stock.</p>
       <% } else { %>
       <p>This item is currently unavailable.</p>
