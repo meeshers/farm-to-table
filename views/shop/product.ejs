@@ -1,9 +1,6 @@
+<link rel="stylesheet" href="/styles/product.css">
 
-  <link rel="stylesheet" href="/styles/product.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
-  <script src="/scripts/cartLabel.js" defer></script>
-  <script src="/scripts/signout.js" defer></script>
-  <title>All products</title>
+<title>All products</title>
 </head>
 
 <body>
@@ -11,9 +8,8 @@
   <h1>All products</h1>
 
   <div class="container">
-
     <!-- product card -->
-    <!-- product image, name, and price. on  hover it will display description? -->
+    <!-- product image, name, and price -->
     <% for( let i = 0; i < product.length; i++ ) { %>
     <a href="/product/<%= product[i]._id%>">
       <div class="product">
@@ -26,9 +22,6 @@
     <% } %>
 
   </div>
-
-
-
 
   <%- include('../footer') %>
 </body>

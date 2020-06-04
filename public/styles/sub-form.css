@@ -36,3 +36,30 @@ button {
   background-color: #94D3AC;
   margin: -20px;
 }
+
+.sub-img {
+  width: 350px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.content {
+  margin-top: 15px;
+  padding: 25px;
+  background-color: #94D3AC;
+  width: 400px;
+}
+
+.content p {
+  margin-bottom: 20px;
+}
+
+.post-sub-img {
+  width: 500px;
+  border-radius: 10px;
+}
+
+.login-fail {
+  color: firebrick;
+  margin-bottom: 5px;
+}

@@ -51,22 +51,22 @@ router.post('/checkout', async (req,res) => {
 router.get('/product/:id', async (req, res) => {
   try {
     const foundProduct = await db.Products.findById(req.params.id);
-    let birthDate = (foundProduct.birthDate !== null)? functions.getDate(foundProduct.birthDate, true) : '';
-    let readyDate = (foundProduct.readyDate !== null)? functions.getDate(foundProduct.readyDate, true) : '';
-    
+    let birthDate = (foundProduct.birthDate !== null) ? functions.getDate(foundProduct.birthDate, true) : '';
+    let readyDate = (foundProduct.readyDate !== null) ? functions.getDate(foundProduct.readyDate, true) : '';
+
     const product = {
-        _id: foundProduct._id,
-        name: foundProduct.name,
-        description: foundProduct.description,
-        price: foundProduct.price,
-        birthDate: birthDate,
-        readyDate: readyDate,
-        available: foundProduct.available,
-        growthNotes: foundProduct.growthNotes,
-        img: foundProduct.img,
-        farmID: foundProduct.farmID
+      _id: foundProduct._id,
+      name: foundProduct.name,
+      description: foundProduct.description,
+      price: foundProduct.price,
+      birthDate: birthDate,
+      readyDate: readyDate,
+      available: foundProduct.available,
+      growthNotes: foundProduct.growthNotes,
+      img: foundProduct.img,
+      farmID: foundProduct.farmID
     }
-    res.render('shop/show', {product: product});
+    res.render('shop/show', { product: product });
   } catch (error) {
     console.log(error);
     res.send({ message: "Internal Server Error!" });
@@ -84,7 +84,7 @@ router.get('/subscribe', (req, res) => {
 })
 
 // subscribe POST route
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
   res.render('shop/sub-post');
 })
 
