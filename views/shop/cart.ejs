@@ -13,22 +13,32 @@
 </head>
 <body>
   <%- include('../header') %>
-  <!-- <h1>This is the cart page</h1> -->
-
-  <p id="insert-prods"></p>
-  <button id="button__clear-cart" hidden>Clear Cart</button>
+  
   <section class="section__cart">
     <article class="article__cart-items">
       <table id="table__items">
         <tr>
-          <th class="td__first"><p>Product</p></th>
-          <th>Price</th>
-          <th>Qty</th>
-          <th>Total</th>
+          <th class="th__product"><p>Product</p></th>
+          <th class="th__price">Price</th>
+          <th class="th__qty">Qty</th>
+          <th class="th__price">Total</th>
         </tr>
       </table>
     </article>
-    <article class="article__cart-total"></article>
+    <article class="article__cart-total">
+      <hr>
+      <div class="div__cart-total">
+        <p>CART TOTAL</p>
+        <input type="text" id="cart-total" value="$0.00">
+        <div id="div__ship-handle">
+          <p>Shipping & taxes calculated at checkout</p>
+        </div>
+      </div>
+      <div class="div__checkout-btns">
+        <button id="button__cart-checkout">Checkout</button>
+        <button id="button__clear-cart">Clear Cart</button>
+      </div>
+    </article>
   </section>
 
   <%- include('../footer') %>

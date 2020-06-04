@@ -15,19 +15,18 @@
     <img id="prod-image" class="photo" src="<%= product.img %>" alt="<%= product.name %>">
 
     <div class="content">
-
       <h2 id="prod-name"><%= product.name %></h2>
       <hr>
       <p id="prod-price" class="price"><i><%= product.price %></i></p>
-      
+
       <small><b>Product description:</b></small>
-      <p id="prod-desc" class="description"><%= product.description %></p>
+      <p id="prod-desc"><%= product.description %></p>
 
       <!-- Check if product has birth/ready dates -->
       <% if (product.birthDate && product.readyDate) { %>
-      <small><b>Dates: </b></small>
-      <p id="prod-bDate">Birth date: <%= product.birthDate %></p>
-      <p id="prod-rDate" >Ready date: <%= product.readyDate %></p>
+        <small><b>Dates: </b></small>
+      <p>Birth date: <%= product.birthDate %></p>
+      <p>Ready date: <%= product.readyDate %></p>
       <%}%>
 
       <!-- Product Availability -->
