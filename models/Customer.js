@@ -10,9 +10,9 @@ const custSchema = new mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     profilePic: String,
-    products: [{
+    lineitems: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product'
+        ref: 'Lineitem'
     }],
     invoices: [{
         type: mongoose.Schema.Types.ObjectId,

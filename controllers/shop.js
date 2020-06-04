@@ -19,6 +19,34 @@ router.get('/products', async (req, res) => {
   }
 })
 
+//ajax call from shopping cart to add items to the shopping cart
+router.post('/checkout', async (req,res) => {
+  try {
+    const cust = await db.Customers.findById({_id: req.body.userId});
+
+    console.log(req.body['ids[]'].length);
+    for(let i = 0; i < req.body['ids[]'].length; i++)
+    {
+      const lineItem = {
+        product: req.body['ids[]'][i],
+        qty: req.body['qty[]'][i],
+        price: req.body['price[]'][i]
+      }
+
+      const item = await db.Lineitems.create(lineItem);
+      cust.lineitems.push(item);
+      console.log(lineItem);
+    }
+
+    cust.save();
+    res.json({success: true});
+  }
+  catch (error) {
+    console.log(error);
+    res.json({err: error});
+  }
+})
+
 // product show route
 router.get('/product/:id', async (req, res) => {
   try {

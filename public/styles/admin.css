@@ -80,6 +80,12 @@ footer {
     height: 325px;
 }
 
+.prod-labels {
+    width: 150px;
+    margin: 10px 0 0 10px;
+    text-align: left;
+}
+
 #prod-img {
     width: 335px;
     height: 335px;

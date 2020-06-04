@@ -2,7 +2,11 @@ hr {
     border: 5px solid #655C56;
     border-radius: 5px;
     width: 90%;
-    margin: 50px 0 0 0;
+    margin: 5px 0 0 0;
+}
+
+.container {
+    position: relative;
 }
 .section__cart {
     display: flex;
@@ -108,6 +112,10 @@ hr {
     padding-left: 10px;
 }
 
+#user-name{
+    margin-top: 50px;
+}
+
 #table__items {
     text-align: center;
     margin-top: 10px;
@@ -180,4 +188,31 @@ hr {
 
 .fa-angle-right:hover, .fa-angle-left:hover {
     cursor: pointer;
+}
+
+.acticle__thank-you {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 150px;
+    left: 250px;
+    background-color: rgba(255,255,255,1);
+    height: 300px;
+    width: 500px;
+    z-index: -1;
+    opacity: 0;
+}
+
+.acticle__thank-you h1 {
+    color: red;
+    margin: 0 0 25px 0;
+}
+
+.acticle__thank-you h3 {
+    margin: 0 0 10px 0;
+}
+
+#h1__thank-you {
 }

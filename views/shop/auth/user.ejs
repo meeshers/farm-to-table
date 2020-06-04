@@ -1,7 +1,11 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
-<script src="/scripts/profile.js" defer></script>
-<script src="/scripts/signout.js" defer></script>
-<title>User</title>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+  <script src="/scripts/cartLabel.js" defer></script>
+  <script src="/scripts/profile.js" defer></script>
+  <script src="/scripts/signout.js" defer></script>
+  <title>User</title>
+
 </head>
 
 <body>
@@ -30,6 +34,9 @@
   <form action="/user/edit">
     <button type="submit">Edit info</button>
   </form>
+
+  <p id="user-id" hidden><%= user._id %></p>
+  <p id="user-name" hidden><%= user.name %></p>
 
   <%- include('../../footer') %>
 </body>

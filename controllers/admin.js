@@ -93,13 +93,17 @@ router.post('/cust', async (req, res) => {
 
         const farm = await db.Farms.findOne({name: functions.getFarmName()});
         req.body.farmID = farm._id;
+        const salt = await bcrypt.genSalt();
+        const hash = await bcrypt.hash(req.body.password, salt);
+
+        req.body.password = hash;
 
         const newCust = await db.Customers.create(req.body);
 
         farm.customers.push(newCust);
         farm.save();
         
-        res.redirect('/admin/cust');
+        res.redirect('/admin/cust'); 
 
     } catch (error) {
         console.log(error);

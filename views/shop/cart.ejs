@@ -15,6 +15,7 @@
 <body>
   <%- include('../header') %>
   
+  <div class="container">
   <section class="section__cart">
     <article class="article__cart-items">
       <table id="table__items">
@@ -27,6 +28,7 @@
       </table>
     </article>
     <article class="article__cart-total">
+      <p id="user-name"></p>
       <hr>
       <div class="div__cart-total">
         <p>CART TOTAL</p>
@@ -41,6 +43,12 @@
       </div>
     </article>
   </section>
+  <article class="acticle__thank-you">
+    <h1 id="h1__thank-you">Thanks for your purchase!</h1>
+    <h3>Your products will be shipped shortly</h3>
+    <h5>Spread the word and tell you friends about us!</h3>
+  </article>
+</div>
 
   <%- include('../footer') %>
 </body>

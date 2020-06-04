@@ -2,14 +2,47 @@
 let shoppingCart = [];
 
 $(document).ready( () => {
+    const signedIn = localStorage.getItem("signedIn");
+
+    if(signedIn !== null && signedIn === "true")
+    {
+        const user = localStorage.getItem("__nm");
+        $('#user-name').text(`Welcome: ${user}`);
+    }
+    else
+        $('#user-name').text(`Welcome: Guest please sign in`);
+
     const retrieve = JSON.parse(localStorage.getItem("shoppingCart"));
-    //$('#button__clear-cart').show();
 
     if(retrieve !== null)
     {
-        shoppingCart = retrieve;
+        let match = false;
+        //check for duplicate items in the shopping cart and increase qty if there are
+        for(let i = 0; i < retrieve.length; i++)
+        {
+            if(i === 0)
+                shoppingCart.push(retrieve[i]);
+            else
+            {
+                for(let j = 0; j < shoppingCart.length; j++)
+                {
+                    if(retrieve[i].id === shoppingCart[j].id)
+                    {
+                        shoppingCart[j].qty += 1;
+                        match = true;
+                    }
+                }
+
+                if(!match)
+                    shoppingCart.push(retrieve[i]);
+            }
+
+            match = false;
+        }
 
         for(let i = 0; i < shoppingCart.length; i++) {
+
+            const itemTotal = calcTotalPrice(stripDollar(shoppingCart[i].price), shoppingCart[i].qty);
             const addItem = `<tr>
                                 <td class="td__first">
                                     <a href="/product/${shoppingCart[i].id}">
@@ -23,24 +56,26 @@ $(document).ready( () => {
                                 </td>
                                 <td class="td__qty">
                                 <i id="dec-${i}" class="fas fa-angle-left fa-lg"></i>
-                                    <input id="qty-${i}" type="text" class="input__prod-qty" value="1" readonly>
+                                    <input id="qty-${i}" type="text" class="input__prod-qty" value="${shoppingCart[i].qty}" readonly>
                                 <i id="inc-${i}" class="fas fa-angle-right fa-lg"></i>
                                 </td>
                                 <td class="td__total">
-                                    <input id="total-${i}" class="input__total" type="text" value="${shoppingCart[i].price}">
+                                    <input id="total-${i}" class="input__total" type="text" value="${itemTotal}">
                                 </td>
                              `;
             $('#table__items').append(addItem);
-            updateCartTotal(stripDollar(shoppingCart[i].price));
+            updateCartTotal(stripDollar(itemTotal));
         }
 
         $('.fa-angle-left').click( (event) => {
-            const $qty = $(`#qty-${getItemNum(event.target.id)}`);
-            const $price = $(`#price-${getItemNum(event.target.id)}`);
-            const $total = $(`#total-${getItemNum(event.target.id)}`);
+            const index = getItemNum(event.target.id);
+            const $qty = $(`#qty-${index}`);
+            const $price = $(`#price-${index}`);
+            const $total = $(`#total-${index}`);
             let newQty = parseInt($qty.val()) - 1;
             if(newQty >= 0)
             {
+                shoppingCart[index].qty = newQty;
                 $qty.val(newQty);
                 const newItemTotal = calcTotalPrice(stripDollar($price.val()), newQty);
                 $total.val(newItemTotal);
@@ -53,13 +88,15 @@ $(document).ready( () => {
         });
         
         $('.fa-angle-right').click( (event) => {
-            const $qty = $(`#qty-${getItemNum(event.target.id)}`);
-            const $price = $(`#price-${getItemNum(event.target.id)}`);
-            const $total = $(`#total-${getItemNum(event.target.id)}`);
+            const index = getItemNum(event.target.id);
+            const $qty = $(`#qty-${index}`);
+            const $price = $(`#price-${index}`);
+            const $total = $(`#total-${index}`);
             let newQty = parseInt($qty.val()) + 1;
 
             if(newQty <= 10)
             {
+                shoppingCart[index].qty = newQty;
                 $qty.val(newQty);
                 const newItemTotal = calcTotalPrice(stripDollar($price.val()), newQty);
                 $total.val(newItemTotal);
@@ -70,17 +107,57 @@ $(document).ready( () => {
             else
                 updateCartTotal(0, false);
         });
-
-        // $('#button__clear-cart').show();
     }
 });
 
 $('#button__clear-cart').click(() => {
-    alert("You are clearing the cart!");
     localStorage.removeItem("shoppingCart");
     localStorage.removeItem("cartLabel");
     shoppingCart = [];
     location.reload();
+});
+
+$('#button__cart-checkout').click(() => {
+    const signedIn = localStorage.getItem("signedIn");
+
+    if(signedIn !== null && signedIn === "true")
+    {
+        let prodIds = [];
+        let prodQty = [];
+        let prodPrice = [];
+
+        shoppingCart.forEach(prod => {
+            prodIds.push(prod.id);
+            prodQty.push(prod.qty);
+            prodPrice.push(stripDollar(prod.price));
+        });
+        
+        const data = {userId: localStorage.getItem("__ch"), ids: prodIds, qty: prodQty, price: prodPrice};
+        $.ajax({
+            url:'/checkout',
+            method: 'POST',
+            data: data,
+            datatype: 'json'
+        }).done((res) => {
+            if(res.success)
+            {
+                //if the items were successfully added to the db then remove them from the cart
+                localStorage.removeItem("shoppingCart");
+                localStorage.removeItem("cartLabel");
+                $('.acticle__thank-you').css("opacity", "1");
+                $('.acticle__thank-you').css("z-index", "1");
+                //window.location.reload(); this needs to be added after the user hit ok
+            }
+            else
+            {
+                console.log('error...ajax');
+            }
+        });
+
+        alert("You are checking out");
+    }
+    else
+        alert("Please signin to checkout!");
 });
 
 /**
