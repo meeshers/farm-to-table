@@ -16,6 +16,10 @@ $(document).ready(() => {
 })
 
 $('#sign-out').click(() => {
-
-    localStorage.removeItem("signedIn");
+  //remove all the local storage associated with the user when they logout
+  localStorage.removeItem("shoppingCart");
+  localStorage.removeItem("cartLabel");
+  localStorage.removeItem("signedIn");
+  localStorage.removeItem("__ch");
+  localStorage.removeItem("__nm");
 })

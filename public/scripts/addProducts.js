@@ -16,7 +16,8 @@ $('.button__add-to-cart').click( ()=> {
         name: $('#prod-name').text(),
         url: $('#prod-image').attr('src'),
         price: $('#prod-price').text(),
-        desc:  $('#prod-desc').text()
+        desc:  $('#prod-desc').text(),
+        qty: 1
     }
 
     shoppingCart.push(item);

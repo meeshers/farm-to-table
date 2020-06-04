@@ -16,5 +16,6 @@ module.exports = {
     Customers: require('./Customer'),
     Products: require('./Product'),
     Invoices: require('./Invoice'),
-    Farms: require('./Farm')
+    Farms: require('./Farm'),
+    Lineitems: require('./Lineitem')
 };
