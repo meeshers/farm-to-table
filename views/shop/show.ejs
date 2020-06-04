@@ -1,9 +1,6 @@
 
   <link rel="stylesheet" href="/styles/product.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
-  <script src="/scripts/addProducts.js" defer></script>
-  <script src="/scripts/cartLabel.js" defer></script>
-  <script src="/scripts/signout.js" defer></script>
+
   <title>Show Product</title>
 </head>
 
@@ -14,7 +11,6 @@
   <div class="show-container">
     <input id="prod-id" type="hidden" name="prodID" value="<%= product._id %>">
     <img id="prod-image" class="photo" src="<%= product.img %>" alt="<%= product.name %>">
-
     <div class="content">
       <h2 id="prod-name"><%= product.name %></h2>
       <hr>
