@@ -23,9 +23,14 @@ header {
   width: 100%;
 }
 
-a {
+header a {
   color: #EFFCEF;
   text-decoration: none;
+  padding-right: 5px;
+}
+
+a {
+  color: #655C56;
 }
 
 footer {
@@ -76,4 +81,9 @@ label {
 .explain i {
   font-size: 48px;
   color: #655C56;
+}
+
+.nav {
+  border-right: 2px solid #EFFCEF;
+  display: inline-block;
 }

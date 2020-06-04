@@ -30,8 +30,8 @@ router.post('/register', async (req,res)=>{
 
     farm.customers.push(newUser);
     farm.save();
+    res.render('shop/auth/post-reg');
 
-    res.redirect("/login");
   } catch(err) {
     console.log(err);
     res.send({message: "Internal server error", error: err})

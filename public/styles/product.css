@@ -73,6 +73,7 @@ button {
   padding: 8px;
   width: 250px;
   align-self: center;
+  margin-top: 15px;
 }
 
 button:hover {
@@ -105,14 +106,17 @@ button:hover {
 }
 
 .about-img {
- width: 500px;
-
+ width: 450px;
 }
 
 .about-container {
   display: flex;
   flex-direction: column;
   width: 800px;
+}
+
+.about-container p {
+  padding-left: 10px;
 }
 
 hr {
