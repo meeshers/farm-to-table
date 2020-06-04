@@ -23,7 +23,7 @@ header {
   width: 100%;
 }
 
-header a {
+header a,footer a {
   color: #EFFCEF;
   text-decoration: none;
   padding-right: 5px;

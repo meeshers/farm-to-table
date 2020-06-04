@@ -113,10 +113,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   width: 800px;
-}
-
-.about-container p {
-  padding-left: 10px;
+  text-align: justify;
+  padding-left: 15px;
 }
 
 hr {
