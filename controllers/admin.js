@@ -135,7 +135,8 @@ router.post('/product', async (req, res) => {
 //SHOW customer show page
 router.get('/cust/:id', async (req, res) => {
     try {
-        const customer = await db.Customers.findById(req.params.id);
+        const customer = await db.Customers.findById(req.params.id).populate({path: 'lineitems', populate: {path: 'product', model: 'Product'}});
+        console.log(customer.lineitems[0].product.name);
         res.render('admin/cust/show', {customer: customer});
     } 
     catch (error) {
@@ -274,7 +275,37 @@ router.put('/:id', async (req, res) => {
 //UPDATE customer route
 router.put('/cust/:id', async (req, res) => {
     try {
-        await db.Customers.findByIdAndUpdate(req.params.id, req.body, {new:true});
+
+        let custUpdate;
+        if(req.body.passUpdated === 'true')
+        {
+            const salt = await bcrypt.genSalt();
+            const hash = await bcrypt.hash(req.body.password, salt);
+
+            custUpdate = {
+                name: req.body.name,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                phone: req.body.phone,
+                email: req.body.email,
+                password: hash
+            }
+        }
+        else
+        {
+            custUpdate = {
+                name: req.body.name,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                phone: req.body.phone,
+                email: req.body.email
+            }
+        }
+        await db.Customers.findByIdAndUpdate(req.params.id, custUpdate, {new:true});
 
         res.redirect(`/admin/cust/${req.params.id}`);
     }

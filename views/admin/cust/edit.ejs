@@ -57,14 +57,15 @@
                 <tr>
                     <td>Password:</td>
                     <td>
-                        <input type="password" name="password" value="<%= customer.password %>" required>
+                        <button class="btn-sml" id="button__update-password" type="button">Update Password</button>
+                        <input type="password" id="input__admin-password" name="password" placeholder="minimum length 5" hidden>
+                        <input type="hidden" id="pass-updated" name="passUpdated" value="false">
+                        <!-- <input type="password" name="password" value="<%=// customer.password %>" required> -->
                     </td>
                 </tr>
                 <tr>
                     <td class="text-align-right" colspan="2">
-                        <a href="/admin/cust" tabindex="-1">
-                            <button class="btn-lrg">Back</button>
-                        </a>
+                        <button class="btn-lrg btn-back">Back</button>
                         <button class="btn-lrg" type="submit">Update</button>
                     </td>
                 </tr>

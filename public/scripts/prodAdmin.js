@@ -13,3 +13,7 @@ $('#prod-url').blur(() => {
 $('.header__logo').click(() => {
     window.location.href = "/admin";
 });
+
+$('.btn-back').click(() => {
+    window.history.back();
+});

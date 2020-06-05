@@ -2,14 +2,31 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #CCEDD2;
     font-family: 'Lato', sans-serif;
     color: #655C56;
 }
+
+header {
+    background-color: #655C56;
+    color: #EFFCEF;
+  }
 
 footer {
     display: flex;
     justify-content: space-between;
     font-size: 10px;
+    bottom: 0;
+    background-color: #655C56;
+    color: #EFFCEF;
+    padding: 15px;
+    position: absolute;
+    width: 100%;
+    height: 3.5rem;
+}
+
+a {
+    text-decoration: none;
 }
 
 #section__login {
@@ -197,6 +214,7 @@ footer {
 button {
     background-color: #94D3AC;
     color: black;
+    outline: none;
 }
 
 
