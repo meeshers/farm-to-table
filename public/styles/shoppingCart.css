@@ -208,11 +208,9 @@ hr {
 .acticle__thank-you h1 {
     color: red;
     margin: 0 0 25px 0;
+    width: auto;
 }
 
 .acticle__thank-you h3 {
     margin: 0 0 10px 0;
-}
-
-#h1__thank-you {
 }

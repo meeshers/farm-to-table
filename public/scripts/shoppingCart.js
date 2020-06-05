@@ -132,7 +132,7 @@ $('#button__cart-checkout').click(() => {
             prodPrice.push(stripDollar(prod.price));
         });
         
-        const data = {userId: localStorage.getItem("__ch"), ids: prodIds, qty: prodQty, price: prodPrice};
+        const data = {itemCount: shoppingCart.length, userId: localStorage.getItem("__ch"), ids: prodIds, qty: prodQty, price: prodPrice};
         $.ajax({
             url:'/checkout',
             method: 'POST',

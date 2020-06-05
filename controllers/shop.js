@@ -24,18 +24,35 @@ router.post('/checkout', async (req,res) => {
   try {
     const cust = await db.Customers.findById({_id: req.body.userId});
 
-    console.log(req.body['ids[]'].length);
-    for(let i = 0; i < req.body['ids[]'].length; i++)
+    //if there are more than one items then ajax sends that data as an array and
+    //you can access it as such.  If only one item then it sends it as a single item
+    if(req.body.itemCount > 1)
+    {
+      for(let i = 0; i < req.body['ids[]'].length; i++)
+      {
+        const lineItem = {
+          product: req.body['ids[]'][i],
+          qty: req.body['qty[]'][i],
+          price: req.body['price[]'][i]
+        }
+
+        console.log(lineItem);
+
+        const item = await db.Lineitems.create(lineItem);
+        cust.lineitems.push(item);
+        console.log(lineItem);
+      }
+    }
+    else
     {
       const lineItem = {
-        product: req.body['ids[]'][i],
-        qty: req.body['qty[]'][i],
-        price: req.body['price[]'][i]
+        product: req.body['ids[]'],
+        qty: req.body['qty[]'],
+        price: req.body['price[]']
       }
 
       const item = await db.Lineitems.create(lineItem);
       cust.lineitems.push(item);
-      console.log(lineItem);
     }
 
     cust.save();
