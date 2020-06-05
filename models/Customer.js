@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const custSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    address: String,
-    city: String,
-    state: String,
-    zip: {type: Number, maxlength: 5},
+    address: {type: String, default: ""},
+    city: {type: String, default: ""},
+    state: {type: String, default: ""},
+    zip: {type: Number, maxlength: 5, default: ""},
     phone: {type: String, required: true, maxlength: 12},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},

@@ -107,11 +107,11 @@ router.get('/user/edit', async (req, res) => {
 })
 
 // edit user PUT route
-router.put('/user', async (req, res) => {
+router.put('/user/:id', async (req, res) => {
   try {
-    console.log(req.session.currentUser.id);
-    console.log(req.body);
-    await db.Customers.findOneAndUpdate(req.session.currentUser.id, req.body, { new: true });
+
+    await db.Customers.findByIdAndUpdate(req.session.currentUser.id, req.body, { new: true });
+
     res.redirect('/user');
   } catch (error) {
     console.log(error);

@@ -15,7 +15,7 @@
   <!-- user cannot change email! -->
   <label for="email"><b>Email: </b></label> <%= user.email %> <br>
 
-  <form action="/user?_method=PUT" method="POST">
+  <form action="/user/<%= user._id %>?_method=PUT" method="POST">
     <label for="address"><b>Address: </b></label>
     <input type="text" name="address" placeholder="<%= user.address %>" required>
     <br>

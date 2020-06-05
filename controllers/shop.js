@@ -24,39 +24,42 @@ router.post('/checkout', async (req,res) => {
   try {
     const cust = await db.Customers.findById({_id: req.body.userId});
 
-    //if there are more than one items then ajax sends that data as an array and
-    //you can access it as such.  If only one item then it sends it as a single item
-    if(req.body.itemCount > 1)
+    if(cust !== null)
     {
-      for(let i = 0; i < req.body['ids[]'].length; i++)
+      //if there are more than one items then ajax sends that data as an array and
+      //you can access it as such.  If only one item then it sends it as a single item
+      if(req.body.itemCount > 1)
+      {
+        for(let i = 0; i < req.body['ids[]'].length; i++)
+        {
+          const lineItem = {
+            product: req.body['ids[]'][i],
+            qty: req.body['qty[]'][i],
+            price: req.body['price[]'][i]
+          }
+
+          const item = await db.Lineitems.create(lineItem);
+          cust.lineitems.push(item);
+        }
+      }
+      else
       {
         const lineItem = {
-          product: req.body['ids[]'][i],
-          qty: req.body['qty[]'][i],
-          price: req.body['price[]'][i]
+          product: req.body['ids[]'],
+          qty: req.body['qty[]'],
+          price: req.body['price[]']
         }
-
-        console.log(lineItem);
 
         const item = await db.Lineitems.create(lineItem);
         cust.lineitems.push(item);
-        console.log(lineItem);
       }
+
+      cust.save();
+      const confirmNum = Math.floor(Math.random() * 100000);
+      res.json({success: true, confirm: confirmNum});
     }
     else
-    {
-      const lineItem = {
-        product: req.body['ids[]'],
-        qty: req.body['qty[]'],
-        price: req.body['price[]']
-      }
-
-      const item = await db.Lineitems.create(lineItem);
-      cust.lineitems.push(item);
-    }
-
-    cust.save();
-    res.json({success: true});
+      res.json({err: error});
   }
   catch (error) {
     console.log(error);
@@ -99,6 +102,7 @@ router.get('/about', (req, res) => {
 router.get('/subscribe', (req, res) => {
   res.render('shop/subscribe');
 })
+
 
 // subscribe POST route
 router.post('/', (req, res) => {

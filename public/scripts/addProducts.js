@@ -10,7 +10,7 @@ $(document).ready( () => {
 })
 
 $('.button__add-to-cart').click( ()=> {
-
+    
     const item = {
         id: $('#prod-id').val(),
         name: $('#prod-name').text(),
@@ -27,5 +27,5 @@ $('.button__add-to-cart').click( ()=> {
     localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
     localStorage.setItem("cartLabel", `Cart(${shoppingCart.length})`);
 
-    window.location.replace('/products');
+    window.location.replace('/products'); 
 })
