@@ -11,8 +11,9 @@ router.get('/', (req, res) => {
 // View all products route
 router.get('/products', async (req, res) => {
   try {
-    const allProducts = await db.Products.find({});
-    res.render('shop/product', { product: allProducts });
+    //fixed this to show only products for one farm not all farms
+    const farmProducts = await db.Farms.findOne({name: functions.getFarmName()}).populate('products');
+    res.render('shop/product', { product: farmProducts.products });
   } catch (error) {
     console.log(error);
     res.send({ message: "Internal Server Error!" });

@@ -41,7 +41,7 @@ router.get('/product', async (req, res) => {
     try {
         const farmProducts = await db.Farms.findOne({name: functions.getFarmName()}).populate('products');
 
-        res.render('admin/product', {products: farmProducts.products});
+        res.render('admin/product', {products: farmProducts.products}); 
     }
     catch (error) {
         console.log(error);
