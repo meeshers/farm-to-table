@@ -135,8 +135,14 @@ router.post('/product', async (req, res) => {
 //SHOW customer show page
 router.get('/cust/:id', async (req, res) => {
     try {
+        //const customer = await db.Customers.findById(req.params.id).populate('lineitems');
+
         const customer = await db.Customers.findById(req.params.id).populate({path: 'lineitems', populate: {path: 'product', model: 'Product'}});
-        console.log(customer.lineitems[0].product.name);
+        // if(customer.lineitems.length > 0)//check for lineitems (order history)
+        //     console.log(customer.lineitems[0].product.name);
+        // else
+        //     console.log(customer.lineitems);//[0].product.name);
+
         res.render('admin/cust/show', {customer: customer});
     } 
     catch (error) {

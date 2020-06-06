@@ -21,3 +21,19 @@ $('#button__update-password').click( () => {
     $('#input__admin-password').attr("required", true);
     $('#pass-updated').val("true");
 });
+
+$('#btn__open-order-history').click( () => {
+    $('.div__order-history').toggle();
+    $('#btn__open-order-history').toggle();
+});
+
+$('#btn__close-order-history').click( () => {
+    $('.div__order-history').toggle();
+    $('#btn__open-order-history').toggle();
+});
+
+function getDateString(date) {
+    const dateSplit = date.split("GMT");
+
+    return dateSplit[0];
+}

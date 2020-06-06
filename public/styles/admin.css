@@ -5,6 +5,7 @@ body {
     background-color: #CCEDD2;
     font-family: 'Lato', sans-serif;
     color: #655C56;
+    min-width: 875px;
 }
 
 header {
@@ -17,11 +18,13 @@ footer {
     justify-content: space-between;
     font-size: 10px;
     bottom: 0;
+    left: 0;
     background-color: #655C56;
     color: #EFFCEF;
     padding: 15px;
     position: absolute;
     width: 100%;
+    min-width: 600px;
     height: 3.5rem;
 }
 
@@ -75,6 +78,7 @@ a {
 }
 
 .body__article-details {
+    display: flex;
     background-color: rgba(101,92,86,.7);
     color: #CCEDD2;
     margin-top: 50px;
@@ -184,6 +188,49 @@ a {
 
 }
 
+.div__order-history {
+    position: relative;
+    text-align: center;
+    min-width: 410px;
+    margin: 0 10px 0 20px;
+    padding: 0 10px;
+}
+
+.div__hide-order-details {
+    position: absolute;
+    right: 0;
+    margin: 5px 5px 0 0;
+}
+
+#table__order-history {
+    
+    padding: 5px;
+    border-collapse: collapse;
+    max-width: 400px;
+}
+
+#table__order-history tbody {
+    display: block;
+    max-height: 270px;
+    overflow: auto;
+}
+
+#table__order-history thead, #table__order-history tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 14px;
+}
+
+#table__order-history th {
+    border-bottom: 2px solid black;
+    font-size: 22px;
+}
+
+#table__order-history td, th {
+    padding: 5px;
+}
+
 .available-chkbx{
     margin: 10px 0 0 0;
     height: 15px;
@@ -265,4 +312,16 @@ button:hover {
 
 .black-text-shadow {
     text-shadow: 0px 2px 3px black;
+}
+
+.no-shadow {
+    text-shadow: none;
+}
+
+@media (max-height: 600px) {
+
+    footer {
+        margin-top: 25px;
+        position: relative;
+    }
 }
