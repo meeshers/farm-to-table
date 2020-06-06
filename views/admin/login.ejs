@@ -9,8 +9,8 @@
     <%- include('partials/adminHeader') %>
     <%- //include('partials/adminNav') %>
     <article class="body__article-details black-text-shadow">
-        <h1>AUTHENTICATE</h1>
         <section id="section__login">
+            <h1>AUTHENTICATE</h1>
             <form action="/admin/login" method="POST">
                 <div id="p__login-fail" >
                     <p <%= (invalid.valid)? 'hidden' : '' %>>Invalid username or password!</p>

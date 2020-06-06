@@ -10,6 +10,7 @@ const custSchema = new mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     profilePic: String,
+    deleted: {type: Boolean, required: true, default: false},
     lineitems: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Lineitem'

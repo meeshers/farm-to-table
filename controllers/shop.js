@@ -13,7 +13,15 @@ router.get('/products', async (req, res) => {
   try {
     //fixed this to show only products for one farm not all farms
     const farmProducts = await db.Farms.findOne({name: functions.getFarmName()}).populate('products');
-    res.render('shop/product', { product: farmProducts.products });
+    const prods = [];
+
+    //only display availiable products to the customer
+    farmProducts.products.forEach(product => {
+      if(!product.deleted)
+        prods.push(product);
+    });
+
+    res.render('shop/product', { product: prods });
   } catch (error) {
     console.log(error);
     res.send({ message: "Internal Server Error!" });

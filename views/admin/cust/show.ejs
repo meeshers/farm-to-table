@@ -10,7 +10,10 @@
     <%- include('../partials/adminNav') %>
     <article class="body__article-details black-text-shadow">
             <table class="table__farm-details text-align-left">
-                <th colspan="2" class="text-align-center">Customer Details <button id="btn__open-order-history" class="btn-sml">View Order History</button> </th>
+                <th colspan="2" class="text-align-center">
+                    Customer Details
+                    <button id="btn__open-order-history" class="btn-sml" <%= (customer.lineitems.length > 0)? '' : 'hidden' %>>View Order History</button>
+                </th>
                 <tr>
                     <td>
                         <label for="name">Name:</label>

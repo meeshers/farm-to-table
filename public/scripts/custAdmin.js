@@ -32,8 +32,39 @@ $('#btn__close-order-history').click( () => {
     $('#btn__open-order-history').toggle();
 });
 
-function getDateString(date) {
-    const dateSplit = date.split("GMT");
+$('.input__user-name').focusout( () => {
+    $('.input__user-name').val(toTitleCase($('.input__user-name').val()));
+});
 
-    return dateSplit[0];
+$('.input__user-address').focusout( () => {
+    $('.input__user-address').val($('.input__user-address').val().toUpperCase());
+});
+
+$('.input__user-city').focusout( () => {
+    $('.input__user-city').val($('.input__user-city').val().toUpperCase());
+});
+
+$('.input__user-state').focusout( () => {
+    $('.input__user-state').val($('.input__user-state').val().toUpperCase());
+});
+
+$('.input__user-email').focusout( () => {
+    $('.input__user-email').val($('.input__user-email').val().toLowerCase());
+});
+
+/**
+ * @description Accepts a string and return the string with title case
+ * @param {value} string 
+ * @returns {string} The string provided in title case
+ */
+function toTitleCase(value)
+{
+    const title = value.split(" ");
+
+    for(let i = 0; i < title.length; i++)
+    {
+        title[i] = title[i][0].toUpperCase() + title[i].slice(1);
+    }
+
+    return title.join(" ");
 }

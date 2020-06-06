@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
   try {
     const farm = await db.Farms.findOne({name: functions.getFarmName()});
     //make sure the user exists and they have an account with the farm
-    const foundUser = await db.Customers.findOne({ $and: [ {email: req.body.email}, {farmID: farm._id} ]});
+    const foundUser = await db.Customers.findOne({ $and: [ {email: req.body.email}, {farmID: farm._id}, {deleted: false} ]});
     if (!foundUser) {
 
       const invalid = {

@@ -17,7 +17,7 @@
                         <label for="name">Name:</label>
                     </td>
                     <td>
-                        <input type="text" name="name" required>
+                        <input class="input__user-name" type="text" placeholder="Your Name" name="name" required>
                     </td>
                 </tr>
                 <tr>
@@ -25,7 +25,7 @@
                         <label for="address">Address:</label>
                     </td>
                     <td>
-                        <input type="text" name="address">
+                        <input class="input__user-address" type="text" placeholder="address" name="address">
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,7 @@
                         <label for="city">City:</label>
                     </td>
                     <td>
-                        <input type="text" name="city">
+                        <input class="input__user-city" type="text" placeholder="City" name="city">
                     </td>
                 </tr>
                 <tr>
@@ -41,15 +41,15 @@
                         <label for="state">State:</label>
                     </td>
                     <td>
-                        <input type="text" name="state">
+                        <input class="input__user-state" type="text" placeholder="State" name="state">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="zip">Zip:</label>
+                        <label for="zip">Zipcode:</label>
                     </td>
                     <td>
-                        <input type="text" name="zip" maxlength="5">
+                        <input class="input__user-zip" type="text" name="zip" placeholder="xxxxx" maxlength="5">
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +57,8 @@
                         <label for="phone">Phone:</label>
                     </td>
                     <td>
-                        <input type="tel" name="phone" maxlength="12" required>
+                        <!-- <input type="tel" name="phone" maxlength="12" required> -->
+                        <input class="input__user-phone" type="tel" name="phone" maxlength="12" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                     </td>
                 </tr>
                 <tr>
@@ -65,12 +66,12 @@
                         <label for="">Email:</label>
                     </td>
                     <td>
-                        <input type="email" name="email" required>
+                        <input class="input__user-email" type="email" name="email" placeholder="me@email.com" required>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="password">Password:</label>
+                        <label for="password">Password:</label> 
                     </td>
                     <td>
                         <input type="password" name="password" required>

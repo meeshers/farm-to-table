@@ -52,7 +52,8 @@
                         <a href="/admin/product/<%= product._id %>/edit" tabindex="-1">
                             <button type="button" class="btn-med">Edit</button>
                         </a>
-                        <button type="submit" id="from-show" class="btn-med">Delete</button>
+                        <button type="submit" id="from-show" class="btn-med"><%=(product.deleted)? 'Add' : 'Delete'%></button>
+                        <input type="hidden" name="isDelete" value="<%= (product.deleted)? 'false' : 'true' %>">
                     </form>
                 </td>
             </tr>

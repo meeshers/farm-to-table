@@ -38,8 +38,12 @@ a {
     justify-content: center;
     align-items: center;
     width: 250px;
-    height: 140px;
+    height: 175px;
     margin: 0 10px; 
+}
+
+#section__login h1 {
+    font-size: 28px;
 }
 
 #p__login-fail {
@@ -50,6 +54,7 @@ a {
     text-decoration: none;
     margin-bottom: 5px;
     text-shadow: none;
+    text-align: center;
 }
 
 #input__username, #input__password {
@@ -71,10 +76,8 @@ a {
 
 #button__login {
     display: flex;
-    /* align-items: flex-end; */
     justify-content: flex-end;
     width: 225px;
-    margin: 0 10px 0 12px;
 }
 
 .body__article-details {
@@ -261,7 +264,6 @@ a {
 button {
     background-color: #94D3AC;
     color: black;
-    outline: none;
 }
 
 

@@ -9,6 +9,7 @@ const productSchema = new mongoose.Schema({
     available: Boolean,
     growthNotes: String,
     img: String,
+    deleted: {type: Boolean, required: true, default: false},
     farmID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Farm'

@@ -168,7 +168,8 @@ router.get('/product/:id', async (req, res) => {
             readyDate: readyDate,
             available: foundProduct.available,
             growthNotes: foundProduct.growthNotes,
-            img: foundProduct.img
+            img: foundProduct.img,
+            deleted: foundProduct.deleted
         }
         res.render('admin/product/show', {product: product});
     }
@@ -338,11 +339,12 @@ router.put('/product/:id', async (req, res) => {
 //DELETE customer route
 router.delete('/cust/:id', async (req, res) => {
     try {
-        const delCust = await db.Customers.findByIdAndDelete(req.params.id);
-        const farm = await db.Farms.findOne({name: functions.getFarmName()});
+        await db.Customers.updateOne({_id: req.params.id}, {$set: {deleted: true}});
+        //const delCust = await db.Customers.findByIdAndDelete(req.params.id);
+        // const farm = await db.Farms.findOne({name: functions.getFarmName()});
 
-        farm.customers.remove(delCust);
-        farm.save();
+        // farm.customers.remove(delCust);
+        // farm.save();
 
         res.redirect('/admin/cust');
     }
@@ -355,11 +357,16 @@ router.delete('/cust/:id', async (req, res) => {
 //DELETE product route
 router.delete('/product/:id', async (req, res) => {
     try {
-        const delProduct = await db.Products.findByIdAndDelete(req.params.id);
-        const farm = await db.Farms.findOne({name: functions.getFarmName()});
+        //if the request is delete then mark deleted, else adding item back to inventory
+        if(req.body.isDelete === 'true')
+            await db.Products.updateOne({_id: req.params.id}, {$set: {deleted: true}});
+        else
+            await db.Products.updateOne({_id: req.params.id}, {$set: {deleted: false}});
+        // const delProduct = await db.Products.findByIdAndDelete(req.params.id);
+        // const farm = await db.Farms.findOne({name: functions.getFarmName()});
 
-        farm.products.remove(delProduct);
-        farm.save();
+        // farm.products.remove(delProduct);
+        // farm.save();
 
         res.redirect('/admin/product');
     }

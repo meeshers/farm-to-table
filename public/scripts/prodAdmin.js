@@ -17,3 +17,21 @@ $('.header__logo').click(() => {
 $('.btn-back').click(() => {
     window.history.back();
 });
+
+$('#toggle-deleted-prods').click(() => {
+    $('.hide-prod').toggle();
+
+    //show or hide the deleted products
+    if($('.hide-prod').is(":visible"))
+        $('.hide-prod').css("display", "table-row");
+    else
+        $('.hide-prod').css("display", "none");
+
+    //upate the button text to reflect current state
+    if($('#toggle-deleted-prods').text() === "Show Deleted")
+        $('#toggle-deleted-prods').text("Show Active");
+    else
+        $('#toggle-deleted-prods').text("Show Deleted");
+
+    $('.show-prod').toggle();
+});
