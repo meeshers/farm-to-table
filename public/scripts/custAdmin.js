@@ -8,10 +8,12 @@ $('.header__logo').click(() => {
 
 $('#btn__clear-cust-form').click(() => {
     $('#form__new-user').trigger('reset');
+    $('#new-user-error').text('');
 });
 
 $('.btn-back').click(() => {
-    window.history.back();
+    //window.history.back();
+    window.location.href = "/admin";
 });
 
 $('#button__update-password').click( () => {

@@ -79,6 +79,7 @@
                 </tr>
                 <tr>
                     <td class="text-align-right" colspan="2">
+                        <p class="red-text no-shadow" id="new-user-error"><%= (error.isError)? error.message : "" %></p>
                         <button id="btn__clear-cust-form" class="btn-med" type="button">Clear Form</button>
                         <button class="btn-med" type="submit">Add Customer</button>
                     </td>

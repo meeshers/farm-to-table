@@ -62,7 +62,13 @@ router.get('/newFarm', (req, res) => {
 
 //NEW customer page
 router.get('/cust/new', (req, res) => {
-    res.render('admin/cust/new');
+    
+    const error = {
+        isError: false,
+        message: "No error"
+    }
+
+    res.render('admin/cust/new', {error: error});
 });
 
 //NEW product page
@@ -91,19 +97,33 @@ router.post('/', async (req, res) => {
 router.post('/cust', async (req, res) => {
     try {
 
-        const farm = await db.Farms.findOne({name: functions.getFarmName()});
-        req.body.farmID = farm._id;
-        const salt = await bcrypt.genSalt();
-        const hash = await bcrypt.hash(req.body.password, salt);
-
-        req.body.password = hash;
-
-        const newCust = await db.Customers.create(req.body);
-
-        farm.customers.push(newCust);
-        farm.save();
+        const custExists = await db.Customers.findOne({email: req.body.email});
         
-        res.redirect('/admin/cust'); 
+        if(custExists === null)
+        {
+            const farm = await db.Farms.findOne({name: functions.getFarmName()});
+            req.body.farmID = farm._id;
+            const salt = await bcrypt.genSalt();
+            const hash = await bcrypt.hash(req.body.password, salt);
+
+            req.body.password = hash;
+
+            const newCust = await db.Customers.create(req.body);
+
+            farm.customers.push(newCust);
+            farm.save();
+
+            res.redirect('/admin/cust'); 
+        }
+        else
+        {
+            const error = {
+                isError: true,
+                message: "There is already an account with that email."
+            }
+
+            res.render('admin/cust/new', {error: error});
+        }
 
     } catch (error) {
         console.log(error);
