@@ -9,8 +9,8 @@ $(document).ready( () => {
         const user = localStorage.getItem("__nm");
         $('#user-name').text(`Welcome: ${user}`);
     }
-    else
-        $('#user-name').text(`Welcome: Guest please sign in`);
+    //else
+        //$('#user-name').text(`Welcome: Guest please sign in`);
 
     const retrieve = JSON.parse(localStorage.getItem("shoppingCart"));
 
@@ -107,6 +107,11 @@ $(document).ready( () => {
             else
                 updateCartTotal(0, false);
         });
+    } 
+    else
+    {
+        $('#button__cart-checkout').hide();
+        $('#button__clear-cart').hide();
     }
 });
 
@@ -132,7 +137,7 @@ $('#button__cart-checkout').click(() => {
             prodPrice.push(stripDollar(prod.price));
         });
         
-        const data = {userId: localStorage.getItem("__ch"), ids: prodIds, qty: prodQty, price: prodPrice};
+        const data = {itemCount: shoppingCart.length, userId: localStorage.getItem("__ch"), ids: prodIds, qty: prodQty, price: prodPrice};
         $.ajax({
             url:'/checkout',
             method: 'POST',
@@ -146,18 +151,23 @@ $('#button__cart-checkout').click(() => {
                 localStorage.removeItem("cartLabel");
                 $('.acticle__thank-you').css("opacity", "1");
                 $('.acticle__thank-you').css("z-index", "1");
-                //window.location.reload(); this needs to be added after the user hit ok
+                $('#h5__confirm-msg').text(`Confirmation number: ${res.confirm}`);
             }
             else
             {
-                console.log('error...ajax');
+                $('#cart-error-message').show();
+                $('#cart-error-message').text('There was a problem processing your order...\nPlease try again later.');
             }
         });
-
-        alert("You are checking out");
     }
     else
-        alert("Please signin to checkout!");
+        $('#cart-error-signin').show();
+});
+
+$('#btn__thank-you').click( () => {
+    $('.acticle__thank-you').css("opacity", "0");
+    $('.acticle__thank-you').css("z-index", "-1");
+    window.location.replace('/');
 });
 
 /**

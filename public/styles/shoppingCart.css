@@ -205,8 +205,19 @@ hr {
     opacity: 0;
 }
 
+#cart-error-message, #cart-error-signin {
+    color: firebrick;
+    margin: 10px;
+    font-size: 15px;
+}
+
 .acticle__thank-you h1 {
     color: red;
+    margin: 0 0 3px 0;
+    width: auto;
+}
+
+#h5__confirm-msg {
     margin: 0 0 25px 0;
 }
 
@@ -214,5 +225,7 @@ hr {
     margin: 0 0 10px 0;
 }
 
-#h1__thank-you {
+#btn__thank-you {
+    align-self: flex-end;
+    margin: 15px 20px 0 0;
 }

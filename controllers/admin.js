@@ -41,7 +41,7 @@ router.get('/product', async (req, res) => {
     try {
         const farmProducts = await db.Farms.findOne({name: functions.getFarmName()}).populate('products');
 
-        res.render('admin/product', {products: farmProducts.products});
+        res.render('admin/product', {products: farmProducts.products}); 
     }
     catch (error) {
         console.log(error);
@@ -62,7 +62,13 @@ router.get('/newFarm', (req, res) => {
 
 //NEW customer page
 router.get('/cust/new', (req, res) => {
-    res.render('admin/cust/new');
+    
+    const error = {
+        isError: false,
+        message: "No error"
+    }
+
+    res.render('admin/cust/new', {error: error});
 });
 
 //NEW product page
@@ -91,19 +97,33 @@ router.post('/', async (req, res) => {
 router.post('/cust', async (req, res) => {
     try {
 
-        const farm = await db.Farms.findOne({name: functions.getFarmName()});
-        req.body.farmID = farm._id;
-        const salt = await bcrypt.genSalt();
-        const hash = await bcrypt.hash(req.body.password, salt);
-
-        req.body.password = hash;
-
-        const newCust = await db.Customers.create(req.body);
-
-        farm.customers.push(newCust);
-        farm.save();
+        const custExists = await db.Customers.findOne({email: req.body.email});
         
-        res.redirect('/admin/cust'); 
+        if(custExists === null)
+        {
+            const farm = await db.Farms.findOne({name: functions.getFarmName()});
+            req.body.farmID = farm._id;
+            const salt = await bcrypt.genSalt();
+            const hash = await bcrypt.hash(req.body.password, salt);
+
+            req.body.password = hash;
+
+            const newCust = await db.Customers.create(req.body);
+
+            farm.customers.push(newCust);
+            farm.save();
+
+            res.redirect('/admin/cust'); 
+        }
+        else
+        {
+            const error = {
+                isError: true,
+                message: "There is already an account with that email."
+            }
+
+            res.render('admin/cust/new', {error: error});
+        }
 
     } catch (error) {
         console.log(error);
@@ -135,7 +155,14 @@ router.post('/product', async (req, res) => {
 //SHOW customer show page
 router.get('/cust/:id', async (req, res) => {
     try {
-        const customer = await db.Customers.findById(req.params.id);
+        //const customer = await db.Customers.findById(req.params.id).populate('lineitems');
+
+        const customer = await db.Customers.findById(req.params.id).populate({path: 'lineitems', populate: {path: 'product', model: 'Product'}});
+        // if(customer.lineitems.length > 0)//check for lineitems (order history)
+        //     console.log(customer.lineitems[0].product.name);
+        // else
+        //     console.log(customer.lineitems);//[0].product.name);
+
         res.render('admin/cust/show', {customer: customer});
     } 
     catch (error) {
@@ -161,7 +188,8 @@ router.get('/product/:id', async (req, res) => {
             readyDate: readyDate,
             available: foundProduct.available,
             growthNotes: foundProduct.growthNotes,
-            img: foundProduct.img
+            img: foundProduct.img,
+            deleted: foundProduct.deleted
         }
         res.render('admin/product/show', {product: product});
     }
@@ -274,7 +302,37 @@ router.put('/:id', async (req, res) => {
 //UPDATE customer route
 router.put('/cust/:id', async (req, res) => {
     try {
-        await db.Customers.findByIdAndUpdate(req.params.id, req.body, {new:true});
+
+        let custUpdate;
+        if(req.body.passUpdated === 'true')
+        {
+            const salt = await bcrypt.genSalt();
+            const hash = await bcrypt.hash(req.body.password, salt);
+
+            custUpdate = {
+                name: req.body.name,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                phone: req.body.phone,
+                email: req.body.email,
+                password: hash
+            }
+        }
+        else
+        {
+            custUpdate = {
+                name: req.body.name,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                phone: req.body.phone,
+                email: req.body.email
+            }
+        }
+        await db.Customers.findByIdAndUpdate(req.params.id, custUpdate, {new:true});
 
         res.redirect(`/admin/cust/${req.params.id}`);
     }
@@ -301,11 +359,12 @@ router.put('/product/:id', async (req, res) => {
 //DELETE customer route
 router.delete('/cust/:id', async (req, res) => {
     try {
-        const delCust = await db.Customers.findByIdAndDelete(req.params.id);
-        const farm = await db.Farms.findOne({name: functions.getFarmName()});
+        await db.Customers.updateOne({_id: req.params.id}, {$set: {deleted: true}});
+        //const delCust = await db.Customers.findByIdAndDelete(req.params.id);
+        // const farm = await db.Farms.findOne({name: functions.getFarmName()});
 
-        farm.customers.remove(delCust);
-        farm.save();
+        // farm.customers.remove(delCust);
+        // farm.save();
 
         res.redirect('/admin/cust');
     }
@@ -318,11 +377,16 @@ router.delete('/cust/:id', async (req, res) => {
 //DELETE product route
 router.delete('/product/:id', async (req, res) => {
     try {
-        const delProduct = await db.Products.findByIdAndDelete(req.params.id);
-        const farm = await db.Farms.findOne({name: functions.getFarmName()});
+        //if the request is delete then mark deleted, else adding item back to inventory
+        if(req.body.isDelete === 'true')
+            await db.Products.updateOne({_id: req.params.id}, {$set: {deleted: true}});
+        else
+            await db.Products.updateOne({_id: req.params.id}, {$set: {deleted: false}});
+        // const delProduct = await db.Products.findByIdAndDelete(req.params.id);
+        // const farm = await db.Farms.findOne({name: functions.getFarmName()});
 
-        farm.products.remove(delProduct);
-        farm.save();
+        // farm.products.remove(delProduct);
+        // farm.save();
 
         res.redirect('/admin/product');
     }

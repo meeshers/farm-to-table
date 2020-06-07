@@ -1,11 +1,18 @@
 exports.greeting = () => {
     console.log("From the external file!");
 }
-
+/**
+ * @param {number}
+ * @returns {string} Formated to a dollar amount $xxx.xx 
+ */
 exports.formatPrice = (price) => {
     return "$" + parseFloat(price).toFixed(2);
 }
 
+/**
+ * @param {string} price formated with a dollar sign $xxx.xx
+ * @returns {string} The dollar amount without the $ sign in front
+ */
 exports.stripDollar = (price) => {
     return price.replace(/\$/g, '');
 }

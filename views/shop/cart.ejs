@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/main.css">
+<%- include('../head') %>
   <link rel="stylesheet" href="/styles/shoppingCart.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
-  <script src="https://kit.fontawesome.com/557a3bdbd9.js" defer></script>
   <script src="/scripts/shoppingCart.js" defer></script>
-  <script src="/scripts/cartLabel.js" defer></script>
-  <script src="/scripts/signout.js" defer></script>
   <title>Cart</title>
 </head>
 <body>
@@ -28,7 +19,7 @@
       </table>
     </article>
     <article class="article__cart-total">
-      <p id="user-name"></p>
+      <p id="user-name">Welcome: Guest please <a href="/login">sign in</a></p>
       <hr>
       <div class="div__cart-total">
         <p>CART TOTAL</p>
@@ -41,12 +32,16 @@
         <button id="button__cart-checkout">Checkout</button>
         <button id="button__clear-cart">Clear Cart</button>
       </div>
+      <p id="cart-error-signin" hidden>Please <a href="/login">sign in</a> to checkout.</p>
+      <p id="cart-error-message" hidden>This is an error message to display!</p>
     </article>
   </section>
   <article class="acticle__thank-you">
     <h1 id="h1__thank-you">Thanks for your purchase!</h1>
+    <h5 id="h5__confirm-msg">Confirmation number:</h5>
     <h3>Your products will be shipped shortly</h3>
     <h5>Spread the word and tell you friends about us!</h3>
+    <button id="btn__thank-you">Ok</button>
   </article>
 </div>
 

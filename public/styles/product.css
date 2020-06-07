@@ -36,7 +36,9 @@
   padding: 10px;
   justify-content: flex-start;
   width: 1000px;
+  max-height: 500px;
   flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 .show-container {
@@ -124,4 +126,16 @@ small {
 
 h3 {
   padding-bottom: 5px;
+}
+
+@media (max-height: 675px) {
+
+  body {
+    overflow: auto;
+  }
+
+  footer {
+      /* margin-top: 25px; */
+      position: relative;
+  }
 }

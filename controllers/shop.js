@@ -11,8 +11,17 @@ router.get('/', (req, res) => {
 // View all products route
 router.get('/products', async (req, res) => {
   try {
-    const allProducts = await db.Products.find({});
-    res.render('shop/product', { product: allProducts });
+    //fixed this to show only products for one farm not all farms
+    const farmProducts = await db.Farms.findOne({name: functions.getFarmName()}).populate('products');
+    const prods = [];
+
+    //only display availiable products to the customer
+    farmProducts.products.forEach(product => {
+      if(!product.deleted)
+        prods.push(product);
+    });
+
+    res.render('shop/product', { product: prods });
   } catch (error) {
     console.log(error);
     res.send({ message: "Internal Server Error!" });
@@ -24,22 +33,42 @@ router.post('/checkout', async (req,res) => {
   try {
     const cust = await db.Customers.findById({_id: req.body.userId});
 
-    console.log(req.body['ids[]'].length);
-    for(let i = 0; i < req.body['ids[]'].length; i++)
+    if(cust !== null)
     {
-      const lineItem = {
-        product: req.body['ids[]'][i],
-        qty: req.body['qty[]'][i],
-        price: req.body['price[]'][i]
+      //if there are more than one items then ajax sends that data as an array and
+      //you can access it as such.  If only one item then it sends it as a single item
+      if(req.body.itemCount > 1)
+      {
+        for(let i = 0; i < req.body['ids[]'].length; i++)
+        {
+          const lineItem = {
+            product: req.body['ids[]'][i],
+            qty: req.body['qty[]'][i],
+            price: req.body['price[]'][i]
+          }
+
+          const item = await db.Lineitems.create(lineItem);
+          cust.lineitems.push(item);
+        }
+      }
+      else
+      {
+        const lineItem = {
+          product: req.body['ids[]'],
+          qty: req.body['qty[]'],
+          price: req.body['price[]']
+        }
+
+        const item = await db.Lineitems.create(lineItem);
+        cust.lineitems.push(item);
       }
 
-      const item = await db.Lineitems.create(lineItem);
-      cust.lineitems.push(item);
-      console.log(lineItem);
+      cust.save();
+      const confirmNum = Math.floor(Math.random() * 100000);
+      res.json({success: true, confirm: confirmNum});
     }
-
-    cust.save();
-    res.json({success: true});
+    else
+      res.json({err: error});
   }
   catch (error) {
     console.log(error);
@@ -82,6 +111,7 @@ router.get('/about', (req, res) => {
 router.get('/subscribe', (req, res) => {
   res.render('shop/subscribe');
 })
+
 
 // subscribe POST route
 router.post('/', (req, res) => {

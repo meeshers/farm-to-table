@@ -10,7 +10,6 @@ $('.header__logo').click(() => {
 });
 
 $('#button__update-password').click( () => {
-    //alert("You want to update password");
     $('#button__update-password').hide();
     $('#input__admin-password').show();
     $('#input__admin-password').attr("minlength", 5);

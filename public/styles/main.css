@@ -12,37 +12,74 @@ body {
   font-size: 20px;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 70px;
 }
 
 header {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
   background-color: #655C56;
   color: #EFFCEF;
-  padding: 15px;
-  text-align: right;
-  width: 100%;
+  width:100%;
+  min-width: 600px;
+  margin: 0;
+  height: 80px;
+  padding: 5px;
 }
 
 header a,footer a {
   color: #EFFCEF;
   text-decoration: none;
-  padding-right: 5px;
+  padding: 0 5px;
+}
+
+.header__logo {
+  text-align: center;
+  height: 65px;
+  width: 65px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 16px;
+  text-shadow: 0px 2px 3px black;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 65px;
+  width: 100%;
+  min-width: 550px;
+  font-size: 24px;
+  text-shadow: 0px 3px 6px black;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  bottom: 0;
+  left: 0;
+  background-color: #655C56;
+  color: #EFFCEF;
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+  min-width: 600px;
+  height: 3.5rem;
+}
+
+.nav__footer-main {
+  font-size: 16px;
+  color: #EFFCEF;
+}
+
+.nav__footer-main a {
+  color: #EFFCEF;
 }
 
 a {
   color: #655C56;
-}
-
-footer {
-  bottom: 0;
-  background-color: #655C56;
-  color: #EFFCEF;
-  padding: 15px;
-  font-size: 15px;
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  height: 3.5rem;
 }
 
 .content {
@@ -52,7 +89,8 @@ footer {
 }
 
 .logo {
-  float: left;
+  margin: 0 0 5px 0;
+  padding: 0;
 }
 
 button {

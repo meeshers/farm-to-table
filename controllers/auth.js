@@ -51,7 +51,10 @@ router.get('/login', (req, res) => {
 // login POST route
 router.post('/login', async (req, res) => {
   try {
-    const foundUser = await db.Customers.findOne({ email: req.body.email });
+    const farm = await db.Farms.findOne({name: functions.getFarmName()});
+    //make sure the user exists and they have an account with the farm
+    const foundUser = await db.Customers.findOne({ $and: [ {email: req.body.email}, {farmID: farm._id}, {deleted: false} ]});
+    
     if (!foundUser) {
 
       const invalid = {
@@ -107,11 +110,11 @@ router.get('/user/edit', async (req, res) => {
 })
 
 // edit user PUT route
-router.put('/user', async (req, res) => {
+router.put('/user/:id', async (req, res) => {
   try {
-    console.log(req.session.currentUser.id);
-    console.log(req.body);
-    await db.Customers.findOneAndUpdate(req.session.currentUser.id, req.body, { new: true });
+
+    await db.Customers.findByIdAndUpdate(req.session.currentUser.id, req.body, { new: true });
+
     res.redirect('/user');
   } catch (error) {
     console.log(error);

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    name: {type: String, required: true},
+    name: {type: String, required: true, unique: true},
     description: {type: String, required:true},
     price: {type: String, required: true},
     birthDate: Date,
@@ -9,6 +9,7 @@ const productSchema = new mongoose.Schema({
     available: Boolean,
     growthNotes: String,
     img: String,
+    deleted: {type: Boolean, required: true, default: false},
     farmID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Farm'

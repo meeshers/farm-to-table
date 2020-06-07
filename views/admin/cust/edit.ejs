@@ -13,58 +13,74 @@
             <table class="table__farm-details text-align-left">
                 <th colspan="2" class="text-align-center">Customer Details</th>
                 <tr>
-                    <td>Name:</td>
                     <td>
-                        <input type="text" name="name" value="<%= customer.name %>" required>
+                        <label for="name">Name:</label>
+                    </td>
+                    <td>
+                        <input class="input__user-name" type="text" name="name" value="<%= customer.name %>" required>
                     </td>
                 </tr>
                 <tr>
-                    <td>Address:</td>
                     <td>
-                        <input type="text" name="address" value="<%= customer.address %>" >
+                        <label for="address">Address:</label>
+                    </td>
+                    <td>
+                        <input class="input__user-address" type="text" name="address" value="<%= customer.address %>" >
                     </td>
                 </tr>
                 <tr>
-                    <td>City:</td>
                     <td>
-                        <input type="text" name="city" value="<%= customer.city %>">
+                        <label for="city">City:</label>
+                    </td>
+                    <td>
+                        <input class="input__user-city" type="text" name="city" value="<%= customer.city %>">
                     </td>
                 </tr>
                 <tr>
-                    <td>State:</td>
                     <td>
-                        <input type="text" name="state" value="<%= customer.state %>">
+                        <label for="state">State:</label>
+                    </td>
+                    <td>
+                        <input class="input__user-state" type="text" name="state" value="<%= customer.state %>">
                     </td>
                 </tr>
                 <tr>
-                    <td>Zip:</td>
                     <td>
-                        <input type="text" name="zip" maxlength="5" value="<%= customer.zip %>">
+                        <label for="zip">Zipcode:</label>
+                    </td>
+                    <td>
+                        <input class="input__user-zip" type="text" name="zip" maxlength="5" value="<%= customer.zip %>">
                     </td>
                 </tr>
                 <tr>
-                    <td>Phone:</td>
                     <td>
-                        <input type="tel" name="phone" maxlength="12" value="<%= customer.phone %>" required>
+                        <label for="phone">Phone:</label>
+                    </td>
+                    <td>
+                        <input class="input__user-phone" type="tel" name="phone" maxlength="12" placeholder="xxx-xxx-xxxx" value="<%= customer.phone %>" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                     </td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
                     <td>
-                        <input type="email" name="email" value="<%= customer.email %>" required>
+                        <label for="email">Email:</label>
+                    </td>
+                    <td>
+                        <input class="input__user-email" type="email" name="email" value="<%= customer.email %>" required>
                     </td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
                     <td>
-                        <input type="password" name="password" value="<%= customer.password %>" required>
+                        <label for="password">Password:</label>
+                    </td>
+                    <td>
+                        <button class="btn-sml" id="button__update-password" type="button">Update Password</button>
+                        <input type="password" id="input__admin-password" name="password" placeholder="minimum length 5" hidden>
+                        <input type="hidden" id="pass-updated" name="passUpdated" value="false">
                     </td>
                 </tr>
                 <tr>
                     <td class="text-align-right" colspan="2">
-                        <a href="/admin/cust" tabindex="-1">
-                            <button class="btn-lrg">Back</button>
-                        </a>
+                        <button class="btn-lrg btn-back">Back</button>
                         <button class="btn-lrg" type="submit">Update</button>
                     </td>
                 </tr>

@@ -48,13 +48,12 @@
             <tr class="text-align-right">
                 <td colspan="2">
                     <form action="/admin/product/<%= product._id %>?_method=DELETE" method="POST">
-                        <a href="/admin/product" tabindex="-1">
-                            <button type="button" class="btn-med">Back</button>
-                        </a>
+                        <button type="button" class="btn-med btn-back">Back</button>
                         <a href="/admin/product/<%= product._id %>/edit" tabindex="-1">
                             <button type="button" class="btn-med">Edit</button>
                         </a>
-                        <button type="submit" id="from-show" class="btn-med">Delete</button>
+                        <button type="submit" id="from-show" class="btn-med"><%=(product.deleted)? 'Add' : 'Delete'%></button>
+                        <input type="hidden" name="isDelete" value="<%= (product.deleted)? 'false' : 'true' %>">
                     </form>
                 </td>
             </tr>
