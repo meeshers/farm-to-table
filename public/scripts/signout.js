@@ -13,7 +13,7 @@ $(document).ready(() => {
     $('#user-profile').hide();
     $('#sign-out').hide();
   }
-})
+});
 
 $('#sign-out').click(() => {
   //remove all the local storage associated with the user when they logout
@@ -22,4 +22,4 @@ $('#sign-out').click(() => {
   localStorage.removeItem("signedIn");
   localStorage.removeItem("__ch");
   localStorage.removeItem("__nm");
-})
+});
