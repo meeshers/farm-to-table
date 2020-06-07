@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/prodAdmin.js" defer></script>
+    <title>Product Administration</title>
+</head>
+<body>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-details no-bottom-radius">
+        <table class="table__farm-details text-align-left">
+            <tr>
+                <th class="text-align-center black-text-shadow">Name</th>
+                <th class="text-align-center black-text-shadow">Description</th>
+                <th class="text-align-center black-text-shadow">Price</th>
+                <th class="text-align-center">
+                    <button id="toggle-deleted-prods" class="btn-sml">Show Deleted</button>
+                </th>
+            </tr>
+            <% let active = 0; let del = 0; %>
+            <% for(let i = 0; i < products.length; i++) {%>
+            <% if((products[i].deleted)) { %>
+                <tr class="<%= (del%2===0) ? 'white' : 'gray'%> hide-prod black-text" hidden>
+            <% del++; %> 
+            <% } else { %>
+                <tr class="<%= (active%2===0) ? 'white' : 'gray'%> show-prod black-text">
+            <% active++; %>
+            <% } %>
+                <td><%= products[i].name %></td>
+                <td><%= products[i].description %></td>
+                <td><%= products[i].price %></td>
+                <td class="text-align-right table-button">
+                    <a href="/admin/product/<%= products[i]._id %>" tabindex="-1">
+                        <button type="button" class="btn-sml">View</button>
+                    </a>
+                    <a href="/admin/product/<%= products[i]._id %>/edit" tabindex="-1">
+                        <button class="btn-sml">Edit</button>
+                    </a>
+                    <form action="/admin/product/<%= products[i]._id %>?_method=DELETE" method="POST">
+                        <button class="btn-sml delete-prod"><%=(products[i].deleted)? 'Add' : 'Delete'%></button>
+                        <input type="hidden" name="isDelete" value="<%= (products[i].deleted)? 'false' : 'true' %>">
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+        </table>
+    </article>
+    <%- include('../partials/adminFooter') %>
+</body>
+</html>

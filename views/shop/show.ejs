@@ -1,0 +1,52 @@
+<%- include('../head') %>
+<link rel="stylesheet" href="/styles/product.css">
+<script src="/scripts/addProducts.js" defer></script>
+<title>Show Product</title>
+</head>
+<body>
+  <%- include('../header') %>
+
+  <div class="show-container">
+    <input id="prod-id" type="hidden" name="prodID" value="<%= product._id %>">
+    <img id="prod-image" class="photo" src="<%= product.img %>" alt="<%= product.name %>">
+    <div class="content">
+      <h2 id="prod-name"><%= product.name %></h2>
+      <hr>
+      <p id="prod-price" class="price"><i><%= product.price %></i></p>
+
+      <small><b>Product description:</b></small>
+      <p id="prod-desc"><%= product.description %></p>
+
+      <!-- Check if product has birth/ready dates -->
+      <% if (product.birthDate && product.readyDate) { %>
+      <small><b>Dates: </b></small>
+      <p>Birth date: <%= product.birthDate %></p>
+      <p>Ready date: <%= product.readyDate %></p>
+      <%}%>
+
+      <!-- Product Availability -->
+      <small><b>Availability: </b></small>
+      <% if (product.available===true) { %>
+      <input id="prod-available" type="hidden" name="availiable" value="<% (product.available)? 'Yes' : 'No' %>">
+      <p>This item is currently in stock.</p>
+      <% } else { %>
+      <p>This item is currently unavailable.</p>
+      <% } %>
+
+      <!-- Growth notes -->
+      <small><b>Note from the producer:</b></small>
+      <% if (!product.growthNotes) { %>
+      <p>There are no further notes on this product from the producer.</p>
+      <% } else {%>
+      <p id="prod-notes"><%= product.growthNotes %></p>
+      <% } %>
+
+      <button class="button__add-to-cart" type="submit">Add to cart</button>
+    </div>
+
+  </div>
+
+  <%- include('../footer') %>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<%- include('../head') %>
+<link rel="stylesheet" href="/styles/product.css">
+<title>All products</title>
+</head>
+<body>
+  <%- include('../header') %>
+  <h1>All products</h1>
+
+  <div class="container">
+    <!-- product card -->
+    <!-- product image, name, and price -->
+    <% for( let i = 0; i < product.length; i++ ) { %>
+    <a href="/product/<%= product[i]._id%>">
+      <div class="product">
+        <img class="product-img" src="<%= product[i].img %>" alt="<%= product[i].name %>">
+        <p class="product-desc">
+          <%= product[i].name %>
+          <span class="price"> <%= product[i].price %> </span></p> <br />
+      </div>
+    </a>
+    <% } %>
+
+  </div>
+
+  <%- include('../footer') %>
+</body>
+
+</html>

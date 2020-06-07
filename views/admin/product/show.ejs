@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/prodAdmin.js" defer></script>
+    <title>Product Administration</title>
+</head>
+<body>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-prod-details black-text-shadow">
+        <div class="prod-img">
+            <label class="prod-labels" for="img">Product Image</label>
+            <div id="prod-img"></div>
+            <input type="hidden" name="img" placeholder="img url" id="prod-url" value="<%= product.img %>">
+        </div>
+        <table class="text-align-left">
+            <tr>
+                <td class="td_small-width">Name:</td>
+                <td><%= product.name %></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea name="description" class="textarea__show-page" cols="30" rows="5"><%= product.description %></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea name="growthNotes" class="textarea__show-page" cols="30" rows="5"><%= product.growthNotes %></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Price:</td>
+                <td><%= product.price %></td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Born On:</td>
+                <td><%= product.birthDate %></td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Ready On:</td>
+                <td><%= product.readyDate %></td>
+            </tr>
+            <tr>
+                <td class="td_small-width">Available:</td>
+                <td><%= (product.available)? 'Yes' : 'No' %></td>
+            </tr>
+            <tr class="text-align-right">
+                <td colspan="2">
+                    <form action="/admin/product/<%= product._id %>?_method=DELETE" method="POST">
+                        <button type="button" class="btn-med btn-back">Back</button>
+                        <a href="/admin/product/<%= product._id %>/edit" tabindex="-1">
+                            <button type="button" class="btn-med">Edit</button>
+                        </a>
+                        <button type="submit" id="from-show" class="btn-med"><%=(product.deleted)? 'Add' : 'Delete'%></button>
+                        <input type="hidden" name="isDelete" value="<%= (product.deleted)? 'false' : 'true' %>">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </article>
+    <%- include('../partials/adminFooter') %>
+</body>
+</html>

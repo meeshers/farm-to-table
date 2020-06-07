@@ -1,0 +1,140 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #CCEDD2;
+  color: #1f1f1f;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  position: relative;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: #655C56;
+  color: #EFFCEF;
+  width:100%;
+  min-width: 600px;
+  margin: 0;
+  height: 80px;
+  padding: 5px;
+}
+
+header a,footer a {
+  color: #EFFCEF;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.header__logo {
+  text-align: center;
+  height: 65px;
+  width: 65px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 16px;
+  text-shadow: 0px 2px 3px black;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 65px;
+  width: 100%;
+  min-width: 550px;
+  font-size: 24px;
+  text-shadow: 0px 3px 6px black;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  bottom: 0;
+  left: 0;
+  background-color: #655C56;
+  color: #EFFCEF;
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+  min-width: 600px;
+  height: 3.5rem;
+}
+
+.nav__footer-main {
+  font-size: 16px;
+  color: #EFFCEF;
+}
+
+.nav__footer-main a {
+  color: #EFFCEF;
+}
+
+a {
+  color: #655C56;
+}
+
+.content {
+  width: 80vw;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logo {
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+button {
+  border-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #655C56;
+  color: #EFFCEF;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #EFFCEF;
+  color: #655c56;
+}
+
+label {
+  margin: 10px;
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+
+.display {
+  display: inline-block;
+  text-align: left;
+  width: 100px;
+}
+
+.explain i {
+  font-size: 48px;
+  color: #655C56;
+}
+
+.nav {
+  border-right: 2px solid #EFFCEF;
+  display: inline-block;
+}
+
+h1 {
+  border-bottom: 5px solid #655C56;
+  width: 900px;
+  margin: 0 auto;
+  padding: 5px;
+}

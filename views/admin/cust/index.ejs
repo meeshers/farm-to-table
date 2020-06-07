@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/custAdmin.js" defer></script>
+    <title>Customer Administration</title>
+</head>
+<body>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-details no-bottom-radius">
+        <table class="table__farm-details text-align-left">
+            <tr>
+                <td class="text-align-center black-text-shadow">Name</td>
+                <td class="text-align-center black-text-shadow">Phone</td>
+                <td class="text-align-center black-text-shadow">Email</td>
+                <td></td>
+            </tr>
+            <% let active = 0; let del = 0; %>
+            <% for(let i = 0; i < customers.length; i++) {%>
+            <% if((customers[i].deleted)) { %>
+                <tr class="<%= (del%2===0) ? 'white' : 'gray'%> hide-prod black-text" hidden>
+            <% del++; %> 
+            <% } else { %>
+                <tr class="<%= (active%2===0) ? 'white' : 'gray'%> show-prod black-text">
+            <% active++; %>
+            <% } %>
+                <td><%= customers[i].name %></td>
+                <td><%= customers[i].phone %></td>
+                <td><%= customers[i].email %></td>
+                <td class="text-align-right table-button">
+                    <a href="/admin/cust/<%= customers[i]._id %>" tabindex="-1">
+                        <button type="button" class="btn-sml">View</button></a>
+                    <a href="/admin/cust/<%= customers[i]._id %>/edit" tabindex="-1">
+                        <button class="btn-sml">Edit</button></a>
+                    <form action="/admin/cust/<%= customers[i]._id %>?_method=DELETE" method="POST">
+                        <button class="btn-sml delete-prod">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+        </table>
+    </article>
+    <%- include('../partials/adminFooter') %>
+</body>
+</html>

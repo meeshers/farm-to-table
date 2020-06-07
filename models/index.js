@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const conn = 'mongodb://localhost:27017/blog';
+const conn = 'mongodb://localhost:27017/farmStore';
 
 mongoose.connect(conn, {
     useNewUrlParser: true,
@@ -13,5 +13,9 @@ mongoose.connect(conn, {
 });
 
 module.exports = {
-    //Authors: require('./Author'),
+    Customers: require('./Customer'),
+    Products: require('./Product'),
+    Invoices: require('./Invoice'),
+    Farms: require('./Farm'),
+    Lineitems: require('./Lineitem')
 };

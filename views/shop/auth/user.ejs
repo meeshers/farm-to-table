@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+  <script src="https://kit.fontawesome.com/557a3bdbd9.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+  <script src="/scripts/cartLabel.js" defer></script>
+  <script src="/scripts/profile.js" defer></script>
+  <script src="/scripts/signout.js" defer></script>
+  <title>User</title>
+</head>
+<body>
+  <%- include('../../header') %>
+
+  <h1>Welcome <%= user.name %>! </h1>
+  
+  <label for="email"><b>Email: </b></label>
+  <span class="display"><%= user.email %></span><br>
+
+  <label for="address"><b>Address: </b></label> 
+  <span class="display"><%= user.address %></span> <br>
+
+  <label for="city"><b>City: </b></label> 
+  <span class="display"><%= user.city %></span> <br>
+
+  <label for="state"><b>State: </b></label> 
+  <span class="display"><%= user.state %></span> <br>
+
+  <label for="zip"><b>Zip: </b></label> 
+  <span class="display"><%= user.zip %></span> <br>
+
+  <label for="phone"><b>Phone: </b></label> 
+  <span class="display"><%= user.phone %></span> <br>
+
+  <form action="/user/edit">
+    <button type="submit">Edit info</button>
+  </form>
+  <p id="user-id" hidden><%= user._id %></p>
+  <p id="user-name" hidden><%= user.name %></p>
+  <%- include('../../footer') %>
+</body>
+
+</html>

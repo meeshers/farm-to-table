@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/adminHead') %>
+    <script src="/scripts/loginAdmin.js" defer></script>
+    <title>Farm2Table Administration</title>
+</head>
+<body>
+    <%- include('partials/adminHeader') %>
+    <%- //include('partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+        <section id="section__login">
+            <h1>AUTHENTICATE</h1>
+            <form action="/admin/login" method="POST">
+                <div id="p__login-fail" >
+                    <p <%= (invalid.valid)? 'hidden' : '' %>>Invalid username or password!</p>
+                </div>
+                <input id="input__username" type="text" name="username" placeholder="username" value="<%= invalid.username %>" required>
+                <input id="input__password" type="password" name="password" placeholder="password" required>
+                <div id="button__login">
+                    <button class="btn-med" type="submit">Login</button>
+                </div>
+            </form>
+        </section>
+    </article>
+    <%- include('partials/adminFooter') %>
+</body>
+</html>

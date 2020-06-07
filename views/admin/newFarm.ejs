@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/adminHead') %>
+    <script src="/scripts/mainAdmin.js" defer></script>
+    <title>Edit Farm</title>
+</head>
+<body>
+    <%- include('partials/adminHeader') %>
+    <%- include('partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+        <form action="/admin" method="POST">
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">Farm Details</th>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name" placeholder="Farm Name" value="<%= name %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="address" placeholder="Address" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <input type="text" name="city" placeholder="City" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <input type="text" name="state" placeholder="State" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td>
+                        <input type="text" name="zip" placeholder="Zipcode" maxlength="5" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <input type="text" name="phone" placeholder="xxx-xxx-xxxx" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="email" placeholder="Email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>
+                        <input type="text" name="username" placeholder="Username" value="<%= username %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" placeholder="Password" value="<%= password %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-align-right" colspan="2">
+                        <button class="btn-lrg" type="submit">Create Farm</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </article>
+    <%- include('partials/adminFooter') %>
+</body>
+</html>

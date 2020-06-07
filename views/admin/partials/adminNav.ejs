@@ -1,0 +1,26 @@
+<div class="nav__container">
+    <nav>
+        <ul>
+          <li><a href="/admin">Admin Home</a></li>
+          <li><a href="/admin/product">Product Info</a>
+            <ul class="dropdown">
+              <li><a href="/admin/product">View Products</a></li>
+              <li><a href="/admin/product/new">Add Product</a></li>
+            </ul>
+          </li>
+          <li><a href="/admin/cust">Customer Info</a>
+            <ul class="dropdown">
+              <li><a href="/admin/cust">View Customers</a></li>
+              <li><a href="/admin/cust/new">Add Customer</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Invoices</a></li>
+          <li><a href="/">View Shop</a></li>
+          <li id="li__btn-logout">
+            <form action="/admin/logout?_method=DELETE" method="POST">
+              <button id="button__logout">Logout</button>
+            </form>
+          </li>
+        </ul>
+    </nav>
+</div>

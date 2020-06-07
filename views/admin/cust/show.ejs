@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/adminHead') %>
+    <script src="/scripts/custAdmin.js" defer></script>
+    <title>Customer Details</title>
+</head>
+<body>
+    <%- include('../partials/adminHeader') %>
+    <%- include('../partials/adminNav') %>
+    <article class="body__article-details black-text-shadow">
+            <table class="table__farm-details text-align-left">
+                <th colspan="2" class="text-align-center">
+                    Customer Details
+                    <button id="btn__open-order-history" class="btn-sml" <%= (customer.lineitems.length > 0)? '' : 'hidden' %>>View Order History</button>
+                </th>
+                <tr>
+                    <td>
+                        <label for="name">Name:</label>
+                    </td>
+                    <td>
+                        <%= customer.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="address">Address:</label>
+                    </td>
+                    <td>
+                        <%= customer.address %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="city">City:</label>
+                    </td>
+                    <td>
+                        <%= customer.city %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="state">State:</label>
+                    </td>
+                    <td>
+                        <%= customer.state %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Zipcode:</label>
+                    </td>
+                    <td>
+                        <%= customer.zip %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phone">Phone:</label>
+                    </td>
+                    <td>
+                        <%= customer.phone %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email:</label>
+                    </td>
+                    <td>
+                        <%= customer.email %>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-align-right">
+                        <form action="/admin/cust/<%= customer._id %>?_method=DELETE" method="POST">
+                            <button type="button" class="btn-lrg btn-back">Back</button>
+                            <a href="/admin/cust/<%= customer._id %>/edit" tabindex="-1">
+                                <button type="button" class="btn-lrg">Edit</button>
+                            </a>
+                            <button type="submit" id="from-cust" class="btn-lrg delete-prod">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <div class="div__order-history" hidden>
+            <% if(customer.lineitems.length > 0) { %>
+            <% 
+                getDate = (date) => { 
+                    const split = date.toString().split(" ");
+                    return `${split[0]} ${split[1]} ${split[2]} ${split[3]}`;
+                }
+                
+                formatPrice = (price) => {
+                    return "$" + parseFloat(price).toFixed(2);
+                }
+            %>
+            <div class="div__hide-order-details">
+                <button id="btn__close-order-history">X</button>
+            </div>
+            <table id="table__order-history">
+                <thead>
+                <tr>
+                    <th colspan="4">Order History</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Qty</td>
+                    <td>$(ea)</td>
+                    <td>Date Ordered</td>
+                </tr>
+                </thead>
+                <tbody>
+                <%  let i = 0; %>
+                <%  customer.lineitems.forEach(item => { %>
+                    <tr class="<%= (i%2===0) ? 'white' : 'gray' %> black-text no-shadow">
+                        <td class="text-align-left"><%= item.product.name %></td>
+                        <td><%= item.qty %></td>
+                        <td class="text-align-right"><%= formatPrice(item.price) %></td>
+                        <td><%= getDate(item.createdAt) %></td>
+                    </tr>
+                <%
+                    i++; 
+                    });
+                %>
+            </tbody> 
+            </table>
+            <% } %>
+            </div>
+    </article>
+    <%- include('../partials/adminFooter') %>
+</body>
+</html>

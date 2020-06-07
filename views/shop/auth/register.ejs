@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/styles/sub-form.css">
+<%- include('../../head') %>
+  <title>Register</title>
+</head>
+<body>
+  <%- include('../../header') %>
+  <h1>Register</h1>
+  <div class="container">
+    <form action="/register" method="POST">
+      <p>Register for an account today!</p>
+      <label for="name">Name :</label>
+      <input name="name" type="text" placeholder="Name" required>
+      <br>
+      <label for="phone">Phone :</label>
+      <input name="phone" type="text" placeholder="xxx-xxx-xxxx" required>
+      <br>
+      <label for="email">Email :</label>
+      <input name="email" type="text" placeholder="Email" required>
+      <br>
+      <label for="password">Password :</label>
+      <input name="password" type="password" placeholder="password" required>
+      <br>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  <%- include('../../footer') %>
+
+  </html>
