@@ -12,8 +12,7 @@ $('#btn__clear-cust-form').click(() => {
 });
 
 $('.btn-back').click(() => {
-    //window.history.back();
-    window.location.href = "/admin";
+    window.history.back();
 });
 
 $('#button__update-password').click( () => {
