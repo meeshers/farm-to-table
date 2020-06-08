@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+require("dotenv").config();
 
 /* Internal Modules */
 const controllers = require('./controllers');
@@ -17,7 +18,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 /* Global Variables */
-const PORT = process.env.PORT || 4000; //PORT is a system variable (ie caps sets it apart)
+const PORT = process.env.PORT; //PORT is a system variable (ie caps sets it apart)
 
 /* Middleware */
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,9 +37,9 @@ app.use(function (req, res, next) {
 app.use(
   session({
     store: new MongoStore({
-      url: "mongodb://localhost:27017/user",
+      url: process.env.MONGODB_URI,
     }),
-    secret: "farmtotable",
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: false,
     cookie: {

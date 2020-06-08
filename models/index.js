@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const conn = 'mongodb://localhost:27017/farmStore';
+require("dotenv").config();
+
+const conn = process.env.MONGODB_URI;
 
 mongoose.connect(conn, {
     useNewUrlParser: true,
