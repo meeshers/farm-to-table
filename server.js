@@ -63,6 +63,11 @@ app.use("/", controllers.auth);
 // require auth on user
 app.use("/user", authRequired, controllers.auth);
 
+app.use( (req,res) => {
+  res.status(404);
+  res.render('404');
+})
+
 
 app.listen(PORT, () => {
   console.log("Server running at http://localhost:" + PORT);
