@@ -52,7 +52,7 @@ app.use(
 app.use("/admin", controllers.adminAuth);
 
 //admin routes
-app.use("/admin", /*adminAuth,*/ controllers.admin);
+app.use("/admin", adminAuth, controllers.admin);
 
 // Shop routes
 app.use("/", controllers.shop);
