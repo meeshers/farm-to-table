@@ -14,7 +14,7 @@ router.get('/login', (req,res) => {
     }
 
     res.render('admin/login', {invalid: invalid});
-});
+}); 
 
 router.post('/login', async (req,res) => {
     try {
