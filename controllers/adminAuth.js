@@ -34,7 +34,8 @@ router.post('/login', async (req,res) => {
         //if match then create the session
         req.session.currentUser = {
             id: farm._id,
-            username: farm.username
+            username: farm.username,
+            admin: true
         }
 
         res.redirect('/admin');

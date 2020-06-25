@@ -15,6 +15,7 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
   try {
     const foundUser = await db.Customers.findOne({ email: req.body.email });
+
     if (foundUser) {
       return res.send({ message: "Account is already registered. Please log in" });
     }
@@ -40,6 +41,7 @@ router.post('/register', async (req, res) => {
 
 // log in route
 router.get('/login', (req, res) => {
+
   const invalid = {
     username: '',
     valid: true
@@ -66,6 +68,7 @@ router.post('/login', async (req, res) => {
     }
 
     const match = await bcrypt.compare(req.body.password, foundUser.password);
+
     if (!match) {
 
       const invalid = {
@@ -80,6 +83,7 @@ router.post('/login', async (req, res) => {
       id: foundUser._id,
       name: foundUser.name
     }
+
     res.redirect("/user");
   } catch (error) {
     console.log(error);

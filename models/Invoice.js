@@ -18,3 +18,19 @@ const invoiceSchema = new mongoose.Schema({
 const Invoice = mongoose.model('Invoice', invoiceSchema);
 
 module.exports = Invoice;
+
+
+/* module.exports = mongoose.model('Invoice', new mongoose.Schema({
+    billedDate: {type: Date, required: true},
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Customer',
+        required: true
+    },
+    products: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true
+    }]
+
+}, {timestamps:true})) */
