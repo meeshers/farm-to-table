@@ -32,7 +32,7 @@ router.post('/login', async (req,res) => {
         }
 
         //if match then create the session
-        req.session.currentUser = {
+        req.session.adminUser = {
             id: farm._id,
             username: farm.username,
             admin: true
