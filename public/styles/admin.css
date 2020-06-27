@@ -13,6 +13,12 @@ header {
     color: #EFFCEF;
   }
 
+header a,footer a {
+    color: #EFFCEF;
+    text-decoration: none;
+    padding: 0 5px;
+}
+
 footer {
     display: flex;
     justify-content: space-between;

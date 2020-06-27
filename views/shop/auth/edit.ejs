@@ -5,35 +5,71 @@
 </head>
 <body>
   <%- include('../../header') %>
-
-  <h1>Edit info for <%= user.name %>! </h1>
-
-  <!-- user cannot change email! -->
-  <label for="email"><b>Email: </b></label> <%= user.email %> <br>
-
-  <form action="/user/<%= user._id %>?_method=PUT" method="POST">
-    <label for="address"><b>Address: </b></label>
-    <input type="text" name="address" value="<%= user.address %>" required>
-    <br>
-    <label for="city"><b>City: </b></label>
-    <input type="text" name="city" value="<%= user.city %>" required>
-    <br>
-    <label for="state"><b>State: </b></label>
-    <input type="text" name="state" value="<%= user.state %>" required>
-    <br>
-    <label for="zip"><b>Zip: </b></label>
-    <input type="text" name="zip" value="<%= user.zip %>" required>
-    <br>
-    <label for="phone"><b>Phone: </b></label>
-    <input type="text" name="phone" value="<%= user.phone %>" required>
-    <br>
-    <button type="submit">Confirm changes</button>
-  </form>
-  <div class="back">
-    <button onclick="history.back()">Cancel</button>
+  <div class="div__profile-data">
+    <form action="/user/<%= user._id %>?_method=PUT" method="POST">
+      <table>
+        <thead>
+          <th colspan="2">
+            <h2>Edit info for <%= user.name %>!</h2>
+          </th>
+        </thead>
+        <tr>
+          <th>
+            <label for="email">Email:</label>
+          </th>
+          <td>
+            <input type="email" name="email" value="<%= user.email %>" readonly>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="address">Address:</label> 
+          </th>
+          <td>
+            <input type="text" name="address" value="<%= user.address %>" required>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="city">City:</label>
+          </th>
+          <td>
+            <input type="text" name="city" value="<%= user.city %>" required>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="state">State:</label>
+          </th>
+          <td>
+            <input type="text" name="state" value="<%= user.state %>" required>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="zip">Zip:</label> 
+          </th>
+          <td>
+            <input type="text" name="zip" value="<%= user.zip %>" required>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="phone">Phone:</label>
+          </th>
+          <td>
+            <input type="text" name="phone" value="<%= user.phone %>" required>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button onclick="history.back()">Cancel</button>
+            <button type="submit">Update</button>
+          </td>
+        </tr>
+      </table>
+    </form>
   </div>
-
-
   <%- include('../../footer') %>
 </body>
 

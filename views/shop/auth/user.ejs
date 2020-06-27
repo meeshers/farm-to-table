@@ -16,30 +16,67 @@
   <%- include('../../header') %>
 
   <h1>Welcome <%= user.name %>! </h1>
-  
-  <label for="email"><b>Email: </b></label>
-  <span class="display"><%= user.email %></span><br>
-
-  <label for="address"><b>Address: </b></label> 
-  <span class="display"><%= user.address %></span> <br>
-
-  <label for="city"><b>City: </b></label> 
-  <span class="display"><%= user.city %></span> <br>
-
-  <label for="state"><b>State: </b></label> 
-  <span class="display"><%= user.state %></span> <br>
-
-  <label for="zip"><b>Zip: </b></label> 
-  <span class="display"><%= user.zip %></span> <br>
-
-  <label for="phone"><b>Phone: </b></label> 
-  <span class="display"><%= user.phone %></span> <br>
-
-  <form action="/user/edit">
-    <button type="submit">Edit info</button>
-  </form>
-  <p id="user-id" hidden><%= user._id %></p>
-  <p id="user-name" hidden><%= user.name %></p>
+  <div class="div__profile-data">
+    <table>
+      <tr>
+        <th>
+          <label for="email">Email:</label>
+        </th>
+        <td>
+          <p class="display"><%= user.email %></p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="address">Address:</label> 
+        </th>
+        <td>
+          <p class="display"><%= user.address %></p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="city">City:</label>
+        </th>
+        <td>
+          <p class="display"><%= user.city %></p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="state">State:</label>
+        </th>
+        <td>
+          <p class="display"><%= user.state %></span>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="zip">Zip:</label> 
+        </th>
+        <td>
+          <p class="display"><%= user.zip %></p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="phone">Phone:</label>
+        </th>
+        <td>
+          <p class="display"><%= user.phone %></p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <form action="/user/edit">
+            <button type="submit">Edit info</button>
+          </form>
+          <p id="user-id" hidden><%= user._id %></p>
+          <p id="user-name" hidden><%= user.name %></p>
+        </td>
+      </tr>
+    </table>
+  </div>
   <%- include('../../footer') %>
 </body>
 

@@ -1,19 +1,12 @@
-label {
-  margin: 10px;
-  display: inline-block;
-  text-align: right;
-  width: 100px;
-}
 
 input {
-  padding: 10px;
-  margin: 5px;
+  padding: 8px;
 }
 
 form {
   margin-top: 15px;
   background-color: #94D3AC;
-  padding: 15px;
+  padding: 0 15px;
   border-radius: 10px;
 }
 
@@ -24,6 +17,10 @@ button {
   color: #EFFCEF;
   padding: 10px;
   margin: 10px;
+}
+
+th {
+  text-align: left;
 }
 
 .container {
