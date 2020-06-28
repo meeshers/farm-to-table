@@ -140,7 +140,7 @@ h1 {
   justify-content: center;
 }
 
-.div__profile-data th, td {
+.div__profile-data th, .div__profile-data td {
   padding: 10px 0;
 }
 

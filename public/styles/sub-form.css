@@ -3,11 +3,18 @@ input {
   padding: 8px;
 }
 
-form {
+form, .div__newsletter {
   margin-top: 15px;
   background-color: #94D3AC;
   padding: 0 15px;
   border-radius: 10px;
+}
+
+.div__newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
@@ -16,11 +23,15 @@ button {
   background-color: #655C56;
   color: #EFFCEF;
   padding: 10px;
-  margin: 10px;
+  margin: 5px 0;
 }
 
-th {
-  text-align: left;
+#table__sign-in label {
+  margin: 0;
+}
+
+#table__sign-in input {
+  width: 200px;
 }
 
 .container {
@@ -58,4 +69,16 @@ th {
 .login-fail {
   color: firebrick;
   margin-bottom: 5px;
+}
+
+.txt-align-left {
+  text-align: left;
+}
+
+.txt-align-center {
+  text-align: center;
+}
+
+.txt-align-right {
+  text-align: right;
 }
